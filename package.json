@@ -7,11 +7,29 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "test": "vitest run",
+    "test:dev": "vitest dev",
+    "format": "prettier --write .",
+    "astro": "astro",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*": "prettier --ignore-unknown --write"
   },
   "dependencies": {
-    "astro": "^4.12.2",
     "@astrojs/check": "^0.8.3",
+    "astro": "^4.12.2",
     "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "happy-dom": "^14.12.3",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-astro-organize-imports": "^0.4.9",
+    "prettier-plugin-tailwindcss": "^0.6.5",
+    "vitest": "^2.0.4"
   }
 }
