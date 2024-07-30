@@ -2,34 +2,31 @@
   "name": "feit-code-web",
   "type": "module",
   "version": "0.0.1",
+  "license": "MIT",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --port 3000",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "test": "vitest run",
-    "test:dev": "vitest dev",
-    "format": "prettier --write .",
+    "format": "biome format --write",
+    "lint": "biome lint --write",
     "astro": "astro",
     "prepare": "husky"
   },
   "lint-staged": {
-    "*": "prettier --ignore-unknown --write"
+    "*": "biome check --no-errors-on-unmatched --files-ignore-unknown=true"
   },
   "dependencies": {
     "@astrojs/check": "^0.8.3",
+    "@astrolicious/i18n": "^0.4.3",
     "astro": "^4.12.2",
+    "astro-helmet": "^1.0.2",
+    "i18next": "^23.12.2",
     "typescript": "^5.5.4"
   },
   "devDependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
-    "happy-dom": "^14.12.3",
+    "@biomejs/biome": "1.8.3",
     "husky": "^9.1.4",
-    "lint-staged": "^15.2.7",
-    "prettier": "^3.3.3",
-    "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-astro-organize-imports": "^0.4.9",
-    "prettier-plugin-tailwindcss": "^0.6.5",
-    "vitest": "^2.0.4"
+    "lint-staged": "^15.2.7"
   }
 }

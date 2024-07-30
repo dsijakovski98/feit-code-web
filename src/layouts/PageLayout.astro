@@ -1,0 +1,28 @@
+---
+import { getHtmlAttrs } from 'i18n:astro';
+import I18nClient from '@astrolicious/i18n/components/I18nClient.astro';
+import I18nHead from '@astrolicious/i18n/components/I18nHead.astro';
+import Helmet, { type HeadItems } from 'astro-helmet';
+
+type Props = {
+  title: string;
+};
+
+const { title } = Astro.props;
+
+const layoutHeadItems: HeadItems = { title };
+---
+
+<!doctype html>
+<html {...getHtmlAttrs()}>
+  <head>
+    <Helmet options={{ omitHeadTags: true }} headItems={[layoutHeadItems]} />
+
+    <I18nHead />
+    <I18nClient />
+  </head>
+
+  <body>
+    <slot />
+  </body>
+</html>
