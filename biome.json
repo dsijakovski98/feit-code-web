@@ -14,7 +14,7 @@
     "lineEnding": "lf",
     "lineWidth": 100,
     "attributePosition": "auto",
-    "ignore": ["**/*.md"]
+    "ignore": ["**/*.md", "node_modules"]
   },
   "organizeImports": { "enabled": true },
   "linter": { "enabled": true, "rules": { "recommended": true } },
@@ -29,6 +29,11 @@
       "bracketSameLine": false,
       "quoteStyle": "single",
       "attributePosition": "auto"
+    }
+  },
+  "css": {
+    "formatter": {
+      "enabled": true
     }
   },
   "overrides": [{ "include": ["*.astro"] }]
