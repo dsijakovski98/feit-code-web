@@ -1,5 +1,5 @@
 {
-  "cSpell.words": ["composables", "feit", "licious", "astrolicious"],
+  "cSpell.words": ["astrolicious", "composables", "feit", "licious", "playform"],
   "editor.defaultFormatter": "biomejs.biome",
   "editor.codeActionsOnSave": {
     "quickfix.biome": "explicit",
