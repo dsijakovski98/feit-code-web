@@ -13,13 +13,12 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "format": "biome format --write",
-    "lint": "biome lint --write",
+    "format": "prettier --write .",
     "astro": "astro",
     "prepare": "husky"
   },
   "lint-staged": {
-    "*": "biome check --no-errors-on-unmatched --files-ignore-unknown=true --write"
+    "*": "prettier --ignore-unknown --write"
   },
   "dependencies": {
     "@astrojs/check": "^0.8.3",
@@ -43,8 +42,11 @@
     "typescript": "^5.5.4"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.8.3",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "husky": "^9.1.4",
-    "lint-staged": "^15.2.7"
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.6.5"
   }
 }

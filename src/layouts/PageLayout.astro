@@ -1,17 +1,17 @@
 ---
-import { getHtmlAttrs } from 'i18n:astro';
-import { getLocale } from 'i18n:astro';
-import I18nClient from '@astrolicious/i18n/components/I18nClient.astro';
-import I18nHead from '@astrolicious/i18n/components/I18nHead.astro';
-import Helmet, { type HeadItems } from 'astro-helmet';
-import '@styles/global.css';
-import '@styles/fonts.css';
+import { getHtmlAttrs } from 'i18n:astro'
+import { getLocale } from 'i18n:astro'
+import I18nClient from '@astrolicious/i18n/components/I18nClient.astro'
+import I18nHead from '@astrolicious/i18n/components/I18nHead.astro'
+import Helmet, { type HeadItems } from 'astro-helmet'
+import '@styles/global.css'
+import '@styles/fonts.css'
 
 type Props = {
-  title: string;
-};
+  title: string
+}
 
-const { title } = Astro.props;
+const { title } = Astro.props
 
 const layoutHeadItems: HeadItems = {
   title,
@@ -94,9 +94,9 @@ const layoutHeadItems: HeadItems = {
       crossorigin: true,
     },
   ],
-};
+}
 
-const locale = getLocale();
+const locale = getLocale()
 ---
 
 <!doctype html>
