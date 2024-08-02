@@ -109,6 +109,12 @@ const locale = getLocale();
   </head>
 
   <body class={locale === 'en' ? 'font-kanit' : 'font-inter'}>
-    <slot />
+    <div class="grid min-h-[100dvh] grid-rows-[auto_1fr_auto]">
+      <!-- <Navbar /> -->
+
+      <slot />
+
+      <!-- <Footer /> -->
+    </div>
   </body>
 </html>
