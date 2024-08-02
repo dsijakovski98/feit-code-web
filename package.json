@@ -2,16 +2,49 @@
   "name": "feit-code-web",
   "type": "module",
   "version": "0.0.1",
+  "license": "MIT",
+  "author": {
+    "name": "Daniel Shijakovski",
+    "email": "dshijakovski@yahoo.com",
+    "url": "https://www.linkedin.com/in/daniel-shijakovski-ba78001ba/"
+  },
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --port 3000",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "format": "biome format --write",
+    "lint": "biome lint --write",
+    "astro": "astro",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*": "biome check --no-errors-on-unmatched --files-ignore-unknown=true --write"
   },
   "dependencies": {
-    "astro": "^4.12.2",
     "@astrojs/check": "^0.8.3",
+    "@astrojs/react": "^3.6.1",
+    "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/tailwind": "^5.1.0",
+    "@astrolicious/i18n": "^0.4.3",
+    "@nextui-org/react": "^2.4.6",
+    "@playform/compress": "^0.1.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "astro": "^4.12.2",
+    "astro-font": "^0.0.81",
+    "astro-helmet": "^1.0.2",
+    "astro-icon": "^1.1.0",
+    "framer-motion": "^11.3.21",
+    "i18next": "^23.12.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.7",
     "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.8.3",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.7"
   }
 }

@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Inter fonts */
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 200;
+    font-display: block;
+    src: url(/fonts/inter/inter-200.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 300;
+    font-display: block;
+    src: url(/fonts/inter/inter-300.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url(/fonts/inter/inter-400.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-display: block;
+    src: url(/fonts/inter/inter-500.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-display: block;
+    src: url(/fonts/inter/inter-600.woff2) format("woff2");
+  }
+
+  /* Kanit fonts */
+  @font-face {
+    font-family: "Kanit";
+    font-style: normal;
+    font-weight: 200;
+    font-display: block;
+    src: url(/fonts/kanit/kanit-200.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Kanit";
+    font-style: normal;
+    font-weight: 300;
+    font-display: block;
+    src: url(/fonts/kanit/kanit-300.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Kanit";
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url(/fonts/kanit/kanit-400.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Kanit";
+    font-style: normal;
+    font-weight: 500;
+    font-display: block;
+    src: url(/fonts/kanit/kanit-500.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Kanit";
+    font-style: normal;
+    font-weight: 600;
+    font-display: block;
+    src: url(/fonts/kanit/kanit-600.woff2) format("woff2");
+  }
+}

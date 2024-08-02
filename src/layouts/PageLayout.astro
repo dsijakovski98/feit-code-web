@@ -1,0 +1,120 @@
+---
+import { getHtmlAttrs } from 'i18n:astro';
+import { getLocale } from 'i18n:astro';
+import I18nClient from '@astrolicious/i18n/components/I18nClient.astro';
+import I18nHead from '@astrolicious/i18n/components/I18nHead.astro';
+import Helmet, { type HeadItems } from 'astro-helmet';
+import '@styles/global.css';
+import '@styles/fonts.css';
+
+type Props = {
+  title: string;
+};
+
+const { title } = Astro.props;
+
+const layoutHeadItems: HeadItems = {
+  title,
+  link: [
+    { rel: 'icon', type: 'image/ico', href: '/favicon.ico', sizes: '256x256' },
+
+    { rel: 'sitemap', href: '/sitemap-index.xml' },
+
+    // Preload "Inter" fonts
+    {
+      rel: 'preload',
+      href: '/fonts/inter/inter-200.woff2',
+      as: 'font',
+      type: 'font/woff2',
+      crossorigin: true,
+    },
+    {
+      rel: 'preload',
+      href: '/fonts/inter/inter-300.woff2',
+      as: 'font',
+      type: 'font/woff2',
+      crossorigin: true,
+    },
+    {
+      rel: 'preload',
+      href: '/fonts/inter/inter-400.woff2',
+      as: 'font',
+      type: 'font/woff2',
+      crossorigin: true,
+    },
+    {
+      rel: 'preload',
+      href: '/fonts/inter/inter-500.woff2',
+      as: 'font',
+      type: 'font/woff2',
+      crossorigin: true,
+    },
+    {
+      rel: 'preload',
+      href: '/fonts/inter/inter-600.woff2',
+      as: 'font',
+      type: 'font/woff2',
+      crossorigin: true,
+    },
+
+    // Preload "Kanit" fonts
+    {
+      rel: 'preload',
+      href: '/fonts/kanit/kanit-200.woff2',
+      as: 'font',
+      type: 'font/woff2',
+      crossorigin: true,
+    },
+    {
+      rel: 'preload',
+      href: '/fonts/kanit/kanit-300.woff2',
+      as: 'font',
+      type: 'font/woff2',
+      crossorigin: true,
+    },
+    {
+      rel: 'preload',
+      href: '/fonts/kanit/kanit-400.woff2',
+      as: 'font',
+      type: 'font/woff2',
+      crossorigin: true,
+    },
+    {
+      rel: 'preload',
+      href: '/fonts/kanit/kanit-500.woff2',
+      as: 'font',
+      type: 'font/woff2',
+      crossorigin: true,
+    },
+    {
+      rel: 'preload',
+      href: '/fonts/kanit/kanit-600.woff2',
+      as: 'font',
+      type: 'font/woff2',
+      crossorigin: true,
+    },
+  ],
+};
+
+const locale = getLocale();
+---
+
+<!doctype html>
+<html {...getHtmlAttrs()}>
+  <head>
+    <Helmet options={{ omitHeadTags: true }} headItems={[layoutHeadItems]} />
+
+    <I18nHead />
+    <I18nClient />
+  </head>
+
+  <body class={locale === 'en' ? 'font-kanit' : 'font-inter'}>
+    <div class="grid min-h-[100dvh] grid-rows-[auto_1fr_auto]">
+      <!-- <Navbar /> -->
+
+      <slot />
+
+      <!-- <Footer /> -->
+    </div>
+  </body>
+</html>
