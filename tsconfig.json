@@ -8,6 +8,8 @@
       "@routes/*": ["src/routes/*"],
       "@components/*": ["src/components/*"],
       "@icons/*": ["src/icons/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@config/*": ["src/config/*"],
       "@constants/*": ["src/constants/*"],
       "@utils/*": ["src/utils/*"],
       "@styles/*": ["src/styles/*"]

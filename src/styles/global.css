@@ -1,3 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  hr {
+    height: 0.1px !important;
+  }
+
+  input:-webkit-autofill {
+    -webkit-background-clip: text !important;
+  }
+
+  [data-slot='input-wrapper'] {
+    @apply group-data-[focus-visible=true]:!bg-transparent group-data-[focus-visible=true]:!ring-0 group-data-[focus-visible=true]:!ring-offset-0;
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto w-full max-w-[theme(screens.xl.max)] px-6;
+  }
+}
+
+@layer utilities {
+  .debug {
+    @apply outline outline-1 outline-primary;
+  }
+
+  .debug-full {
+    @apply debug;
+  }
+
+  .debug-full > * {
+    @apply debug;
+  }
+
+  .gradient-primary {
+    @apply bg-gradient-to-br from-primary-800 to-secondary-300;
+  }
+
+  .gradient-secondary {
+    @apply bg-gradient-to-tl from-secondary-200 to-secondary-400;
+  }
+}
+
+.swiper-pagination {
+  @apply !space-x-3;
+}
+
+.swiper-pagination-bullet {
+  @apply !m-0 scale-[1.2] !bg-slate-600 !opacity-100;
+}
+
+.swiper-pagination-bullet-active {
+  @apply !bg-primary;
+}

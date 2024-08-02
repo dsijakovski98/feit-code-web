@@ -7,14 +7,7 @@
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
   "plugins": ["@trivago/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss", "prettier-plugin-astro"],
-  "importOrder": [
-    "^(next|react)",
-    "<THIRD_PARTY_MODULES>",
-    "^@/components/(.*)$",
-    "^@/(?!styles)",
-    "^@/styles",
-    "^[./]"
-  ],
+  "importOrder": ["^(next|react)", "<THIRD_PARTY_MODULES>", "^@components/(.*)$", "^@(?!styles)", "^@styles", "^[./]"],
   "overrides": [
     {
       "files": "*.astro",

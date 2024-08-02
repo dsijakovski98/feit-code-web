@@ -1,14 +1,21 @@
 ---
-import { getLocale, t } from 'i18n:astro';
-import PageLayout from '@layouts/PageLayout.astro';
+import { t } from 'i18n:astro'
+import PageLayout from '@layouts/PageLayout.astro'
+import { getLocale } from 'i18n:astro'
+import Hero from '@components/landing-page/Hero'
 
-const locale = getLocale();
-const msg = t('HELLO');
+import '@styles/landing.css'
+
+const locale = getLocale()
+
+const title = t('landing:META.TITLE')
+const description = t('landing:META.DESCRIPTION')
 ---
 
-<PageLayout title="Welcome to Astro.">
-  <h1>
-    {msg}
-    {locale}
-  </h1>
+<PageLayout {title} {description}>
+  <main class="bg-dots bg-[top_center] bg-no-repeat py-20 sm:py-4 xs:pt-2">
+    <div class="container space-y-80 sm:space-y-40">
+      <Hero {t} {locale} />
+    </div>
+  </main>
 </PageLayout>

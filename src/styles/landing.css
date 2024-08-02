@@ -1,0 +1,11 @@
+.hero-faith {
+  @apply relative inline-block text-[5.5rem] text-transparent [text-shadow:_0_0_3px_rgb(200_200_200_/_50%)] sm:text-[3.8rem];
+}
+
+.hero-faith::before {
+  @apply absolute left-[50%] top-0 w-max -translate-x-[50%] -translate-y-[58%] -rotate-[5deg] text-[5rem] text-foreground !opacity-100 blur-none content-[attr(data-feit)] sm:top-2 sm:text-[3.5rem];
+}
+
+.hero-faith::after {
+  @apply absolute inset-x-0 top-[58%] h-1 -rotate-[5deg] bg-foreground !blur-[0.5px] content-[''] sm:top-[55%];
+}
