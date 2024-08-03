@@ -2,3 +2,11 @@
 /// <reference types="../.astro/astro-i18n.d.ts" />
 /// <reference types="../.astro/i18next.d.ts" />
 /// <reference path="../.astro/types.d.ts" />
+
+interface ImportMetaEnv {
+  readonly PUBLIC_EMAILJS_KEY: string
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv
+}

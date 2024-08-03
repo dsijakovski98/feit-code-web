@@ -1,0 +1,64 @@
+{
+  "META": {
+    "TITLE": "Home | FEIT Code",
+    "DESCRIPTION": "Coding exam platform for FEIT university students."
+  },
+  "GREET": "Welcome!",
+  "CONSTRUCTION": "Site is under construction...",
+  "HERO": {
+    "MAIN": "Have <strike>faith</strike>",
+    "SUB": "in your <code>code</code>",
+    "FEIT": "FEIT",
+    "PARAGRAPH": "Write it. Test it. See your results. Leave <gradient>no doubt</gradient>.",
+    "CTA": {
+      "LEARN_MORE": {
+        "TEXT": "Learn more",
+        "ARIA": "Learn more about FEIT Code"
+      },
+      "GET_STARTED": "Get started"
+    }
+  },
+  "FEATURES": {
+    "HEADING": "Make coding exams <line>fast</line>, <line>easy</line> & <line>reliable</line>",
+    "PARAGRAPH": "Helping Students take and Teachers make - high quality exams, all while doing it frictionless.",
+    "LIST": [
+      {
+        "TITLE": "Collaborate",
+        "DESCRIPTION": "Study and manage multiple courses. Make/Take coding exams in various programming languages."
+      },
+      {
+        "TITLE": "Save time",
+        "DESCRIPTION": "Write and review code much faster. Save time for the things that matter in life."
+      },
+      {
+        "TITLE": "Coding IDE",
+        "DESCRIPTION": "Take the exams using FEIT Code's IDE and get instant results!"
+      },
+      {
+        "TITLE": "Feedback system",
+        "DESCRIPTION": "Get instant feedback for each coding problem, as well as comprehensive grading on your entire exam."
+      }
+    ]
+  },
+  "TESTIMONIALS": {
+    "HEADING": "Testimonials",
+    "PARAGRAPH": "Check out what our <students>fellow students</students> have to say about us",
+    "LIST": [
+      {
+        "TEXT": "The new web app for programming exams at FEIT has made the whole process so much smoother. I can now take tests from the comfort of my home, and the interface is incredibly user-friendly. Highly recommended!",
+        "NAME": "Elena Vcheva",
+        "ROLE": "Student",
+        "WORKPLACE": "FEIT, KSIAR"
+      }
+    ]
+  },
+  "SUBSCRIBE": {
+    "HEADING": "Wanna be up to date on the latest FEIT Code news?",
+    "PARAGRAPH": "Join our e-mail list and get in sync!",
+    "EMAIL": {
+      "LABEL": "E-mail",
+      "PLACEHOLDER": "email@example.com",
+      "SUCCESS": "Welcome to FEIT Code News! 🥳"
+    }
+  }
+}

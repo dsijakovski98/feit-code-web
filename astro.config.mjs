@@ -1,11 +1,11 @@
-import react from '@astrojs/react';
-import tailwind from '@astrojs/tailwind';
-import liciousI18n from '@astrolicious/i18n';
-import playformCompress from '@playform/compress';
-import icon from 'astro-icon';
-import { defineConfig } from 'astro/config';
+import icon from 'astro-icon'
+import { defineConfig } from 'astro/config'
 
-import sitemap from '@astrojs/sitemap';
+import react from '@astrojs/react'
+import sitemap from '@astrojs/sitemap'
+import tailwind from '@astrojs/tailwind'
+import liciousI18n from '@astrolicious/i18n'
+import playformCompress from '@playform/compress'
 
 // https://astro.build/config
 export default defineConfig({
@@ -24,7 +24,8 @@ export default defineConfig({
       strategy: 'prefixExceptDefault',
       client: {
         data: true,
+        translations: true,
       },
     }),
   ],
-});
+})

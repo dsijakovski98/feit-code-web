@@ -1,3 +1,49 @@
 {
-  "HELLO": "Hello World!"
+  "ERRORS": {
+    "EMAIL": {
+      "EMPTY": "E-mail cannot be empty! <test>hehe</test/>",
+      "INVALID": "Please enter a valid e-mail!",
+      "SUBSCRIBE": "Oops! Something went wrong, please try again."
+    }
+  },
+  "FORM": {
+    "SUBSCRIBE": "Join us"
+  },
+  "NAV": {
+    "LOGO": {
+      "FEIT": "FEIT",
+      "CODE": "Code"
+    },
+    "LANGUAGES": {
+      "LABEL": "Language select menu",
+      "EN": "English",
+      "MK": "Macedonian"
+    },
+    "ABOUT": "About",
+    "CONTACT": "Contact",
+    "RESOURCES": {
+      "LABEL": "Resources",
+      "LINKS": {
+        "FEIT": {
+          "TITLE": "FEIT",
+          "DESCRIPTION": "FEIT's official website"
+        },
+        "I_KNOW": {
+          "TITLE": "i-know",
+          "DESCRIPTION": "Students and Academic services portal"
+        },
+        "E_KURSEVI": {
+          "TITLE": "e-Kursevi",
+          "DESCRIPTION": "E-learning portal for FEIT's courses"
+        }
+      }
+    },
+    "LOG_IN": "Log In",
+    "SIGN_UP": "Sign Up",
+    "FOOTER": {
+      "REACH_OUT": "If you like FEIT Code, you'll love the <dude>dude that made it</dude>",
+      "COPY": "All rights reserved",
+      "BRAND": "{year} FEIT Code"
+    }
+  }
 }

@@ -1,14 +1,116 @@
 ---
-import { getLocale, t } from 'i18n:astro';
-import PageLayout from '@layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components'
+import clsx from 'clsx'
+import { getLocale, t } from 'i18n:astro'
 
-const locale = getLocale();
-const msg = t('HELLO');
+import PageLayout from '@layouts/PageLayout.astro'
+
+import Features from '@components/landing-page/Features'
+import HeroMessage from '@components/landing-page/HeroMessage.tsx'
+import SubscribeForm from '@components/landing-page/SubscribeForm'
+import Testimonials from '@components/landing-page/Testimonials'
+import TestimonialAvatar from '@components/landing-page/Testimonials/TestimonialAvatar.astro'
+import TestimonialCards from '@components/landing-page/Testimonials/TestimonialCards'
+import Banner from '@components/ui/Banner'
+import Button from '@components/ui/Button.tsx'
+
+import { DEFAULT_LOCALE } from '@config/i18n'
+import { TESTIMONIAL_IMAGES } from '@constants/content'
+import { HREF, ROUTES } from '@constants/routes'
+
+import '@styles/landing.css'
+
+const locale = getLocale()
+
+const title = t('landing:META.TITLE')
+const description = t('landing:META.DESCRIPTION')
+
+const features = t('landing:FEATURES.LIST', { returnObjects: true })
+const featureIcons = ['collab', 'save-time', 'code', 'feedback']
+
+const testimonials = t('landing:TESTIMONIALS.LIST', { returnObjects: true }).map(
+  (testimonial, idx) => ({ ...testimonial, imgSlot: TESTIMONIAL_IMAGES[idx].slot }),
+)
 ---
 
-<PageLayout title="Welcome to Astro.">
-  <h1>
-    {msg}
-    {locale}
-  </h1>
+<PageLayout {title} {description}>
+  <main class="bg-dots bg-[top_center] bg-no-repeat py-20 sm:py-4 xs:pt-2">
+    <div class="container space-y-80 sm:space-y-52">
+      <section
+        class={clsx(
+          'flex flex-col items-center gap-0 pt-32 text-center',
+          locale === DEFAULT_LOCALE ? 'font-semibold' : 'font-bold',
+        )}
+      >
+        <HeroMessage {t} />
+
+        <div
+          class="flex w-[360px] items-center justify-between gap-6 sm:w-[320px] sm:items-stretch sm:gap-4"
+        >
+          <Button
+            as="a"
+            client:idle
+            href={ROUTES.about}
+            variant="flat"
+            size="lg"
+            color="default"
+            className="grow"
+          >
+            {t('landing:HERO.CTA.LEARN_MORE.TEXT')}
+          </Button>
+
+          <Button
+            as="a"
+            client:idle
+            href={HREF.feitCodeApp}
+            target="_blank"
+            variant="shadow"
+            size="lg"
+            color="primary"
+            className="grow"
+          >
+            {t('landing:HERO.CTA.GET_STARTED')}
+          </Button>
+        </div>
+      </section>
+
+      <Features>
+        {
+          features.map((feature, idx) => (
+            <article class="space-y-2 sm:text-center">
+              <h3 class="flex items-center gap-2 text-xl font-medium sm:justify-center sm:gap-2">
+                <Icon name={`features/${featureIcons[idx]}`} /> {feature.TITLE}
+              </h3>
+
+              <p class="text-lg font-extralight">{feature.DESCRIPTION}</p>
+            </article>
+          ))
+        }
+      </Features>
+
+      <Testimonials>
+        <div class="relative">
+          <Icon name="quote" class="absolute -top-20 right-20 h-20 w-20 lg:hidden" />
+
+          <TestimonialCards client:visible testimonials={testimonials}>
+            <TestimonialAvatar
+              slot={TESTIMONIAL_IMAGES[0].slot}
+              src={TESTIMONIAL_IMAGES[0].img}
+              alt={testimonials[0].NAME}
+            />
+          </TestimonialCards>
+        </div>
+      </Testimonials>
+    </div>
+
+    <Banner
+      title={t('landing:SUBSCRIBE.HEADING')}
+      subtitle={t('landing:SUBSCRIBE.PARAGRAPH')}
+      className="mt-40 sm:mt-20"
+    >
+      <SubscribeForm client:visible>
+        <Icon name="error" slot="error" />
+      </SubscribeForm>
+    </Banner>
+  </main>
 </PageLayout>
