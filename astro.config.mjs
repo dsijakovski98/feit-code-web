@@ -24,6 +24,7 @@ export default defineConfig({
       strategy: 'prefixExceptDefault',
       client: {
         data: true,
+        translations: true,
       },
     }),
   ],

@@ -14,12 +14,12 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "format": "prettier --write .",
+    "format": "prettier --write src/",
     "astro": "astro",
     "prepare": "husky"
   },
   "lint-staged": {
-    "*": "prettier --ignore-unknown --write"
+    "*": "prettier --ignore-unknown --write src/"
   },
   "dependencies": {
     "@astrojs/check": "^0.8.3",
@@ -27,6 +27,8 @@
     "@astrojs/sitemap": "^3.1.6",
     "@astrojs/tailwind": "^5.1.0",
     "@astrolicious/i18n": "^0.4.3",
+    "@emailjs/browser": "^4.4.1",
+    "@hookform/resolvers": "^3.9.0",
     "@nextui-org/react": "^2.4.6",
     "@playform/compress": "^0.1.0",
     "@types/react": "^18.3.3",
@@ -39,10 +41,12 @@
     "i18next": "^23.12.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-hook-form": "^7.52.2",
     "react-i18next": "^15.0.0",
     "swiper": "^11.1.9",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "valibot": "^0.37.0"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
