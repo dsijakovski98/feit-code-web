@@ -1,0 +1,19 @@
+---
+import { Image } from 'astro:assets'
+
+type Props = {
+  src: ImageMetadata
+  alt: string
+}
+
+const { src, alt } = Astro.props
+---
+
+<Image
+  {src}
+  {alt}
+  width={80}
+  height={80}
+  loading="eager"
+  class="aspect-square rounded-full bg-black object-contain"
+/>

@@ -1,6 +1,5 @@
-import type { PropsWithChildren } from 'react'
-
 import { t } from 'i18n:astro'
+import type { PropsWithChildren } from 'react'
 
 import Trans from '@components/Trans'
 

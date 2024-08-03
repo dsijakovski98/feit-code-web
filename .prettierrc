@@ -13,7 +13,6 @@
     "@trivago/prettier-plugin-sort-imports"
   ],
   "importOrder": [
-    "^(next|react)",
     "<THIRD_PARTY_MODULES>",
     "^@components/(.*)$",
     "^@(?!styles)",

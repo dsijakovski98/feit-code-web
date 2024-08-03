@@ -43,22 +43,9 @@
   "TESTIMONIALS": {
     "HEADING": "Testimonials",
     "PARAGRAPH": "Check out what our <students>fellow students</students> have to say about us",
-    "ALT": "Picture of testimonial provider {name}",
     "LIST": [
       {
         "TEXT": "The new web app for programming exams at FEIT has made the whole process so much smoother. I can now take tests from the comfort of my home, and the interface is incredibly user-friendly. Highly recommended!",
-        "NAME": "Elena Vcheva",
-        "ROLE": "Student",
-        "WORKPLACE": "FEIT, KSIAR"
-      },
-      {
-        "TEXT": "I used the new web app for my recent programming exam, and it was fantastic. It’s intuitive, easy to navigate, and the real-time feedback is a game-changer. Kudos to the team behind this!",
-        "NAME": "Elena Vcheva",
-        "ROLE": "Student",
-        "WORKPLACE": "FEIT, KSIAR"
-      },
-      {
-        "TEXT": "The latest web app for programming exams at FEIT is a huge improvement over the old system. It saves so much time and effort, and I love the new features that make exam-taking stress-free.",
         "NAME": "Elena Vcheva",
         "ROLE": "Student",
         "WORKPLACE": "FEIT, KSIAR"

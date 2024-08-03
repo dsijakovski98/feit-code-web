@@ -1,8 +1,7 @@
-import { type ComponentProps, Fragment } from 'react'
-import { Trans as ReactTrans } from 'react-i18next'
-
 import { t } from 'i18n:astro'
 import i18next from 'i18next'
+import { type ComponentProps, Fragment } from 'react'
+import { Trans as ReactTrans } from 'react-i18next'
 
 type Props = { tKey: Parameters<typeof t>[0] } & Pick<
   ComponentProps<typeof ReactTrans>,

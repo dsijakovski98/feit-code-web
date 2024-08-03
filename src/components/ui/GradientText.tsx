@@ -1,6 +1,5 @@
-import type { PropsWithChildren } from 'react'
-
 import clsx from 'clsx'
+import type { PropsWithChildren } from 'react'
 
 import type { As } from '@nextui-org/react'
 

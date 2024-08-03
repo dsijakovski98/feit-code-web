@@ -8,10 +8,12 @@
       "@routes/*": ["src/routes/*"],
       "@components/*": ["src/components/*"],
       "@icons/*": ["src/icons/*"],
+      "@images/*": ["src/images/*"],
       "@hooks/*": ["src/hooks/*"],
       "@config/*": ["src/config/*"],
       "@constants/*": ["src/constants/*"],
       "@utils/*": ["src/utils/*"],
+      "@types/*": ["src/types/*"],
       "@styles/*": ["src/styles/*"]
     },
     "jsxImportSource": "react"

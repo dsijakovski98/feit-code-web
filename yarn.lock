@@ -6339,6 +6339,7 @@ __metadata:
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
     react-i18next: "npm:^15.0.0"
+    swiper: "npm:^11.1.9"
     tailwindcss: "npm:^3.4.1"
     typescript: "npm:^5.5.4"
   languageName: unknown
@@ -9947,6 +9948,13 @@ __metadata:
   bin:
     svgo: ./bin/svgo.js
   checksum: 10c0/74b6a1fb27ca520f62d7f1f52eca0ee75851660ecbe2e6248eaa245033bd638a246208f93f1e93a0b9c426531979082532e9a27df2de77e870a3eceb42d164de
+  languageName: node
+  linkType: hard
+
+"swiper@npm:^11.1.9":
+  version: 11.1.9
+  resolution: "swiper@npm:11.1.9"
+  checksum: 10c0/75666f358c78bedf69f3db9ee83c4f4213bf7e87d42708bb3b87a11f7a85da13e73444f670e6ee1d35642a35c889241c8c525033621965345199f42cb141e616
   languageName: node
   linkType: hard
 

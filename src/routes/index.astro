@@ -7,9 +7,13 @@ import PageLayout from '@layouts/PageLayout.astro'
 
 import Features from '@components/landing-page/Features'
 import HeroMessage from '@components/landing-page/HeroMessage.tsx'
+import Testimonials from '@components/landing-page/Testimonials'
+import TestimonialAvatar from '@components/landing-page/Testimonials/TestimonialAvatar.astro'
+import TestimonialCards from '@components/landing-page/Testimonials/TestimonialCards'
 import Button from '@components/ui/Button.tsx'
 
 import { DEFAULT_LOCALE } from '@config/i18n'
+import { TESTIMONIAL_IMAGES } from '@constants/content'
 import { HREF, ROUTES } from '@constants/routes'
 
 import '@styles/landing.css'
@@ -21,6 +25,10 @@ const description = t('landing:META.DESCRIPTION')
 
 const features = t('landing:FEATURES.LIST', { returnObjects: true })
 const featureIcons = ['collab', 'save-time', 'code', 'feedback']
+
+const testimonials = t('landing:TESTIMONIALS.LIST', { returnObjects: true }).map(
+  (testimonial, idx) => ({ ...testimonial, imgSlot: TESTIMONIAL_IMAGES[idx].slot }),
+)
 ---
 
 <PageLayout {title} {description}>
@@ -38,8 +46,8 @@ const featureIcons = ['collab', 'save-time', 'code', 'feedback']
           class="flex w-[360px] items-center justify-between gap-6 sm:w-[320px] sm:items-stretch sm:gap-4"
         >
           <Button
-            client:load
             as="a"
+            client:idle
             href={ROUTES.about}
             variant="flat"
             size="lg"
@@ -50,8 +58,8 @@ const featureIcons = ['collab', 'save-time', 'code', 'feedback']
           </Button>
 
           <Button
-            client:load
             as="a"
+            client:idle
             href={HREF.feitCodeApp}
             target="_blank"
             variant="shadow"
@@ -77,6 +85,20 @@ const featureIcons = ['collab', 'save-time', 'code', 'feedback']
           ))
         }
       </Features>
+
+      <Testimonials>
+        <div class="relative">
+          <Icon name="quote" class="absolute -top-20 right-20 h-20 w-20 lg:hidden" />
+
+          <TestimonialCards client:load testimonials={testimonials}>
+            <TestimonialAvatar
+              slot={TESTIMONIAL_IMAGES[0].slot}
+              src={TESTIMONIAL_IMAGES[0].img}
+              alt={testimonials[0].NAME}
+            />
+          </TestimonialCards>
+        </div>
+      </Testimonials>
     </div>
-  </main>
-</PageLayout>
+  </main></PageLayout
+>
