@@ -6,18 +6,15 @@
   "GREET": "Welcome!",
   "CONSTRUCTION": "Site is under construction...",
   "HERO": {
-    "MAIN": {
-      "CONTENT": "Have <0>{{strike}}</0>",
-      "STRIKE": "faith"
-    },
-    "SUB": {
-      "CONTENT": "in your <0>{{code}}</0>",
-      "CODE": "code"
-    },
+    "MAIN": "Have <strike>faith</strike>",
+    "SUB": "in your <code>code</code>",
     "FEIT": "FEIT",
-    "PARAGRAPH": "Write it. Test it. See your results. Leave <underline>no doubt</underline>.",
+    "PARAGRAPH": "Write it. Test it. See your results. Leave <gradient>no doubt</gradient>.",
     "CTA": {
-      "LEARN_MORE": "Learn more",
+      "LEARN_MORE": {
+        "TEXT": "Learn more",
+        "ARIA": "Learn more about FEIT Code"
+      },
       "GET_STARTED": "Get started"
     }
   },

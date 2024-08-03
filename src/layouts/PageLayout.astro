@@ -1,12 +1,11 @@
 ---
-import { getHtmlAttrs } from 'i18n:astro'
-import { getLocale } from 'i18n:astro'
 import I18nClient from '@astrolicious/i18n/components/I18nClient.astro'
 import I18nHead from '@astrolicious/i18n/components/I18nHead.astro'
-import Helmet, { type HeadItems } from 'astro-helmet'
+import Helmet,{ type HeadItems } from 'astro-helmet'
+import { getHtmlAttrs,getLocale } from 'i18n:astro'
 
-import '@styles/global.css'
 import '@styles/fonts.css'
+import '@styles/global.css'
 
 type Props = {
   title: string
@@ -22,6 +21,9 @@ const layoutHeadItems: HeadItems = {
     { rel: 'icon', type: 'image/ico', href: '/favicon.ico', sizes: '256x256' },
 
     { rel: 'sitemap', href: '/sitemap-index.xml' },
+
+    // Preload resources
+    { rel: 'preload', href: '/images/bg-dots.webp', as: 'image', type: 'image/svg+xml' },
 
     // Preload "Inter" fonts
     {

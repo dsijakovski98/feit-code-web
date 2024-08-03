@@ -6,7 +6,11 @@
 
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
-  "plugins": ["@trivago/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss", "prettier-plugin-astro"],
+  "plugins": [
+    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss",
+    "prettier-plugin-astro-organize-imports"
+  ],
   "importOrder": ["^(next|react)", "<THIRD_PARTY_MODULES>", "^@components/(.*)$", "^@(?!styles)", "^@styles", "^[./]"],
   "overrides": [
     {
@@ -15,5 +19,6 @@
         "parser": "astro"
       }
     }
-  ]
+  ],
+  "astroOrganizeImportsMode": "SortAndCombine"
 }

@@ -6,18 +6,15 @@
   "GREET": "Добредојде!",
   "CONSTRUCTION": "Работиме на сајтот...",
   "HERO": {
-    "MAIN": {
-      "CONTENT": "Имај <strike>xxx</strike>",
-      "STRIKE": "верба"
-    },
-    "SUB": {
-      "CONTENT": "во твојот <0>{{code}}</0>",
-      "CODE": "код"
-    },
+    "MAIN": "Имај <strike>верба</strike>",
+    "SUB": "во твојот <code>код</code>",
     "FEIT": "ФЕИТ",
-    "PARAGRAPH": "Напиши. Тестирај. Види резултати. <underline>Немај сомнеж</underline>.",
+    "PARAGRAPH": "Напиши. Тестирај. Види резултати. <gradient>Немај сомнеж</gradient>.",
     "CTA": {
-      "LEARN_MORE": "Дознај повеќе",
+      "LEARN_MORE": {
+        "TEXT": "Дознај повеќе",
+        "ARIA": "Дознај повеќе за ФЕИТ Код"
+      },
       "GET_STARTED": "Започни"
     }
   },

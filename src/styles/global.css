@@ -36,11 +36,13 @@
   }
 
   .gradient-primary {
-    @apply bg-gradient-to-br from-primary-800 to-secondary-300;
+    background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+    @apply from-primary-800 to-secondary-300;
   }
 
   .gradient-secondary {
-    @apply bg-gradient-to-tl from-secondary-200 to-secondary-400;
+    background-image: linear-gradient(to top left, var(--tw-gradient-stops));
+    @apply from-secondary-200 to-secondary-400;
   }
 }
 
