@@ -1,13 +1,16 @@
 ---
-import PageLayout from '@layouts/PageLayout.astro'
+import { Icon } from 'astro-icon/components'
 import clsx from 'clsx'
-import { getLocale,t } from 'i18n:astro'
+import { getLocale, t } from 'i18n:astro'
 
+import PageLayout from '@layouts/PageLayout.astro'
+
+import Features from '@components/landing-page/Features'
 import HeroMessage from '@components/landing-page/HeroMessage.tsx'
 import Button from '@components/ui/Button.tsx'
 
 import { DEFAULT_LOCALE } from '@config/i18n'
-import { HREF,ROUTES } from '@constants/routes'
+import { HREF, ROUTES } from '@constants/routes'
 
 import '@styles/landing.css'
 
@@ -15,6 +18,9 @@ const locale = getLocale()
 
 const title = t('landing:META.TITLE')
 const description = t('landing:META.DESCRIPTION')
+
+const features = t('landing:FEATURES.LIST', { returnObjects: true })
+const featureIcons = ['collab', 'save-time', 'code', 'feedback']
 ---
 
 <PageLayout {title} {description}>
@@ -22,22 +28,55 @@ const description = t('landing:META.DESCRIPTION')
     <div class="container space-y-80 sm:space-y-40">
       <section
         class={clsx(
-          'flex flex-col items-center gap-0 pt-16 text-center sm:pt-36',
+          'flex flex-col items-center gap-0 pt-32 text-center',
           locale === DEFAULT_LOCALE ? 'font-semibold' : 'font-bold',
         )}
       >
         <HeroMessage {t} />
 
-      <div class="flex w-[360px] items-center justify-between gap-6 sm:w-[320px] sm:items-stretch sm:gap-4">
-          <Button client:load as="a" href={ROUTES.about} aria-label={t('landing:HERO.CTA.LEARN_MORE.ARIA')} variant="flat" size="lg" color="default" className='grow'>
+        <div
+          class="flex w-[360px] items-center justify-between gap-6 sm:w-[320px] sm:items-stretch sm:gap-4"
+        >
+          <Button
+            client:load
+            as="a"
+            href={ROUTES.about}
+            variant="flat"
+            size="lg"
+            color="default"
+            className="grow"
+          >
             {t('landing:HERO.CTA.LEARN_MORE.TEXT')}
           </Button>
 
-          <Button client:load as="a" href={HREF.feitCodeApp} target="_blank" variant="shadow" size="lg" color="primary" className='grow'>
+          <Button
+            client:load
+            as="a"
+            href={HREF.feitCodeApp}
+            target="_blank"
+            variant="shadow"
+            size="lg"
+            color="primary"
+            className="grow"
+          >
             {t('landing:HERO.CTA.GET_STARTED')}
           </Button>
         </div>
       </section>
+
+      <Features>
+        {
+          features.map((feature, idx) => (
+            <article class="space-y-2 sm:text-center">
+              <h3 class="flex items-center gap-2 text-xl font-medium sm:justify-center sm:gap-2">
+                <Icon name={`features/${featureIcons[idx]}`} /> {feature.TITLE}
+              </h3>
+
+              <p class="text-lg font-extralight sm:text-base">{feature.DESCRIPTION}</p>
+            </article>
+          ))
+        }
+      </Features>
     </div>
   </main>
 </PageLayout>

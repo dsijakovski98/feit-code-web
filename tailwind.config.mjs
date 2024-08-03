@@ -1,5 +1,6 @@
-import { nextui } from '@nextui-org/react';
-import defaultTheme from 'tailwindcss/defaultTheme';
+import defaultTheme from 'tailwindcss/defaultTheme'
+
+import { nextui } from '@nextui-org/react'
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -190,4 +191,4 @@ export default {
       },
     }),
   ],
-};
+}

@@ -10,7 +10,12 @@ type Props = {
   variant?: 'primary' | 'secondary'
 } & PropsWithChildren
 
-const GradientText = ({ as: componentType = 'span', className = '', variant = 'primary', children }: Props) => {
+const GradientText = ({
+  as: componentType = 'span',
+  className = '',
+  variant = 'primary',
+  children,
+}: Props) => {
   const Element = componentType
 
   return (

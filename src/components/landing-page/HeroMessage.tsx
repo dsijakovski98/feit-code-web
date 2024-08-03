@@ -13,7 +13,9 @@ const Hero = ({ t }: Props) => {
       <h1 className="text-balance text-8xl leading-none sm:text-[3.6rem] sm:leading-[1.7]">
         <Trans
           tKey={['landing:HERO.MAIN']}
-          components={{ strike: <span className="hero-faith" data-feit={t('landing:HERO.FEIT')} /> }}
+          components={{
+            strike: <span className="hero-faith" data-feit={t('landing:HERO.FEIT')} />,
+          }}
         />
       </h1>
 

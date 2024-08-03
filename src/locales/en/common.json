@@ -1,7 +1,7 @@
 {
   "ERRORS": {
     "EMAIL": {
-      "EMPTY": "E-mail cannot be empty!",
+      "EMPTY": "E-mail cannot be empty! <test>hehe</test/>",
       "INVALID": "Please enter a valid e-mail!",
       "SUBSCRIBE": "Oops! Something went wrong, please try again."
     }

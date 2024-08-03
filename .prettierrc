@@ -1,17 +1,25 @@
 {
   "semi": false,
   "singleQuote": true,
-  "printWidth": 120,
+  "printWidth": 100,
   "bracketSpacing": true,
 
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
   "plugins": [
-    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-astro",
     "prettier-plugin-tailwindcss",
-    "prettier-plugin-astro-organize-imports"
+    "prettier-plugin-astro-organize-imports",
+    "@trivago/prettier-plugin-sort-imports"
   ],
-  "importOrder": ["^(next|react)", "<THIRD_PARTY_MODULES>", "^@components/(.*)$", "^@(?!styles)", "^@styles", "^[./]"],
+  "importOrder": [
+    "^(next|react)",
+    "<THIRD_PARTY_MODULES>",
+    "^@components/(.*)$",
+    "^@(?!styles)",
+    "^@styles",
+    "^[./]"
+  ],
   "overrides": [
     {
       "files": "*.astro",
@@ -19,6 +27,5 @@
         "parser": "astro"
       }
     }
-  ],
-  "astroOrganizeImportsMode": "SortAndCombine"
+  ]
 }
