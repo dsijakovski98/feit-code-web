@@ -2,10 +2,13 @@
 import I18nClient from '@astrolicious/i18n/components/I18nClient.astro'
 import I18nHead from '@astrolicious/i18n/components/I18nHead.astro'
 import Helmet, { type HeadItems } from 'astro-helmet'
+import { Icon } from 'astro-icon/components'
 import { getHtmlAttrs, getLocale } from 'i18n:astro'
 
 import Footer from '@components/Footer.astro'
 
+import Nav from '@components/Nav'
+import FeitLogo from '@components/ui/FeitLogo.astro'
 import '@styles/fonts.css'
 import '@styles/global.css'
 
@@ -90,6 +93,8 @@ const layoutHeadItems: HeadItems = {
 }
 
 const locale = getLocale()
+
+const { pathname } = Astro.url
 ---
 
 <!doctype html>
@@ -103,7 +108,19 @@ const locale = getLocale()
 
   <body class={locale === 'en' ? 'font-kanit' : 'font-inter'}>
     <div class="grid min-h-[100dvh] grid-rows-[auto_1fr_auto]">
-      <div>Navbar here</div>
+      <Nav client:load {pathname}>
+        <FeitLogo slot="logo" loading="eager" />
+
+        <Icon slot="external" name="external-link" />
+        <Icon slot="chevron" name="chevron-down" />
+
+        <Icon slot="feit" name="nav-resources/feit" />
+        <Icon slot="iKnow" name="nav-resources/iknow" />
+        <Icon slot="eKursevi" name="nav-resources/e-kursevi" />
+
+        <Icon slot="en" name="flags/us" class="h-full w-full scale-[0.9] sm:scale-[1]" />
+        <Icon slot="mk" name="flags/mk" class="h-full w-full scale-[0.9] sm:scale-[1]" />
+      </Nav>
 
       <slot />
 

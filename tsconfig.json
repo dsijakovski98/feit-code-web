@@ -13,8 +13,8 @@
       "@config/*": ["src/config/*"],
       "@constants/*": ["src/constants/*"],
       "@utils/*": ["src/utils/*"],
-      "@types/*": ["src/types/*"],
-      "@styles/*": ["src/styles/*"]
+      "@styles/*": ["src/styles/*"],
+      "types/*": ["src/types/*"]
     },
     "jsxImportSource": "react",
     "verbatimModuleSyntax": true
