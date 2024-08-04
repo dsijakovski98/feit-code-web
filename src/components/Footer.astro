@@ -14,20 +14,20 @@ const year = new Date().getFullYear()
 ---
 
 <footer class="bg-gradient-to-t from-secondary-100 to-[#0D0E16]">
-  <div class="container space-y-8 py-14 md:pb-7 md:pt-10">
+  <div class="container space-y-8 py-7 md:pt-10">
     <div class="grid grid-cols-3 items-stretch lg:grid-cols-2 sm:block">
-      <div class="flex w-fit flex-col items-start justify-between sm:hidden">
+      <div class="flex w-fit flex-col items-center justify-between gap-2 sm:hidden">
         <FeitLogo loading="lazy" class:list="*:!text-4xl gap-2" />
 
         <Button
           as="a"
           client:idle
           size="lg"
-          radius="lg"
-          variant="solid"
+          variant="ghost"
+          color="default"
           target="_blank"
           href={HREF.feitCode.home}
-          className="flex -translate-x-2 translate-y-2 scale-[0.9] items-center gap-1 bg-slate-50/90 text-slate-800"
+          className="flex items-center gap-1"
         >
           {t('landing:HERO.CTA.GET_STARTED')}
           <Icon name="external-link" class="scale-[0.8]" />
@@ -118,6 +118,7 @@ const year = new Date().getFullYear()
   </div>
 </footer>
 
+<!-- https://astro-tips.dev/recipes/dynamic-footer-date-for-static-websites -->
 <script is:inline data-astro-rerun>
   document.getElementById('footer-year').innerText = new Date().getFullYear()
 </script>
