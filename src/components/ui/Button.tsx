@@ -11,8 +11,7 @@ const Btn = extendVariants(NextUiButton, {
   },
   variants: {
     variant: {
-      shadow:
-        'shadow-[0px_3px_2px_-3px_rgba(0,0,0,0.2),0px_2px_2px_0px_rgba(0,0,0,0.14),0px_1px_0px_0px_rgba(0,0,0,0.12)]',
+      shadow: 'shadow-[0px_3px_2px_-3px_rgba(0,0,0,0.2),0px_2px_2px_0px_rgba(0,0,0,0.14),0px_1px_0px_0px_rgba(0,0,0,0.12)]',
     },
   },
 })

@@ -43,7 +43,8 @@
     "FOOTER": {
       "REACH_OUT": "If you like FEIT Code, you'll love the <dude>dude that made it</dude>",
       "COPY": "All rights reserved",
-      "BRAND": "{year} FEIT Code"
+      "BRAND": "FEIT Code",
+      "LOGO_ALT": "FEIT Code logo"
     }
   }
 }

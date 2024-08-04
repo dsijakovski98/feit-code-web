@@ -1,0 +1,123 @@
+---
+import { Icon } from 'astro-icon/components'
+import { t } from 'i18n:astro'
+
+import FooterSocialsTitle from '@components/misc/FooterSocialsTitle'
+import UnderlineText from '@components/ui/UnderlineText'
+
+import { HREF, MY_EMAIL, ROUTES } from '@constants/routes'
+
+import Button from '@components/ui/Button'
+import FeitLogo from '@components/ui/FeitLogo.astro'
+
+const year = new Date().getFullYear()
+---
+
+<footer class="bg-gradient-to-t from-secondary-100 to-[#0D0E16]">
+  <div class="container space-y-8 py-14 md:pb-7 md:pt-10">
+    <div class="grid grid-cols-3 items-stretch lg:grid-cols-2 sm:block">
+      <div class="flex w-fit flex-col items-start justify-between sm:hidden">
+        <FeitLogo class:list="*:!text-4xl gap-2" />
+
+        <Button
+          as="a"
+          client:idle
+          size="lg"
+          radius="lg"
+          variant="solid"
+          target="_blank"
+          href={HREF.feitCodeApp}
+          className="flex -translate-x-2 translate-y-2 scale-[0.9] items-center gap-1 bg-slate-50/90 text-slate-800"
+        >
+          {t('landing:HERO.CTA.GET_STARTED')}
+          <Icon name="external-link" class="scale-[0.8]" />
+        </Button>
+      </div>
+
+      <ul class="flex items-start justify-center gap-8 lg:hidden">
+        <li>
+          <a href={ROUTES.about} class="flex items-center self-stretch text-lg">
+            <UnderlineText>{t('NAV.ABOUT')}</UnderlineText>
+          </a>
+        </li>
+
+        <li class="space-y-2">
+          <span class="text-lg">{t('NAV.RESOURCES.LABEL')}</span>
+
+          <ul class="space-y-1 text-base text-slate-300">
+            <li>
+              <a href={HREF.feit} target="_blank" class="hover:text-slate-100">
+                {t('NAV.RESOURCES.LINKS.FEIT.TITLE')}{' '}
+                <Icon name="external-link" class="inline -translate-y-[2px] scale-[0.7]" />
+              </a>
+            </li>
+
+            <li>
+              <a href={HREF.iknow} target="_blank" class="hover:text-slate-100">
+                {t('NAV.RESOURCES.LINKS.I_KNOW.TITLE')}{' '}
+                <Icon name="external-link" class="inline -translate-y-[2px] scale-[0.7]" />
+              </a>
+            </li>
+
+            <li>
+              <a href={HREF.eKursevi} target="_blank" class="hover:text-slate-100">
+                {t('NAV.RESOURCES.LINKS.E_KURSEVI.TITLE')}{' '}
+                <Icon name="external-link" class="inline -translate-y-[2px] scale-[0.7]" />
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="-ml-4">
+          <a href={ROUTES.contact} class="flex items-center self-stretch text-lg">
+            <UnderlineText>{t('NAV.CONTACT')}</UnderlineText>
+          </a>
+        </li>
+      </ul>
+
+      <div
+        class="ml-auto flex max-w-[240px] flex-col justify-between gap-4 rounded-xl bg-slate-50/90 p-3 text-slate-800 backdrop-opacity-50 sm:max-w-full sm:items-center sm:gap-6 sm:text-center"
+      >
+        <FooterSocialsTitle />
+
+        <ul class="flex items-center gap-4 text-secondary *:scale-[1.1] *:transition-colors *:duration-200 sm:gap-6">
+          <li class="hover:text-secondary-200">
+            <a href={HREF.github} aria-label="GitHub" target="_blank">
+              <Icon name="socials/github" />
+            </a>
+          </li>
+
+          <li class="hover:text-secondary-200">
+            <a href={HREF.linkedin} aria-label="LinkedIn" target="_blank">
+              <Icon name="socials/linkedin" />
+            </a>
+          </li>
+
+          <li class="hover:text-secondary-200">
+            <a href={HREF.instagram} aria-label="Instagram" target="_blank">
+              <Icon name="socials/instagram" />
+            </a>
+          </li>
+
+          <li class="hover:text-secondary-200">
+            <a href={`mailto:${MY_EMAIL}`} aria-label="Email">
+              <Icon name="socials/email" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="opacity-30" />
+
+    <div class="text-center font-inter text-sm sm:text-base">
+      <p class="font-light text-slate-400">
+        <span>{t('NAV.FOOTER.COPY')} &copy;</span>・<span><span id="footer-year">{year}</span> {t('NAV.FOOTER.BRAND')}</span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script is:inline data-astro-rerun>
+  document.getElementById('footer-year').innerText = new Date().getFullYear()
+</script>

@@ -9,11 +9,4 @@ type Props = {
 const { src, alt } = Astro.props
 ---
 
-<Image
-  {src}
-  {alt}
-  width={80}
-  height={80}
-  loading="eager"
-  class="aspect-square rounded-full bg-black object-contain"
-/>
+<Image {src} {alt} width={80} height={80} loading="eager" class="aspect-square rounded-full bg-black object-contain" />

@@ -14,6 +14,9 @@ export default {
         inter: ['"Inter"', ...defaultTheme.fontFamily.sans],
         kanit: ['"Kanit"', ...defaultTheme.fontFamily.serif],
       },
+      backgroundImage: {
+        dots: "radial-gradient(circle, rgba(35, 80, 200, 0.3), rgba(255, 255, 255, 0)), url('/images/bg-dots.webp')",
+      },
     },
     screens: {
       '2xl': { max: '1535px' },
@@ -22,9 +25,6 @@ export default {
       md: { max: '767px' },
       sm: { max: '669px' },
       xs: { max: '378px' },
-    },
-    backgroundImage: {
-      dots: "radial-gradient(circle, rgba(35, 80, 200, 0.3), rgba(255, 255, 255, 0)), url('/images/bg-dots.webp')",
     },
   },
   darkMode: 'class',
