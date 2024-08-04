@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer base {
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
   hr {
     height: 0.1px !important;
   }
@@ -36,13 +41,11 @@
   }
 
   .gradient-primary {
-    background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
-    @apply from-primary-800 to-secondary-300;
+    @apply bg-gradient-to-br from-primary-800 to-secondary-300;
   }
 
   .gradient-secondary {
-    background-image: linear-gradient(to top left, var(--tw-gradient-stops));
-    @apply from-secondary-200 to-secondary-400;
+    @apply bg-gradient-to-tl from-secondary-200 to-secondary-400;
   }
 }
 

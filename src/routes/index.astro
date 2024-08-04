@@ -28,9 +28,10 @@ const description = t('landing:META.DESCRIPTION')
 const features = t('landing:FEATURES.LIST', { returnObjects: true })
 const featureIcons = ['collab', 'save-time', 'code', 'feedback']
 
-const testimonials = t('landing:TESTIMONIALS.LIST', { returnObjects: true }).map(
-  (testimonial, idx) => ({ ...testimonial, imgSlot: TESTIMONIAL_IMAGES[idx].slot }),
-)
+const testimonials = t('landing:TESTIMONIALS.LIST', { returnObjects: true }).map((testimonial, idx) => ({
+  ...testimonial,
+  imgSlot: TESTIMONIAL_IMAGES[idx].slot,
+}))
 ---
 
 <PageLayout {title} {description}>
@@ -44,18 +45,8 @@ const testimonials = t('landing:TESTIMONIALS.LIST', { returnObjects: true }).map
       >
         <HeroMessage {t} />
 
-        <div
-          class="flex w-[360px] items-center justify-between gap-6 sm:w-[320px] sm:items-stretch sm:gap-4"
-        >
-          <Button
-            as="a"
-            client:idle
-            href={ROUTES.about}
-            variant="flat"
-            size="lg"
-            color="default"
-            className="grow"
-          >
+        <div class="flex w-[360px] items-center justify-between gap-6 sm:w-[320px] sm:items-stretch sm:gap-4">
+          <Button as="a" client:idle href={ROUTES.about} variant="shadow" size="lg" color="default" className="grow">
             {t('landing:HERO.CTA.LEARN_MORE.TEXT')}
           </Button>
 
@@ -67,9 +58,10 @@ const testimonials = t('landing:TESTIMONIALS.LIST', { returnObjects: true }).map
             variant="shadow"
             size="lg"
             color="primary"
-            className="grow"
+            className="flex grow items-center gap-1"
           >
             {t('landing:HERO.CTA.GET_STARTED')}
+            <Icon name="external-link" class="scale-[0.75]" />
           </Button>
         </div>
       </section>
@@ -93,21 +85,13 @@ const testimonials = t('landing:TESTIMONIALS.LIST', { returnObjects: true }).map
           <Icon name="quote" class="absolute -top-20 right-20 h-20 w-20 lg:hidden" />
 
           <TestimonialCards client:visible testimonials={testimonials}>
-            <TestimonialAvatar
-              slot={TESTIMONIAL_IMAGES[0].slot}
-              src={TESTIMONIAL_IMAGES[0].img}
-              alt={testimonials[0].NAME}
-            />
+            <TestimonialAvatar slot={TESTIMONIAL_IMAGES[0].slot} src={TESTIMONIAL_IMAGES[0].img} alt={testimonials[0].NAME} />
           </TestimonialCards>
         </div>
       </Testimonials>
     </div>
 
-    <Banner
-      title={t('landing:SUBSCRIBE.HEADING')}
-      subtitle={t('landing:SUBSCRIBE.PARAGRAPH')}
-      className="mt-40 sm:mt-20"
-    >
+    <Banner title={t('landing:SUBSCRIBE.HEADING')} subtitle={t('landing:SUBSCRIBE.PARAGRAPH')} className="mt-40 sm:mt-20">
       <SubscribeForm client:visible>
         <Icon name="error" slot="error" />
       </SubscribeForm>

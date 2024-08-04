@@ -19,9 +19,7 @@ const Features = ({ children }: PropsWithChildren) => {
         <p className="text-xl font-extralight sm:text-lg">{t('landing:FEATURES.PARAGRAPH')}</p>
       </div>
 
-      <ul className="grid grid-cols-4 grid-rows-1 gap-8 md:grid-cols-2 md:grid-rows-2 sm:grid-cols-1 sm:gap-10">
-        {children}
-      </ul>
+      <ul className="grid grid-cols-4 grid-rows-1 gap-8 md:grid-cols-2 md:grid-rows-2 sm:block sm:space-y-10">{children}</ul>
     </section>
   )
 }
