@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { t } from 'i18n:astro'
-import type { ReactNode } from 'react'
 import { Controller, type SubmitHandler, useForm } from 'react-hook-form'
+import type { Slots } from 'types/index'
 
 import { Input } from '@nextui-org/input'
 import { CircularProgress } from '@nextui-org/react'
@@ -20,7 +20,7 @@ const SubscribeForm = ({ ...rest }: Props) => {
   const tErrors = t('ERRORS.EMAIL', { returnObjects: true })
   const tForm = t('FORM', { returnObjects: true })
 
-  const slots = rest as { error: ReactNode }
+  const slots = rest as Slots<'error'>
 
   const {
     handleSubmit,

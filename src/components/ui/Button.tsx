@@ -1,4 +1,4 @@
-import type { ComponentProps, PropsWithChildren } from 'react'
+import { type ComponentProps, type PropsWithChildren, forwardRef } from 'react'
 
 import { Button as NextUiButton } from '@nextui-org/button'
 import { extendVariants } from '@nextui-org/react'
@@ -16,11 +16,13 @@ const Btn = extendVariants(NextUiButton, {
   },
 })
 
-const Button = ({ children, ...rest }: PropsWithChildren & ComponentProps<typeof Btn>) => (
-  <Btn {...rest}>
+type Props = ComponentProps<typeof Btn> & PropsWithChildren
+
+const Button = forwardRef<any, Props>(({ children, ...rest }, ref) => (
+  <Btn {...rest} ref={ref}>
     <span className="sr-only">{children}</span>
     {children}
   </Btn>
-)
+))
 
 export default Button
