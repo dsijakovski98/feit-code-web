@@ -28,7 +28,7 @@ const NavMenu = ({ menu }: Props) => {
         </div>
 
         {NAV_ROUTES.map(({ key, href, subLinks }) => (
-          <NavbarMenuItem key={key as string} onClick={() => !subLinks && menu.set(false)} className="text-2xl font-semibold">
+          <NavbarMenuItem key={key as string} onClick={() => !subLinks && menu.set(false)} className="text-2xl font-normal">
             <NavLink href={href} labelKey={key} subLinks={subLinks} variant="mobile">
               {t(`NAV.${key}` as any)}
             </NavLink>
