@@ -1,4 +1,8 @@
 export const EMAILJS = {
-  GMAIL_SERVICE_ID: 'service_emyiqnl',
-  WELCOME_TEMPLATE_ID: 'template_82lkftc',
-}
+  SERVICE_ID: 'service_emyiqnl',
+
+  TEMPLATE_ID: {
+    en: 'template_82lkftc',
+    mk: 'template_3wko4yb',
+  },
+} as const

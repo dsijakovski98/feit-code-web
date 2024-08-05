@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { t } from 'i18n:astro'
+import { getLocale, t } from 'i18n:astro'
 import { Controller, type SubmitHandler, useForm } from 'react-hook-form'
 import type { Slots } from 'types/index'
 
@@ -19,6 +19,8 @@ const SubscribeForm = ({ ...rest }: Props) => {
   const tEmail = t('landing:SUBSCRIBE.EMAIL', { returnObjects: true })
   const tErrors = t('ERRORS.EMAIL', { returnObjects: true })
   const tForm = t('FORM', { returnObjects: true })
+
+  const locale = getLocale()
 
   const slots = rest as Slots<'error'>
 
@@ -40,8 +42,8 @@ const SubscribeForm = ({ ...rest }: Props) => {
 
     await emailjs
       .send(
-        EMAILJS.GMAIL_SERVICE_ID,
-        EMAILJS.WELCOME_TEMPLATE_ID,
+        EMAILJS.SERVICE_ID,
+        EMAILJS.TEMPLATE_ID[locale],
         { to: email },
         {
           publicKey: import.meta.env.PUBLIC_EMAILJS_KEY,
@@ -99,7 +101,15 @@ const SubscribeForm = ({ ...rest }: Props) => {
           disabled={isSubmitting}
           className="gradient-secondary px-12 sm:w-full"
         >
-          {isSubmitting ? <CircularProgress aria-label="Progress bar" size="sm" className="w-[51px]" /> : tForm.SUBSCRIBE}
+          {isSubmitting ? (
+            <CircularProgress
+              size="sm"
+              aria-label={t('PROGRESS_BAR')}
+              className={clsx('w-[50px]', { 'mx-[27px]': locale === 'mk' })}
+            />
+          ) : (
+            tForm.SUBSCRIBE
+          )}
         </Button>
       </div>
 
