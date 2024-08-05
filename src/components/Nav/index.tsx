@@ -25,6 +25,7 @@ const Nav = ({ pathname, localeData, ...rest }: Props) => {
   return (
     <NavContext.Provider value={{ slots, localeData }}>
       <Navbar
+        disableAnimation
         maxWidth="xl"
         position="sticky"
         classNames={{
@@ -37,7 +38,7 @@ const Nav = ({ pathname, localeData, ...rest }: Props) => {
       >
         <NavbarBrand className="md:flex-initial">{slots.logo}</NavbarBrand>
 
-        <NavbarContent className="flex-1 gap-8 md:gap-4 sm:hidden" justify="center">
+        <NavbarContent className="flex-1 gap-8 md:gap-4 md:hidden" justify="center">
           {NAV_ROUTES.map(({ key, href, subLinks }) => (
             <NavbarItem key={key as string} isActive={href === pathname} className="flex items-center self-stretch">
               <NavLink href={href} subLinks={subLinks} labelKey={key}>
@@ -47,7 +48,7 @@ const Nav = ({ pathname, localeData, ...rest }: Props) => {
           ))}
         </NavbarContent>
 
-        <NavbarContent justify="end" className="-space-x-2 md:data-[justify=end]:grow-0 sm:hidden">
+        <NavbarContent justify="end" className="-space-x-2 md:data-[justify=end]:grow-0 md:hidden">
           <NavbarItem>
             <LanguageSwitch />
           </NavbarItem>

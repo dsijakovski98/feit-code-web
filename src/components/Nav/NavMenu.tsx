@@ -18,10 +18,8 @@ const NavMenu = ({ menu }: Props) => {
   const menuTitle = useMemo(() => `${t('NAV.LOGO.FEIT')} ${t('NAV.LOGO.CODE')}`, [t])
 
   return (
-    <NavbarContent justify="end" className="hidden sm:flex">
-      <NavbarItem>
-        <NavbarMenuToggle />
-      </NavbarItem>
+    <NavbarContent justify="end" className="hidden md:flex">
+      <NavbarMenuToggle as="li" />
 
       <NavbarMenu title={menuTitle} className="!max-h-[calc(100dvh-64px)] !items-start py-8 pl-10">
         <div className="mb-10 flex w-full -translate-x-2 items-center justify-between">

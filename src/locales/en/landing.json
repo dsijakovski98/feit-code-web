@@ -7,9 +7,9 @@
   "CONSTRUCTION": "Site is under construction...",
   "HERO": {
     "MAIN": "Have <strike>faith</strike>",
-    "SUB": "in your <code>code</code>",
+    "SUB": "in your code",
     "FEIT": "FEIT",
-    "PARAGRAPH": "Write it. Test it. See your results. Leave <gradient>no doubt</gradient>.",
+    "PARAGRAPH": "Write it. Test it. See your results. Leave no doubt.",
     "CTA": {
       "LEARN_MORE": {
         "TEXT": "Learn more",
