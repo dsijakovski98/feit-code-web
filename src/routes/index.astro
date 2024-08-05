@@ -77,13 +77,15 @@ const testimonials = t('landing:TESTIMONIALS.LIST', { returnObjects: true }).map
       <Features>
         {
           features.map((feature, idx) => (
-            <article class="space-y-2 sm:text-center">
-              <h3 class="flex items-center gap-2 text-xl font-medium sm:justify-center sm:gap-2">
-                <Icon name={`features/${featureIcons[idx]}`} /> {feature.TITLE}
-              </h3>
+            <li>
+              <article class="space-y-2 sm:text-center">
+                <h3 class="flex items-center gap-2 text-xl font-medium sm:justify-center sm:gap-2">
+                  <Icon name={`features/${featureIcons[idx]}`} /> {feature.TITLE}
+                </h3>
 
-              <p class="text-lg font-extralight">{feature.DESCRIPTION}</p>
-            </article>
+                <p class="text-lg font-extralight">{feature.DESCRIPTION}</p>
+              </article>
+            </li>
           ))
         }
       </Features>

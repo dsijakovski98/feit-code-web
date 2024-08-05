@@ -1,7 +1,7 @@
 import { t } from 'i18n:astro'
 import { useMemo } from 'react'
 
-import { NavbarContent, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from '@nextui-org/navbar'
+import { NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from '@nextui-org/navbar'
 
 import LanguageSwitch from '@components/Nav/LanguageSwitch'
 import NavLink from '@components/Nav/NavLink'
@@ -19,7 +19,9 @@ const NavMenu = ({ menu }: Props) => {
 
   return (
     <NavbarContent justify="end" className="hidden sm:flex">
-      <NavbarMenuToggle />
+      <NavbarItem>
+        <NavbarMenuToggle />
+      </NavbarItem>
 
       <NavbarMenu title={menuTitle} className="!max-h-[calc(100dvh-64px)] !items-start py-8 pl-10">
         <div className="mb-10 flex w-full -translate-x-2 items-center justify-between">

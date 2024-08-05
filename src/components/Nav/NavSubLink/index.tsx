@@ -1,4 +1,4 @@
-import { type PropsWithChildren, useContext } from 'react'
+import { type PropsWithChildren } from 'react'
 
 import type { PropsOf } from '@nextui-org/react'
 
@@ -8,7 +8,7 @@ import SubLinkMobile from '@components/Nav/NavSubLink/SubLinkMobile'
 
 type Props = Pick<PropsOf<typeof NavLink>, 'labelKey' | 'variant' | 'subLinks'> & PropsWithChildren
 
-const NavSubLink = ({ variant = 'desktop', labelKey, subLinks, children, ...rest }: Props) => {
+const NavSubLink = ({ variant = 'desktop', labelKey, subLinks, children }: Props) => {
   return variant === 'desktop' ? (
     <SubLinkDesktop labelKey={labelKey} subLinks={subLinks}>
       {children}

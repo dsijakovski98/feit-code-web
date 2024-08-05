@@ -48,7 +48,9 @@ const Nav = ({ pathname, localeData, ...rest }: Props) => {
         </NavbarContent>
 
         <NavbarContent justify="end" className="-space-x-2 md:data-[justify=end]:grow-0 sm:hidden">
-          <LanguageSwitch />
+          <NavbarItem>
+            <LanguageSwitch />
+          </NavbarItem>
 
           <NavbarItem>
             <Button

@@ -1,4 +1,4 @@
-import { type ReactNode, cloneElement } from 'react'
+import { type ReactNode } from 'react'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
 import 'swiper/css/navigation'
