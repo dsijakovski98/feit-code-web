@@ -3,13 +3,14 @@ import { t } from 'i18n:astro'
 import type { ReactNode } from 'react'
 import { Controller, type SubmitHandler, useForm } from 'react-hook-form'
 
+import { Input } from '@nextui-org/input'
+import { CircularProgress } from '@nextui-org/react'
+
 import Button from '@components/ui/Button'
 
 import { EMAILJS } from '@constants/email'
 import emailjs from '@emailjs/browser'
 import { valibotResolver } from '@hookform/resolvers/valibot'
-import { Input } from '@nextui-org/input'
-import { CircularProgress } from '@nextui-org/react'
 import { SubscribeEmailSchema, type SubscribeEmailType } from '@utils/schemas'
 
 type Props = any

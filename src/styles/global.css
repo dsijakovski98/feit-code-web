@@ -8,6 +8,12 @@
     height: 24px;
   }
 
+  /* Reset NextUI dropdown */
+  [role='menuitemradio'] svg {
+    width: auto;
+    height: auto;
+  }
+
   hr {
     height: 0.1px !important;
   }
