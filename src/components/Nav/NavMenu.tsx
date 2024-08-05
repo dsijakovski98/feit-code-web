@@ -3,6 +3,7 @@ import { useMemo } from 'react'
 
 import { NavbarContent, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from '@nextui-org/navbar'
 
+import LanguageSwitch from '@components/Nav/LanguageSwitch'
 import NavLink from '@components/Nav/NavLink'
 import Button from '@components/ui/Button'
 
@@ -21,9 +22,9 @@ const NavMenu = ({ menu }: Props) => {
       <NavbarMenuToggle />
 
       <NavbarMenu title={menuTitle} className="!max-h-[calc(100dvh-64px)] !items-start py-8 pl-10">
-        <div className="mb-6 flex w-full -translate-x-2 items-center justify-between">
+        <div className="mb-10 flex w-full -translate-x-2 items-center justify-between">
           <h2 className="text-4xl font-extralight">{menuTitle}</h2>
-          {/* <LanguageSwitch /> */}
+          <LanguageSwitch />
         </div>
 
         {NAV_ROUTES.map(({ key, href, subLinks }) => (

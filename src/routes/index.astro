@@ -1,7 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components'
 import clsx from 'clsx'
-import { getLocale, t } from 'i18n:astro'
+import { getLocale, getLocalePath, t } from 'i18n:astro'
 
 import PageLayout from '@layouts/PageLayout.astro'
 
@@ -46,7 +46,15 @@ const testimonials = t('landing:TESTIMONIALS.LIST', { returnObjects: true }).map
         <HeroMessage {t} />
 
         <div class="flex w-[360px] items-center justify-between gap-6 sm:w-[320px] sm:items-stretch sm:gap-4">
-          <Button as="a" client:idle href={ROUTES.about} variant="shadow" size="lg" color="default" className="grow">
+          <Button
+            as="a"
+            client:idle
+            href={getLocalePath(ROUTES.about)}
+            variant="shadow"
+            size="lg"
+            color="default"
+            className="grow"
+          >
             {t('landing:HERO.CTA.LEARN_MORE.TEXT')}
           </Button>
 

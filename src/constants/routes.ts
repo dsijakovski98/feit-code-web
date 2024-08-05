@@ -21,9 +21,14 @@ export const HREF = {
   github: 'https://github.com/dsijakovski98',
   linkedin: 'https://www.linkedin.com/in/daniel-shijakovski-ba78001ba',
   instagram: 'https://www.instagram.com/shijakovski',
+  x: 'https://www.x.com/PlivajKlimee',
+  facebook: 'https://www.facebook.com/daniel.sijakovski',
 }
 
-export const MY_EMAIL = 'dshijakovski@yahoo.com'
+export const CONTACT = {
+  email: 'dshijakovski@yahoo.com',
+  phone: '+389-70-372-921',
+}
 
 export type NavRoute = {
   href: string

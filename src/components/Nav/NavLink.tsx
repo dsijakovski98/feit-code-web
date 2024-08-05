@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { getLocalePath } from 'i18n:astro'
 import type { PropsWithChildren } from 'react'
 
 import NavSubLink from '@components/Nav/NavSubLink'
@@ -24,7 +25,7 @@ const NavLink = ({ href, labelKey, subLinks, variant, className = '', children }
   }
 
   return (
-    <a href={href} className={clsx('flex items-center self-stretch', className)}>
+    <a href={getLocalePath(href as any)} className={clsx('flex items-center self-stretch', className)}>
       <UnderlineText>{children}</UnderlineText>
     </a>
   )

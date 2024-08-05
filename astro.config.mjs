@@ -25,6 +25,7 @@ export default defineConfig({
       client: {
         data: true,
         translations: true,
+        paths: true,
       },
     }),
   ],

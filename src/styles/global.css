@@ -9,7 +9,7 @@
   }
 
   /* Reset NextUI dropdown */
-  li[role='menuitemradio'] svg {
+  [role='menuitemradio'] svg {
     width: auto;
     height: auto;
   }

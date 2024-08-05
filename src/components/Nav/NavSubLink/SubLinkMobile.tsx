@@ -10,7 +10,7 @@ import UnderlineText from '@components/ui/UnderlineText'
 type Props = Pick<PropsOf<typeof NavSubLink>, 'labelKey' | 'subLinks'> & PropsWithChildren
 
 const SubLinkMobile = ({ subLinks, children }: Props) => {
-  const slots = useNavContext<'external'>()
+  const { slots } = useNavContext<'external'>()
 
   return (
     <div className="space-y-2">

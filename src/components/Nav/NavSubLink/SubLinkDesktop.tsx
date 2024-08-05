@@ -16,7 +16,7 @@ type Props = Pick<PropsOf<typeof NavSubLink>, 'labelKey' | 'subLinks'> & PropsWi
 const SubLinksNavLinkDesktop = ({ labelKey, subLinks, children }: Props) => {
   const [mobileDevice, setMobileDevice] = useState<boolean>(false)
 
-  const slots = useNavContext<'external' | 'chevron'>()
+  const { slots } = useNavContext<'external' | 'chevron'>()
 
   const tNav = (key: unknown) => t(`NAV.${key}` as any)
 

@@ -3,12 +3,12 @@ import I18nClient from '@astrolicious/i18n/components/I18nClient.astro'
 import I18nHead from '@astrolicious/i18n/components/I18nHead.astro'
 import Helmet, { type HeadItems } from 'astro-helmet'
 import { Icon } from 'astro-icon/components'
-import { getHtmlAttrs, getLocale } from 'i18n:astro'
+import { getHtmlAttrs, getLocale, getSwitcherData } from 'i18n:astro'
 
 import Footer from '@components/Footer.astro'
-
 import Nav from '@components/Nav'
 import FeitLogo from '@components/ui/FeitLogo.astro'
+
 import '@styles/fonts.css'
 import '@styles/global.css'
 
@@ -93,8 +93,11 @@ const layoutHeadItems: HeadItems = {
 }
 
 const locale = getLocale()
+const localeData = getSwitcherData()
 
 const { pathname } = Astro.url
+
+const globalFont = locale === 'en' ? 'font-kanit' : 'font-inter'
 ---
 
 <!doctype html>
@@ -106,9 +109,9 @@ const { pathname } = Astro.url
     <I18nClient />
   </head>
 
-  <body class={locale === 'en' ? 'font-kanit' : 'font-inter'}>
+  <body class={globalFont}>
     <div class="grid min-h-[100dvh] grid-rows-[auto_1fr_auto]">
-      <Nav client:load {pathname}>
+      <Nav client:load {pathname} {localeData}>
         <FeitLogo slot="logo" loading="eager" />
 
         <Icon slot="external" name="external-link" />

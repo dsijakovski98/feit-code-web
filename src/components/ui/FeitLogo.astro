@@ -2,7 +2,7 @@
 import type { ComponentProps } from 'astro/types'
 import { Image } from 'astro:assets'
 import clsx from 'clsx'
-import { t } from 'i18n:astro'
+import { getLocalePath, t } from 'i18n:astro'
 
 import { ROUTES } from '@constants/routes'
 
@@ -17,10 +17,10 @@ const { loading = null, class: className = '' } = Astro.props
 ---
 
 <a
-  href={ROUTES.home}
+  href={getLocalePath(ROUTES.home)}
   class={clsx('group flex w-fit h-fit items-center gap-1 *:transition-all *:duration-300 *:ease-soft-spring', className)}
 >
-  <p class="font-kanit text-2xl font-light md:text-xl">{t('NAV.LOGO.FEIT')}</p>
+  <p class="text-2xl font-light md:text-xl">{t('NAV.LOGO.FEIT')}</p>
 
   <div class="w-[55px]">
     <Image
@@ -28,9 +28,9 @@ const { loading = null, class: className = '' } = Astro.props
       src={logo}
       loading={loading}
       role="presentation"
-      class="h-full w-full drop-shadow-[0px_0px_2px_theme(colors.primary)] group-hover:drop-shadow-[0px_0px_4px_theme(colors.primary)]"
+      class="h-full w-full drop-shadow-[0px_0px_2px_theme(colors.primary)] duration-300 group-hover:drop-shadow-[0px_0px_4px_theme(colors.primary)]"
     />
   </div>
 
-  <p class="font-kanit text-2xl font-light md:text-xl">{t('NAV.LOGO.CODE')}</p>
+  <p class="text-2xl font-light md:text-xl">{t('NAV.LOGO.CODE')}</p>
 </a>

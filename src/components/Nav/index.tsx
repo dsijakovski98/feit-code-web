@@ -1,4 +1,4 @@
-import { t } from 'i18n:astro'
+import { getSwitcherData, t } from 'i18n:astro'
 import type { Slots } from 'types/index'
 
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem } from '@nextui-org/navbar'
@@ -14,15 +14,16 @@ import { useToggle } from '@hooks/useToggle'
 
 type Props = {
   pathname: string
+  localeData: ReturnType<typeof getSwitcherData>
 }
 
-const Nav = ({ pathname, ...rest }: Props) => {
+const Nav = ({ pathname, localeData, ...rest }: Props) => {
   const slots = rest as Slots<'logo'>
 
   const menu = useToggle()
 
   return (
-    <NavContext.Provider value={slots}>
+    <NavContext.Provider value={{ slots, localeData }}>
       <Navbar
         maxWidth="xl"
         position="sticky"
