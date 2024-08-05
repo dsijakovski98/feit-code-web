@@ -16,7 +16,7 @@ const SubLinkMobile = ({ subLinks, children }: Props) => {
     <div className="space-y-2">
       <span>{children}</span>
 
-      <ul className="space-y-1 pl-4">
+      <ul className="space-y-1 pl-5">
         {subLinks!.map(({ href, key, external }) => (
           <li key={key as string}>
             <a

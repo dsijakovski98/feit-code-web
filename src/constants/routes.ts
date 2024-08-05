@@ -38,6 +38,7 @@ export type NavRoute = {
 }
 export const NAV_ROUTES: NavRoute[] = [
   { href: ROUTES.about, key: 'ABOUT' },
+  { href: ROUTES.contact, key: 'CONTACT' },
   {
     href: '',
     key: 'RESOURCES.LABEL',
@@ -65,5 +66,4 @@ export const NAV_ROUTES: NavRoute[] = [
       },
     ],
   },
-  { href: ROUTES.contact, key: 'CONTACT' },
 ] as const
