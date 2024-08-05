@@ -3,38 +3,34 @@ import { Icon } from 'astro-icon/components'
 import { t } from 'i18n:astro'
 
 import FooterSocialsTitle from '@components/misc/FooterSocialsTitle'
+import FeitLogo from '@components/ui/FeitLogo.astro'
 import UnderlineText from '@components/ui/UnderlineText'
 
-import { HREF, MY_EMAIL, ROUTES } from '@constants/routes'
-
-import Button from '@components/ui/Button'
-import FeitLogo from '@components/ui/FeitLogo.astro'
+import { CONTACT, HREF, ROUTES } from '@constants/routes'
 
 const year = new Date().getFullYear()
 ---
 
 <footer class="bg-gradient-to-t from-secondary-100 to-[#0D0E16]">
   <div class="container space-y-8 py-7 md:pt-10">
-    <div class="grid grid-cols-3 items-stretch lg:grid-cols-2 sm:block">
-      <div class="flex w-fit flex-col items-center justify-between gap-2 sm:hidden">
-        <FeitLogo loading="lazy" class:list="*:!text-4xl gap-2" />
+    <div class="grid grid-cols-3 items-stretch lg:grid-cols-2 sm:block sm:space-y-8">
+      <div class="flex w-fit flex-col items-start justify-start gap-3 sm:w-full sm:items-center sm:text-center">
+        <FeitLogo loading="lazy" class="*:!text-4xl sm:*:!text-3xl" />
 
-        <Button
-          as="a"
-          client:idle
-          size="lg"
-          variant="ghost"
-          color="default"
-          target="_blank"
-          href={HREF.feitCode.home}
-          className="flex items-center gap-1"
-        >
-          {t('landing:HERO.CTA.GET_STARTED')}
-          <Icon name="external-link" class="scale-[0.8]" />
-        </Button>
+        <div class="space-y-1">
+          <a href={`mailto:${CONTACT.email}`} class="flex items-center gap-2 font-light sm:justify-center">
+            <Icon name="email" class="w-7 sm:hidden" />
+            {CONTACT.email}
+          </a>
+
+          <a href={`tel:${CONTACT.phone}`} class="flex items-center gap-2 font-light sm:justify-center">
+            <Icon name="phone" class="w-7 sm:hidden" />
+            {CONTACT.phone.replaceAll('-', ' ')}
+          </a>
+        </div>
       </div>
 
-      <ul class="flex items-start justify-center gap-8 lg:hidden">
+      <ul class="mx-auto flex w-fit items-start justify-center gap-10 lg:hidden">
         <li>
           <a href={ROUTES.about} class="flex items-center self-stretch text-lg">
             <UnderlineText>{t('NAV.ABOUT')}</UnderlineText>
@@ -76,11 +72,11 @@ const year = new Date().getFullYear()
       </ul>
 
       <div
-        class="ml-auto flex max-w-[240px] flex-col justify-between gap-4 rounded-xl bg-slate-50/90 p-3 text-slate-800 backdrop-opacity-50 sm:max-w-full sm:items-center sm:gap-6 sm:text-center"
+        class="ml-auto flex max-w-[240px] flex-col justify-between gap-4 rounded-xl bg-slate-50/90 p-3 text-center text-slate-800 backdrop-opacity-50 sm:max-w-full sm:items-center sm:gap-6 sm:text-center"
       >
         <FooterSocialsTitle />
 
-        <ul class="flex items-center gap-4 text-secondary *:scale-[1.1] *:transition-colors *:duration-200 sm:gap-6">
+        <ul class="flex items-center justify-center gap-3 text-secondary *:transition-colors *:duration-200 sm:gap-6">
           <li class="hover:text-secondary-200">
             <a href={HREF.github} aria-label="GitHub" target="_blank">
               <Icon name="socials/github" />
@@ -89,7 +85,7 @@ const year = new Date().getFullYear()
 
           <li class="hover:text-secondary-200">
             <a href={HREF.linkedin} aria-label="LinkedIn" target="_blank">
-              <Icon name="socials/linkedin" />
+              <Icon name="socials/linkedin" class="scale-[1.1]" />
             </a>
           </li>
 
@@ -100,8 +96,14 @@ const year = new Date().getFullYear()
           </li>
 
           <li class="hover:text-secondary-200">
-            <a href={`mailto:${MY_EMAIL}`} aria-label="Email">
-              <Icon name="socials/email" />
+            <a href={HREF.x} aria-label="X">
+              <Icon name="socials/x" class="scale-[0.9]" />
+            </a>
+          </li>
+
+          <li class="hover:text-secondary-200">
+            <a href={HREF.facebook} aria-label="Facebook">
+              <Icon name="socials/facebook" />
             </a>
           </li>
         </ul>

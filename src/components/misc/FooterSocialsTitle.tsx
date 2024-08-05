@@ -3,7 +3,7 @@ import GradientText from '@components/ui/GradientText'
 
 const FooterSocialsTitle = () => {
   return (
-    <p className="sm:text-lg">
+    <p>
       <Trans
         tKey={['NAV.FOOTER.REACH_OUT']}
         components={{
