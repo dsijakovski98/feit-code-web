@@ -19,7 +19,7 @@
     }
   },
   "FEATURES": {
-    "HEADING": "Make coding exams <line>fast</line>, <line>easy</line> & <line>reliable</line>",
+    "HEADING": "We made coding exams <line>fast, easy & reliable</line>",
     "PARAGRAPH": "Helping Students take and Teachers make - high quality exams, all while doing it frictionless.",
     "LIST": [
       {
@@ -41,11 +41,11 @@
     ]
   },
   "TESTIMONIALS": {
-    "HEADING": "Testimonials",
+    "HEADING": "Testimonials & Reviews",
     "PARAGRAPH": "Check out what our <students>fellow students</students> have to say about us",
     "LIST": [
       {
-        "TEXT": "The new web app for programming exams at FEIT has made the whole process so much smoother. I can now take tests from the comfort of my home, and the interface is incredibly user-friendly. Highly recommended!",
+        "TEXT": "The new web app for programming exams at FEIT has made the whole process so much smoother.",
         "NAME": "Elena Vcheva",
         "ROLE": "Student",
         "WORKPLACE": "FEIT, KSIAR"

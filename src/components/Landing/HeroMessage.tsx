@@ -15,7 +15,7 @@ const HeroMessage = () => {
         />
       </h1>
 
-      <GradientText as="h2" className="text-balance !overflow-visible -mt-4 leading-[1.2] text-8xl sm:-mt-8 sm:text-[3.6rem]">
+      <GradientText as="h2" className="text-balance -mt-4 leading-[1.2] text-8xl sm:-mt-8 sm:text-[3.6rem]">
         {t('landing:HERO.SUB')}
       </GradientText>
 

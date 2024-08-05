@@ -3,25 +3,27 @@ import type { PropsWithChildren } from 'react'
 
 import Trans from '@components/Trans'
 import GradientText from '@components/ui/GradientText'
+import TextBlock from '@components/ui/TextBlock'
 
 const Testimonials = ({ children }: PropsWithChildren) => {
   return (
-    <div className="flex items-start justify-between gap-8 lg:flex-col lg:items-center lg:text-center lg:gap-12">
-      <div className="space-y-1">
-        <h2 className="text-5xl font-medium sm:text-4xl">{t('landing:TESTIMONIALS.HEADING')}</h2>
-
-        <p className="text-2xl font-extralight sm:text-xl">
+    <section className="space-y-16">
+      <TextBlock
+        as="h2"
+        centered
+        title={t('landing:TESTIMONIALS.HEADING')}
+        paragraph={
           <Trans
             tKey={['landing:TESTIMONIALS.PARAGRAPH']}
             components={{
               students: <GradientText className="font-semibold" />,
             }}
           />
-        </p>
-      </div>
+        }
+      />
 
-      {children}
-    </div>
+      <div>{children}</div>
+    </section>
   )
 }
 
