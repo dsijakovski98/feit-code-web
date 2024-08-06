@@ -16,8 +16,8 @@ const description = t('contact:META.DESCRIPTION')
 ---
 
 <PageLayout {title} {description} hideFooter>
-  <main class="bg-dots bg-[top_center] bg-no-repeat py-20 sm:py-4 xs:pt-2">
-    <div class="container flex h-full items-stretch justify-between gap-64">
+  <main class="bg-dots bg-[top_center] bg-no-repeat py-20 lg:py-12 sm:pb-4 sm:pt-8 xs:pt-2">
+    <div class="container flex h-full items-stretch justify-between lg:flex-col lg:items-center lg:gap-10">
       <section class="flex max-w-[440px] flex-col items-start justify-between">
         <div>
           <TextBlock
@@ -25,10 +25,11 @@ const description = t('contact:META.DESCRIPTION')
             title={t('contact:REACH_OUT.TITLE')}
             paragraph={t('contact:REACH_OUT.PARAGRAPH')}
             titleClass="text-5xl"
+            className="lg:!text-center"
           />
         </div>
 
-        <ul class="space-y-5">
+        <ul class="space-y-5 lg:hidden">
           <li class="group">
             <a href={`mailto:${CONTACT.email}`} class="flex items-center gap-4 text-lg">
               <Icon name="email" class="scale-[1.3] text-primary-600" />
@@ -44,7 +45,7 @@ const description = t('contact:META.DESCRIPTION')
           </li>
         </ul>
 
-        <ul class="flex items-center gap-10 *:scale-[1.3]">
+        <ul class="flex items-center gap-10 *:scale-[1.3] lg:hidden">
           {
             SOCIALS.map(({ href, icon, label }) => (
               <li class="cursor-pointer rounded-full p-2 duration-300 transition-background hover:bg-primary">
@@ -57,7 +58,9 @@ const description = t('contact:META.DESCRIPTION')
         </ul>
       </section>
 
-      <section class="flex-1 rounded-xl bg-gradient-to-br from-primary-50/80 to-transparent to-50% p-8 shadow-2xl">
+      <section
+        class="min-w-[540px] rounded-xl bg-gradient-to-br from-primary-50/80 to-transparent to-50% p-8 shadow-2xl lg:w-full lg:!min-w-[320px] lg:max-w-[540px] lg:p-6 sm:to-40%"
+      >
         <ContactForm client:load>
           <Icon slot="error" name="error" class="scale-[0.8]" />
           <Icon slot="success" name="plane" class="scale-[2]" />

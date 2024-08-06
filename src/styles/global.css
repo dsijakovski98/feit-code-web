@@ -8,6 +8,10 @@
     height: 24px;
   }
 
+  html[lang='mk'] :is(input, textarea) {
+    @apply !font-inter placeholder:!font-inter;
+  }
+
   /* Reset NextUI dropdown */
   [role='menuitemradio'] svg {
     width: auto;
