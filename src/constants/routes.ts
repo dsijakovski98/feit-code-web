@@ -26,7 +26,7 @@ export const HREF = {
 }
 
 export const CONTACT = {
-  email: 'dshijakovski@yahoo.com',
+  email: 'feit.code.ukim@gmail.com',
   phone: '+389-70-372-921',
 }
 

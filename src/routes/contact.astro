@@ -1,0 +1,17 @@
+---
+import PageLayout from '@layouts/PageLayout.astro'
+import { Icon } from 'astro-icon/components'
+import { t } from 'i18n:astro'
+
+const title = t('contact:META.TITLE')
+const description = t('contact:META.DESCRIPTION')
+
+const icons = ['quote', 'external-link']
+---
+
+<PageLayout {title} {description} hideFooter>
+  <main class="bg-dots bg-[top_center] bg-no-repeat py-20 sm:py-4 xs:pt-2">
+    <h1>Contact us</h1>
+    {icons.map((icon) => <Icon name={icon} />)}
+  </main>
+</PageLayout>

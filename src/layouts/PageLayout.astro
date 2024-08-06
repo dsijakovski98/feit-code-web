@@ -15,9 +15,10 @@ import '@styles/global.css'
 type Props = {
   title: string
   description?: string
+  hideFooter?: boolean
 }
 
-const { title, description = '' } = Astro.props
+const { title, description = '', hideFooter = false } = Astro.props
 
 const layoutHeadItems: HeadItems = {
   title,
@@ -127,7 +128,7 @@ const globalFont = locale === 'en' ? 'font-kanit' : 'font-inter'
 
       <slot />
 
-      <Footer />
+      {!hideFooter && <Footer />}
     </div>
   </body>
 </html>
