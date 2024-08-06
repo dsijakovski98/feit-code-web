@@ -1,0 +1,71 @@
+---
+import { Icon } from 'astro-icon/components'
+import { t } from 'i18n:astro'
+
+import PageLayout from '@layouts/PageLayout.astro'
+
+import ContactForm from '@components/Contact/ContactForm'
+import TextBlock from '@components/ui/TextBlock'
+import UnderlineText from '@components/ui/UnderlineText'
+
+import { SOCIALS } from '@constants/content'
+import { CONTACT } from '@constants/routes'
+
+const title = t('contact:META.TITLE')
+const description = t('contact:META.DESCRIPTION')
+---
+
+<PageLayout {title} {description} hideFooter>
+  <main class="bg-dots bg-[top_center] bg-no-repeat py-20 lg:py-12 sm:pb-4 sm:pt-8 xs:pt-2">
+    <div class="container flex h-full items-stretch justify-between lg:flex-col lg:items-center lg:gap-10">
+      <section class="flex max-w-[440px] flex-col items-start justify-between">
+        <div>
+          <TextBlock
+            as="h1"
+            title={t('contact:REACH_OUT.TITLE')}
+            paragraph={t('contact:REACH_OUT.PARAGRAPH')}
+            titleClass="text-5xl"
+            className="lg:!text-center"
+          />
+        </div>
+
+        <ul class="space-y-5 lg:hidden">
+          <li class="group">
+            <a href={`mailto:${CONTACT.email}`} class="flex items-center gap-4 text-lg">
+              <Icon name="email" class="scale-[1.3] text-primary-600" />
+              <UnderlineText>{CONTACT.email}</UnderlineText>
+            </a>
+          </li>
+
+          <li class="group">
+            <a href={`tel:${CONTACT.phone}`} class="flex items-center gap-4 text-lg">
+              <Icon name="phone" class="scale-[1.3] text-primary-600" />
+              <UnderlineText>{CONTACT.phone.replaceAll('-', ' ')}</UnderlineText>
+            </a>
+          </li>
+        </ul>
+
+        <ul class="flex items-center gap-10 *:scale-[1.3] lg:hidden">
+          {
+            SOCIALS.map(({ href, icon, label }) => (
+              <li class="cursor-pointer rounded-full p-2 duration-300 transition-background hover:bg-primary">
+                <a href={href} aria-label={label} target="_blank" class="transition-background">
+                  <Icon name={`socials/${icon}`} />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <section
+        class="min-w-[540px] rounded-xl bg-gradient-to-br from-primary-50/80 to-transparent to-50% p-8 shadow-2xl lg:w-full lg:!min-w-[320px] lg:max-w-[540px] lg:p-6 sm:to-40%"
+      >
+        <ContactForm client:load>
+          <Icon slot="error" name="error" class="scale-[0.8]" />
+          <Icon slot="success" name="plane" class="scale-[2]" />
+        </ContactForm>
+      </section>
+    </div>
+  </main>
+</PageLayout>

@@ -6,12 +6,14 @@ import FooterSocialsTitle from '@components/misc/FooterSocialsTitle'
 import FeitLogo from '@components/ui/FeitLogo.astro'
 import UnderlineText from '@components/ui/UnderlineText'
 
+import { SOCIALS } from '@constants/content'
 import { CONTACT, HREF, ROUTES } from '@constants/routes'
+import clsx from 'clsx'
 
 const year = new Date().getFullYear()
 ---
 
-<footer class="bg-gradient-to-t from-secondary-100 to-[#0D0E16]">
+<footer class="bg-gradient-to-t from-secondary-100 to-[#0D0E16] to-90%">
   <div class="container space-y-8 py-7 md:pt-10">
     <div class="grid grid-cols-3 items-stretch lg:grid-cols-2 sm:block sm:space-y-8">
       <div class="flex w-fit flex-col items-start justify-start gap-3 sm:w-full sm:items-center sm:text-center">
@@ -77,35 +79,18 @@ const year = new Date().getFullYear()
         <FooterSocialsTitle />
 
         <ul class="flex items-center justify-center gap-3 text-secondary *:transition-colors *:duration-200 sm:gap-6">
-          <li class="hover:text-secondary-200">
-            <a href={HREF.github} aria-label="GitHub" target="_blank">
-              <Icon name="socials/github" />
-            </a>
-          </li>
-
-          <li class="hover:text-secondary-200">
-            <a href={HREF.linkedin} aria-label="LinkedIn" target="_blank">
-              <Icon name="socials/linkedin" class="scale-[1.1]" />
-            </a>
-          </li>
-
-          <li class="hover:text-secondary-200">
-            <a href={HREF.instagram} aria-label="Instagram" target="_blank">
-              <Icon name="socials/instagram" />
-            </a>
-          </li>
-
-          <li class="hover:text-secondary-200">
-            <a href={HREF.x} aria-label="X" target="_blank">
-              <Icon name="socials/x" class="scale-[0.9]" />
-            </a>
-          </li>
-
-          <li class="hover:text-secondary-200">
-            <a href={HREF.facebook} aria-label="Facebook" target="_blank">
-              <Icon name="socials/facebook" />
-            </a>
-          </li>
+          {
+            SOCIALS.map(({ href, label, icon }) => (
+              <li class="hover:text-secondary-200">
+                <a href={href} aria-label={label} target="_blank">
+                  <Icon
+                    name={`socials/${icon}`}
+                    class={clsx({ 'scale-[1.15]': icon === 'linkedin', 'scale-[0.9]': icon === 'x' })}
+                  />
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </div>
     </div>
