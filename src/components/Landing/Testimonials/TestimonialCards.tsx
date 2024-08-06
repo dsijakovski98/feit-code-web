@@ -31,7 +31,7 @@ export default function TestimonialCards({ testimonials, ...rest }: Props) {
         grabCursor
         centerInsufficientSlides
         speed={300}
-        spaceBetween={30}
+        spaceBetween={50}
         pagination={false}
         slidesPerView="auto"
         navigation={{ prevEl, nextEl }}
