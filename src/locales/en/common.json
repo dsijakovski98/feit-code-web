@@ -1,13 +1,37 @@
 {
   "ERRORS": {
+    "NAME": {
+      "EMPTY": "Name cannot be empty!"
+    },
     "EMAIL": {
       "EMPTY": "E-mail cannot be empty!",
-      "INVALID": "Please enter a valid e-mail!",
-      "SUBSCRIBE": "Oops! Something went wrong, please try again."
-    }
+      "INVALID": "Please enter a valid e-mail!"
+    },
+    "MESSAGE": {
+      "EMPTY": "Please enter a message!"
+    },
+    "SUBSCRIBE": "Oops! Something went wrong, please try again.",
+    "CONTACT": "Oops! Could not send message, please try again."
   },
   "FORM": {
-    "SUBSCRIBE": "Join us"
+    "NAME": {
+      "LABEL": "Name",
+      "PLACEHOLDER": "Your name here"
+    },
+    "EMAIL": {
+      "LABEL": "E-mail",
+      "PLACEHOLDER": "email@example.com"
+    },
+    "MESSAGE": {
+      "LABEL": "Message",
+      "PLACEHOLDER": "Your message here"
+    },
+    "SUBSCRIBE": {
+      "SUBMIT": "Join us"
+    },
+    "CONTACT": {
+      "SUBMIT": "Send"
+    }
   },
   "NAV": {
     "LOGO": {

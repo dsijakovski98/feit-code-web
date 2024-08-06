@@ -55,10 +55,6 @@
   "SUBSCRIBE": {
     "HEADING": "Wanna be up to date on the latest FEIT Code news?",
     "PARAGRAPH": "Join our e-mail list and get in sync!",
-    "EMAIL": {
-      "LABEL": "E-mail",
-      "PLACEHOLDER": "email@example.com",
-      "SUCCESS": "Welcome to FEIT Code News! 🥳"
-    }
+    "SUCCESS": "Welcome to FEIT Code News! 🥳"
   }
 }

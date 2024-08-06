@@ -1,13 +1,37 @@
 {
   "ERRORS": {
+    "NAME": {
+      "EMPTY": "Име полето не смее да биде празно!"
+    },
     "EMAIL": {
       "EMPTY": "E-mail полето не смее да биде празно!",
-      "INVALID": "Ве молиме внесете валиден e-mail!",
-      "SUBSCRIBE": "Опа! Нешто не штима... обидете се повторно."
-    }
+      "INVALID": "Ве молиме внесете валиден e-mail!"
+    },
+    "MESSAGE": {
+      "EMPTY": "Ве молиме внесете порака!"
+    },
+    "SUBSCRIBE": "Опа! Нешто не штима... обидете се повторно.",
+    "CONTACT": "Упс! Пораката не се испрати, обидете се повторно."
   },
   "FORM": {
-    "SUBSCRIBE": "Придружи се"
+    "NAME": {
+      "LABEL": "Име",
+      "PLACEHOLDER": "Вашето име"
+    },
+    "EMAIL": {
+      "LABEL": "E-mail",
+      "PLACEHOLDER": "student@feit-code.com"
+    },
+    "MESSAGE": {
+      "LABEL": "Порака",
+      "PLACEHOLDER": "Вашата порака"
+    },
+    "SUBSCRIBE": {
+      "SUBMIT": "Придружи се"
+    },
+    "CONTACT": {
+      "SUBMIT": "Прати"
+    }
   },
   "NAV": {
     "LOGO": {

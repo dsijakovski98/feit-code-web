@@ -17,7 +17,7 @@ const description = t('contact:META.DESCRIPTION')
 
 <PageLayout {title} {description} hideFooter>
   <main class="bg-dots bg-[top_center] bg-no-repeat py-20 sm:py-4 xs:pt-2">
-    <div class="container flex h-full items-stretch justify-between gap-72">
+    <div class="container flex h-full items-stretch justify-between gap-64">
       <section class="flex max-w-[440px] flex-col items-start justify-between">
         <div>
           <TextBlock
@@ -57,8 +57,11 @@ const description = t('contact:META.DESCRIPTION')
         </ul>
       </section>
 
-      <section class="flex-1 rounded-2xl bg-slate-50/90 p-12 text-slate-800">
-        <ContactForm />
+      <section class="flex-1 rounded-xl bg-gradient-to-br from-primary-50/80 to-transparent to-50% p-8 shadow-2xl">
+        <ContactForm client:load>
+          <Icon slot="error" name="error" class="scale-[0.8]" />
+          <Icon slot="success" name="plane" class="scale-[2]" />
+        </ContactForm>
       </section>
     </div>
   </main>

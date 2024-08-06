@@ -5,6 +5,7 @@
   },
   "REACH_OUT": {
     "TITLE": "Reach out",
-    "PARAGRAPH": "Fill in your info and send us a message. Let us know what you think about FEIT Code!"
+    "PARAGRAPH": "Fill in your info and send us a message. Let us know what you think about FEIT Code!",
+    "SUCCESS": "Your message has been sent, thanks for reaching out!"
   }
 }

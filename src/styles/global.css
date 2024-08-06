@@ -26,7 +26,7 @@
     -webkit-background-clip: text !important;
   }
 
-  [data-slot='input-wrapper'] {
+  .subscribe-input[data-slot='input-wrapper'] {
     @apply group-data-[focus-visible=true]:!bg-transparent group-data-[focus-visible=true]:!ring-0 group-data-[focus-visible=true]:!ring-offset-0;
   }
 }

@@ -2,6 +2,7 @@ import clsx from 'clsx'
 import { getLocale, t } from 'i18n:astro'
 import { Controller, type SubmitHandler, useForm } from 'react-hook-form'
 import type { Slots } from 'types/index'
+import { type InferInput, email, nonEmpty, object, pipe, string, trim } from 'valibot'
 
 import { Input } from '@nextui-org/input'
 import { CircularProgress } from '@nextui-org/react'
@@ -11,13 +12,14 @@ import Button from '@components/ui/Button'
 import { EMAILJS } from '@constants/email'
 import emailjs from '@emailjs/browser'
 import { valibotResolver } from '@hookform/resolvers/valibot'
-import { SubscribeEmailSchema, type SubscribeEmailType } from '@utils/schemas'
+
+const SubscribeEmailSchema = object({
+  email: pipe(string(), trim(), nonEmpty('EMAIL.EMPTY'), email('EMAIL.INVALID')),
+})
 
 type Props = any
 
 const SubscribeForm = ({ ...rest }: Props) => {
-  const tEmail = t('landing:SUBSCRIBE.EMAIL', { returnObjects: true })
-  const tErrors = t('ERRORS.EMAIL', { returnObjects: true })
   const tForm = t('FORM', { returnObjects: true })
 
   const locale = getLocale()
@@ -37,13 +39,13 @@ const SubscribeForm = ({ ...rest }: Props) => {
     },
   })
 
-  const onSubmit: SubmitHandler<SubscribeEmailType> = async ({ email }) => {
+  const onSubmit: SubmitHandler<InferInput<typeof SubscribeEmailSchema>> = async ({ email }) => {
     clearErrors('email')
 
     await emailjs
       .send(
         EMAILJS.SERVICE_ID,
-        EMAILJS.TEMPLATE_ID[locale],
+        EMAILJS.TEMPLATES.SUBSCRIBE[locale],
         { to: email },
         {
           publicKey: import.meta.env.PUBLIC_EMAILJS_KEY,
@@ -77,13 +79,13 @@ const SubscribeForm = ({ ...rest }: Props) => {
             <Input
               {...field}
               radius="full"
-              label={tEmail.LABEL}
+              label={tForm.EMAIL.LABEL}
               autoComplete="email"
-              placeholder={tEmail.PLACEHOLDER}
+              placeholder={tForm.EMAIL.PLACEHOLDER}
               className="min-w-[320px] *:!bg-transparent sm:min-w-full"
               classNames={{
                 inputWrapper: clsx(
-                  'hover:!bg-transparent space-y-4 pt-4 sm:!h-16 sm:space-y-3 sm:border-2 sm:border-secondary-300 sm:px-6 sm:pt-4',
+                  'subscribe-input hover:!bg-transparent space-y-4 pt-4 sm:!h-16 sm:space-y-3 sm:border-2 sm:border-secondary-300 sm:px-6 sm:pt-4',
                   { 'sm:!border-danger-500': !!errors.email },
                 ),
                 label: '!text-white text-lg font-semibold',
@@ -108,20 +110,26 @@ const SubscribeForm = ({ ...rest }: Props) => {
               className={clsx('w-[50px]', { 'mx-[27px]': locale === 'mk' })}
             />
           ) : (
-            tForm.SUBSCRIBE
+            tForm.SUBSCRIBE.SUBMIT
           )}
         </Button>
       </div>
 
       {errors.email && (
-        <p className="absolute inset-x-2 top-full flex translate-y-2 items-center gap-1 leading-[1.2] text-danger-500 sm:inset-x-8 sm:translate-y-0 sm:items-start sm:text-sm">
-          {slots.error} {tErrors[errors.email.message as keyof typeof tErrors]}
+        <p
+          role="alert"
+          className="absolute inset-x-2 top-full flex translate-y-2 items-center gap-1 leading-[1.2] text-danger-500 sm:inset-x-8 sm:translate-y-0 sm:items-start sm:text-sm"
+        >
+          {slots.error} {t(`common:ERRORS.${errors.email.message}` as any)}
         </p>
       )}
 
       {isSubmitSuccessful && !errors.email && (
-        <p className="absolute inset-x-2 top-full flex translate-y-4 items-center justify-center gap-1 text-center text-3xl font-light leading-[1.2] text-primary-700 sm:inset-x-8 sm:translate-y-1 sm:items-start sm:text-2xl xs:text-lg">
-          {tEmail.SUCCESS}
+        <p
+          role="alert"
+          className="absolute inset-x-2 top-full flex translate-y-4 items-center justify-center gap-1 text-center text-3xl font-light leading-[1.2] text-primary-700 sm:inset-x-8 sm:translate-y-1 sm:items-start sm:text-2xl xs:text-lg"
+        >
+          {t('landing:SUBSCRIBE.SUCCESS')}
         </p>
       )}
     </form>
