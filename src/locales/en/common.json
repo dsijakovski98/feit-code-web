@@ -73,5 +73,13 @@
   },
   "NEXT": "Next",
   "PREV": "Previous",
-  "PROGRESS_BAR": "Progress bar"
+  "PROGRESS_BAR": "Progress bar",
+  "404": {
+    "META": {
+      "TITLE": "404: Unknown Page"
+    },
+    "HEADING": "Looks like a dead end!",
+    "PARAGRAPH": "Take a deep breath and start over",
+    "CTA": "Go back home"
+  }
 }

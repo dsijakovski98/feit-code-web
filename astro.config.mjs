@@ -1,6 +1,7 @@
 import icon from 'astro-icon'
 import { defineConfig } from 'astro/config'
 
+import node from '@astrojs/node'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
@@ -21,12 +22,15 @@ export default defineConfig({
     liciousI18n({
       locales: ['en', 'mk'],
       defaultLocale: 'en',
-      strategy: 'prefixExceptDefault',
       client: {
         data: true,
-        translations: true,
         paths: true,
+        translations: true,
       },
     }),
   ],
+  output: 'hybrid',
+  adapter: node({
+    mode: 'standalone',
+  }),
 })
