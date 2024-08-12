@@ -16,9 +16,10 @@ type Props = {
   title: string
   description?: string
   hideFooter?: boolean
+  headItems?: HeadItems
 }
 
-const { title, description = '', hideFooter = false } = Astro.props
+const { title, description = '', hideFooter = false, headItems = {} } = Astro.props
 
 const layoutHeadItems: HeadItems = {
   title,
@@ -104,7 +105,7 @@ const globalFont = locale === 'en' ? 'font-kanit' : 'font-inter'
 <!doctype html>
 <html {...getHtmlAttrs()}>
   <head>
-    <Helmet options={{ omitHeadTags: true }} headItems={[layoutHeadItems]} />
+    <Helmet options={{ omitHeadTags: true }} headItems={[layoutHeadItems, headItems]} />
 
     <I18nHead />
     <I18nClient />

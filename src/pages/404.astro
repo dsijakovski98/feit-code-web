@@ -1,0 +1,37 @@
+---
+import Button from '@components/ui/Button'
+import TextBlock from '@components/ui/TextBlock'
+import { ROUTES } from '@constants/routes'
+import PageLayout from '@layouts/PageLayout.astro'
+import { t } from 'i18n:astro'
+
+const title = t('404.META.TITLE')
+
+export const prerender = false
+---
+
+<PageLayout {title} hideFooter>
+  <main class="bg-dots bg-[top_center] bg-no-repeat py-20 sm:py-4 xs:pt-2">
+    <div class="container grid h-full place-items-center content-center gap-8 sm:gap-4">
+      <h1
+        class="fixed left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%] scale-[4] bg-dots bg-clip-text font-kanit text-9xl font-extrabold text-transparent opacity-60 sm:scale-[1.8]"
+      >
+        404
+      </h1>
+
+      <TextBlock
+        as="h2"
+        centered
+        title={t('404.HEADING')}
+        paragraph={t('404.PARAGRAPH')}
+        titleClass="text-7xl sm:text-4xl"
+        paragraphClass="!text-2xl sm:!text-xl"
+        className="sm:!space-y-1"
+      />
+
+      <Button client:load as="a" href={ROUTES.home} variant="ghost" size="lg">
+        {t('404.CTA')}
+      </Button>
+    </div>
+  </main>
+</PageLayout>
