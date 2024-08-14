@@ -14,22 +14,26 @@ const HeroAbout = ({ ...rest }: Props) => {
   const slots = rest as Slots<'light' | 'external'>
 
   return (
-    <section className="text-center px-40">
+    <section className="text-center px-40 lg:px-10">
       <TextBlock
         as="h1"
         centered
         title={t('about:HERO.HEADING')}
         paragraph={t('about:HERO.QUESTIONS')}
         titleClass="text-6xl sm:text-4xl !mb-6"
-        className="mb-7"
+        className="mb-8"
       />
 
-      <a href={HREF.feitCode.home} target="_blank" className="flex group flex-col items-center gap-1 isolate">
-        <div className="group-hover:opacity-100 opacity-0 transition-transform-opacity group-hover:translate-y-[1px] translate-y-[100%] duration-300">
+      <a
+        href={HREF.feitCode.home}
+        target="_blank"
+        className="flex md:pointer-events-none group flex-col items-center gap-1 isolate"
+      >
+        <div className="group-hover:opacity-100 opacity-0 md:opacity-100 md:translate-y-[50%] transition-transform-opacity group-hover:translate-y-[1px] translate-y-[100%] duration-300">
           {slots.light}
         </div>
 
-        <div className="space-y-4 text-xl sm:text-lg font-light transition-shadow duration-300 shadow-transparent rounded-full z-10 group-hover:shadow-success bg-gradient-to-b from-slate-800 from-10% to-slate-100/5 shadow-lg px-14 py-5 text-center">
+        <div className="space-y-4 text-xl sm:text-lg font-light rounded-lg md:shadow-primary transition-shadow duration-300 z-10 group-hover:shadow-primary-100 bg-gradient-to-b from-primary-50 group-hover:from-primary-100 from-10% to-transparent shadow-lg px-14 py-5 text-center">
           <p>
             <Trans
               tKey={['about:HERO.PARAGRAPH']}
@@ -42,10 +46,9 @@ const HeroAbout = ({ ...rest }: Props) => {
 
           <Button
             size="lg"
-            radius="full"
             color="default"
             variant="bordered"
-            className="-space-x-2 text-slate-500 pointer-events-none group-hover:pointer-events-auto group-hover:text-success px-12 "
+            className="-space-x-2 rounded-lg md:px-6 md:text-primary group-hover:border-primary-100 md:border-primary-100 md:pointer-events-auto pointer-events-none group-hover:pointer-events-auto group-hover:text-primary px-12 "
           >
             {t('about:HERO.CTA')}
             {slots.external}
