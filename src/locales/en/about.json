@@ -1,0 +1,71 @@
+{
+  "META": {
+    "TITLE": "About | FEIT Code",
+    "DESCRIPTION": "Learn more about what FEIT Code represents and how it works."
+  },
+  "STUDENT": "Student",
+  "TEACHER": "Teacher",
+  "I_AM": "I'm a <b>{{type}}</b>.",
+  "HERO": {
+    "HEADING": "What is FEIT Code anyway?",
+    "QUESTIONS": "How many times did you have to wait to find out whether you passed that coding exam? Maybe the computer you were working on glitches and you lose progress? It's all needlessly long and stressful right?",
+    "PARAGRAPH": "FEIT Code aims to fix all of those issues for you and more... It has the goal to make it easier on both Students and Teachers to take and make coding exams.",
+    "CTA": "Check it out"
+  },
+  "HELP": {
+    "QUESTION": "How does this help me?",
+    "STUDENT_HELP": "As a Student, you will be able to easily take your coding exam knowing that your <b>progress will be saved</b> and you can get instant feedback on whether your <b>task is performing as expected</b>. On top of that, you won't have to wait weeks (sometimes months) to find out how you did - Teachers will have large parts of the grading process automated and you will be able to see the status of your exam in real time (e.g. if it's being graded currently etc.), making results available FASTER THAN EVER!",
+    "TEACHER_HELP": "As a Teacher, you will be able to create comprehensive coding tasks, with interactive descriptions and time limits, but most importantly - you will have the option to easily add <b>automation tests to run over the submitted tasks</b> in order to get a better idea of the overall behavior of each task. The grading process is a fully interactive experience where you choose the level of detailed feedback to give each student - all the way to the actual line of code in question. All of these features, along with course and students management, announcements... you'll wonder why you ever used any other tool for coding exams!"
+  },
+  "STEPS": {
+    "HEADING": "Okay I'm sold. How does it work though?",
+    "LIST": {
+      "STUDENT": [
+        {
+          "TITLE": "Sign up for a course",
+          "DESCRIPTION": "Choose from a list of programming-related FEIT courses and sign up for it."
+        },
+        {
+          "TITLE": "Take the exam",
+          "DESCRIPTION": "Take exams in the FEIT Code IDE. Enjoy features like autocomplete, autosave etc. just like in your local IDE!"
+        },
+        {
+          "TITLE": "Get instant feedback",
+          "DESCRIPTION": "Run your code in the IDE and see how it does against the tests setup for the task."
+        },
+        {
+          "TITLE": "Submit & Track the status",
+          "DESCRIPTION": "Track the status of your submission, get notified and know exactly when your task is being graded and a grade is submitted. Learn from the feedback and get better each exam!"
+        }
+      ],
+      "TEACHER": [
+        {
+          "TITLE": "Create a course",
+          "DESCRIPTION": "Create and manage any programming-related course through your Dashboard."
+        },
+        {
+          "TITLE": "Create an exam",
+          "DESCRIPTION": "Create an exam with one or more tasks, add time limits, assign points and various constraints. Setup (optional) <b>automated tests</b> to grade and assess tasks quicker than ever!"
+        },
+        {
+          "TITLE": "Monitor exams",
+          "DESCRIPTION": "Receive insights about the exam like <b>time spent outside the IDE tab</b> during the exam for each student, <b>number of PASTE commands</b> to be able to make better decisions about each feedback and grade."
+        },
+        {
+          "TITLE": "Automated grading & feedback",
+          "DESCRIPTION": "Run the (optional) automated tests and get a better overview of the exam's results before even looking at a line of code! Finally, provide a comprehensive feedback to each student as needed."
+        }
+      ]
+    }
+  },
+  "LANGUAGES": {
+    "HEADING": "Supported Languages",
+    "LIST": ["C", "JavaScript", "TypeScript", "Go", "Python"],
+    "MORE": "more coming soon!"
+  },
+  "TEAM": {
+    "HEADING": "Meet the squad",
+    "NAME": "Daniel",
+    "DESCRIPTION": "Soon to be former FEIT Student. Web Developer @ <a>TestDevLab</a>. Fan of bad puns."
+  }
+}
