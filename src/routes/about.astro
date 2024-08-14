@@ -4,6 +4,8 @@ import { t } from 'i18n:astro'
 
 import PageLayout from '@layouts/PageLayout.astro'
 
+import Help from '@components/pages/About/Help'
+import HelpAccordion from '@components/pages/About/HelpAccordion'
 import HeroAbout from '@components/pages/About/HeroAbout'
 
 const title = t('about:META.TITLE')
@@ -12,11 +14,20 @@ const description = t('about:META.DESCRIPTION')
 
 <PageLayout {title} {description}>
   <main class="bg-dots bg-[top_center] bg-no-repeat py-20 lg:py-12 sm:pb-4 sm:pt-8 xs:pt-2">
-    <div class="container space-y-40">
-      <HeroAbout>
-        <Icon slot="light" name="lightbulb" class="scale-[3] text-success drop-shadow-[0px_0px_2px_theme(colors.success)]" />
-        <Icon slot="external" name="external-link" class="scale-[0.75]" />
-      </HeroAbout>
+    <div class="container space-y-52">
+      <div class="space-y-52 px-40 lg:px-10 sm:px-0">
+        <HeroAbout>
+          <Icon slot="light" name="lightbulb" class="scale-[3] text-primary drop-shadow-[0px_0px_2px_theme(colors.primary)]" />
+          <Icon slot="external" name="external-link" class="scale-[0.75]" />
+        </HeroAbout>
+
+        <Help>
+          <HelpAccordion client:load>
+            <Icon slot="student" name="book" />
+            <Icon slot="teacher" name="briefcase" />
+          </HelpAccordion>
+        </Help>
+      </div>
     </div>
   </main>
 </PageLayout>

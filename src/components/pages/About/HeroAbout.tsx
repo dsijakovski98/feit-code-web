@@ -14,7 +14,7 @@ const HeroAbout = ({ ...rest }: Props) => {
   const slots = rest as Slots<'light' | 'external'>
 
   return (
-    <section className="text-center px-40 lg:px-10">
+    <section className="text-center">
       <TextBlock
         as="h1"
         centered
