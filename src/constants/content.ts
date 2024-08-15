@@ -1,7 +1,7 @@
 import { HREF } from '@constants/routes'
 import elena from '@images/testimonials/elena.png'
 
-// TODO: Update with relative images
+// TODO: Update with relevant images
 export const TESTIMONIAL_IMAGES: Array<{ slot: string; img: ImageMetadata }> = [
   {
     slot: 'elena',
