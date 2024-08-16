@@ -18,8 +18,8 @@ const description = t('about:META.DESCRIPTION')
 
 <PageLayout {title} {description}>
   <main class="bg-dots bg-[top_center] bg-no-repeat py-40 lg:py-12 sm:pb-4 sm:pt-8 xs:pt-2">
-    <div class="container space-y-52">
-      <div class="mb-52 space-y-52 px-40 lg:px-10 sm:px-0">
+    <div class="container space-y-60 sm:space-y-40">
+      <div class="mb-60 space-y-60 px-40 lg:px-10 sm:mb-40 sm:space-y-40 sm:px-0">
         <HeroAbout>
           <Button
             client:load
@@ -37,14 +37,14 @@ const description = t('about:META.DESCRIPTION')
         </HeroAbout>
 
         <Help>
-          <HelpAccordion client:load>
+          <HelpAccordion client:visible>
             <Icon slot="student" name="book" />
             <Icon slot="teacher" name="briefcase" />
           </HelpAccordion>
         </Help>
       </div>
 
-      <Steps client:idle />
+      <Steps client:visible />
     </div>
   </main>
 </PageLayout>
