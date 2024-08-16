@@ -1,6 +1,6 @@
+import { AnimatePresence, motion } from 'framer-motion'
 import { t } from 'i18n:astro'
-import { Fragment, cloneElement, useMemo } from 'react'
-import type { Slots } from 'types/index'
+import { Fragment, useMemo } from 'react'
 
 import { Switch } from '@nextui-org/switch'
 
@@ -13,6 +13,7 @@ type Props = {}
 
 const Steps = ({}: Props) => {
   const { open, toggle } = useToggle(true)
+
   const userType = useMemo(() => (open ? t('about:STUDENT') : t('about:TEACHER')), [open])
   const steps = useMemo(
     () =>
@@ -22,22 +23,34 @@ const Steps = ({}: Props) => {
 
   return (
     <Fragment>
-      <div className="flex items-baseline gap-2 mb-20">
+      <motion.div layout className="flex items-baseline gap-2 mb-20">
         <TextBlock
           as="h2"
           title={t('about:STEPS.HEADING')}
           paragraph={
             <Switch
+              size="sm"
               classNames={{ base: 'flex-row-reverse items-end gap-4', label: 'text-2xl' }}
-              color="secondary"
               isSelected={open}
               onValueChange={toggle}
             >
-              {t('about:I_AM', { type: '' })} <span className="underline">{userType}</span>
+              {t('about:I_AM', { type: '' })}{' '}
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={userType}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.1 }}
+                  className="underline"
+                >
+                  {userType}
+                </motion.span>
+              </AnimatePresence>
             </Switch>
           }
         />
-      </div>
+      </motion.div>
 
       <StepsItems steps={steps} />
     </Fragment>
