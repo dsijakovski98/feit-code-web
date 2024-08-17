@@ -7,6 +7,8 @@ import PageLayout from '@layouts/PageLayout.astro'
 import Help from '@components/pages/About/Help'
 import HelpAccordion from '@components/pages/About/HelpAccordion'
 import HeroAbout from '@components/pages/About/HeroAbout'
+import LanguagesBanner from '@components/pages/About/Languages'
+import LanguagesTicker from '@components/pages/About/Languages/Ticker'
 import Steps from '@components/pages/About/Steps'
 import Button from '@components/ui/Button'
 
@@ -17,7 +19,9 @@ const description = t('about:META.DESCRIPTION')
 ---
 
 <PageLayout {title} {description}>
-  <main class="bg-dots bg-[top_center] bg-no-repeat py-40 lg:py-12 sm:pb-4 sm:pt-8 xs:pt-2">
+  <main
+    class="space-y-56 overflow-x-hidden bg-dots bg-[top_center] bg-no-repeat py-40 lg:py-12 sm:space-y-40 sm:pb-4 sm:pt-8 xs:pt-2"
+  >
     <div class="container space-y-60 sm:space-y-40">
       <div class="mb-60 space-y-60 px-40 lg:px-10 sm:mb-40 sm:space-y-40 sm:px-0">
         <HeroAbout>
@@ -46,5 +50,19 @@ const description = t('about:META.DESCRIPTION')
 
       <Steps client:visible />
     </div>
+
+    <LanguagesBanner>
+      <LanguagesTicker client:visible className="mt-8">
+        <Icon slot="C" name="programming-languages/c" />
+        <Icon slot="C++" name="programming-languages/cpp" />
+        <Icon slot="Bash" name="programming-languages/bash" class="scale-[1.25]" />
+        <Icon slot="JavaScript" name="programming-languages/javascript" />
+        <Icon slot="TypeScript" name="programming-languages/typescript" />
+        <Icon slot="Go" name="programming-languages/go" class="scale-[1.3]" />
+        <Icon slot="Python" name="programming-languages/python" />
+        <Icon slot="Rust" name="programming-languages/rust" class="scale-[2] [&_path]:fill-[#655448]" />
+        <Icon slot="PHP" name="programming-languages/php" class="scale-[1.3]" />
+      </LanguagesTicker>
+    </LanguagesBanner>
   </main>
 </PageLayout>

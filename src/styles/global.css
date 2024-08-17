@@ -54,6 +54,14 @@
     @apply debug;
   }
 
+  .animate-pause {
+    animation-play-state: paused;
+  }
+
+  .animate-play {
+    animation-play-state: running;
+  }
+
   .gradient-primary {
     @apply bg-gradient-to-br from-primary-800 to-secondary-300;
   }

@@ -61,8 +61,8 @@
   },
   "LANGUAGES": {
     "HEADING": "Supported Languages",
-    "LIST": ["C", "C++", "Bash", "JavaScript", "TypeScript", "Go", "Python"],
-    "MORE": "more coming soon!"
+    "PARAGRAPH": "We support various programming languages for your coding exams",
+    "MORE": "more coming soon"
   },
   "TEAM": {
     "HEADING": "Meet the squad",
