@@ -9,7 +9,7 @@ import { Input, Textarea } from '@nextui-org/react'
 import Button from '@components/ui/Button'
 
 import { EMAILJS } from '@constants/email'
-import { CONTACT } from '@constants/routes'
+import { CONTACT } from '@constants/index'
 import emailjs from '@emailjs/browser'
 import { valibotResolver } from '@hookform/resolvers/valibot'
 

@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
 import { t } from 'i18n:astro'
 
 import PageLayout from '@layouts/PageLayout.astro'
@@ -10,9 +11,13 @@ import HeroAbout from '@components/pages/About/HeroAbout'
 import LanguagesBanner from '@components/pages/About/Languages'
 import LanguagesTicker from '@components/pages/About/Languages/Ticker'
 import Steps from '@components/pages/About/Steps'
+import Team from '@components/pages/About/Team'
 import Button from '@components/ui/Button'
 
 import { HREF } from '@constants/routes'
+
+import ExternalLink from '@components/ui/ExternalLink.astro'
+import daniel from '@images/daniel.webp'
 
 const title = t('about:META.TITLE')
 const description = t('about:META.DESCRIPTION')
@@ -64,5 +69,19 @@ const description = t('about:META.DESCRIPTION')
         <Icon slot="PHP" name="programming-languages/php" class="scale-[1.3]" />
       </LanguagesTicker>
     </LanguagesBanner>
+
+    <div class="meet-team container">
+      <Team>
+        <Image loading="lazy" slot="image" src={daniel} alt="Daniel" />
+
+        <ExternalLink slot="tdl" href={HREF.tdl}>TestDevLab</ExternalLink>
+
+        <ExternalLink slot="jsCourse" href={HREF.tdlCourses.js}>JavaScript</ExternalLink>
+
+        <ExternalLink slot="csCourse" href={HREF.tdlCourses.cs}>Computer Science</ExternalLink>
+
+        <ExternalLink slot="tdlSchool" href={HREF.tdlSchool}>TDL School</ExternalLink>
+      </Team>
+    </div>
   </main>
 </PageLayout>

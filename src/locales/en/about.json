@@ -65,8 +65,10 @@
     "MORE": "more coming soon"
   },
   "TEAM": {
-    "HEADING": "Meet the squad",
-    "NAME": "Daniel",
-    "DESCRIPTION": "Soon to be former FEIT Student. Web Developer @ <a>TestDevLab</a>. Fan of bad puns."
+    "HEADING": "Hello World, I'm <gradient>Daniel</gradient>",
+    "DESCRIPTION": "Creator of FEIT Code <br /> Web Developer @ <tdl /> <br /> Fan of bad puns",
+    "SUBHEADING": "I love making cool stuff on the web",
+    "PARAGRAPH": "From making games, to nice looking websites and snappy web apps, I do it all and try my best to have fun while doing it.",
+    "COURSES": "I also teach <js /> and <cs /> courses over at <school />, feel free to check em out!"
   }
 }
