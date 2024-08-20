@@ -25,7 +25,6 @@ export const HREF = {
   facebook: 'https://www.facebook.com/daniel.sijakovski',
 
   tdl: 'https://testdevlab.com',
-  tdlSchool: 'https://tdlschool.com',
 
   tdlCourses: {
     js: 'https://tdlschool.com/courses/beyond-the-basics-of-javascript-intermediate',

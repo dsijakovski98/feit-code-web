@@ -6,12 +6,10 @@ import Trans from '@components/Trans'
 import GradientText from '@components/ui/GradientText'
 import TextBlock from '@components/ui/TextBlock'
 
-import { HREF } from '@constants/routes'
-
 type Props = {}
 
 const Team = ({ ...rest }: Props) => {
-  const slots = rest as Slots<'image' | 'tdl' | 'jsCourse' | 'csCourse' | 'tdlSchool'>
+  const slots = rest as Slots<'image' | 'tdl' | 'jsCourse' | 'csCourse'>
 
   return (
     <section className="flex justify-between gap-36 lg:gap-20 md:flex-col-reverse md:items-center pb-20">
@@ -59,7 +57,6 @@ const Team = ({ ...rest }: Props) => {
               components={{
                 js: slots.jsCourse as ReactElement,
                 cs: slots.csCourse as ReactElement,
-                school: slots.tdlSchool as ReactElement,
               }}
             />
           }

@@ -15,7 +15,7 @@
   "HELP": {
     "HEADING": "That's nice, but how will FEIT Code <br /> <gradient>help me?</gradient>",
     "PARAGRAPH": "Good question. It depends on whether you are a Student or a Teacher, so which one are you?",
-    "STUDENT": "As a Student, you will be able to easily take your coding exam knowing that your <b>progress will be saved</b> and you can get instant feedback on whether your <b>task is performing as expected</b>. <br /><br /> On top of that, you won't have to wait weeks (sometimes months) to find out how you did - Teachers will have large parts of the grading process automated and you will be able to see the status of your exam in real time (e.g. if it's being graded currently etc.), making results available faster than ever!",
+    "STUDENT": "As a Student, you will be able to easily take your coding exam knowing that your <b>progress will be saved</b> and you will get instant feedback on whether your <b>task is performing as expected</b>. <br /><br /> On top of that, you won't have to wait weeks (sometimes months) to find out how you did - Teachers will have large parts of the grading process automated and you will be able to see the status of your exam in real time (e.g. if it's being graded currently etc.), making results available faster than ever!",
     "TEACHER": "As a Teacher, you will be able to create comprehensive coding tasks, with interactive descriptions and time limits, but most importantly - you will have the option to easily add <b>automation tests to run over the submitted tasks</b> in order to get a better idea of the overall behavior of each task. <br /><br /> The grading process is a fully interactive experience where you choose the level of detailed feedback to give each student - all the way to the actual line of code in question. All of these features, along with course and students management, announcements... you'll wonder why you ever used any other tool for coding exams!"
   },
   "STEPS": {
@@ -69,6 +69,6 @@
     "DESCRIPTION": "Creator of FEIT Code <br /> Web Developer @ <tdl /> <br /> Fan of bad puns",
     "SUBHEADING": "I love making cool stuff on the web",
     "PARAGRAPH": "From making games, to nice looking websites and snappy web apps, I do it all and try my best to have fun while doing it.",
-    "COURSES": "I also teach <js /> and <cs /> courses over at <school />, feel free to check em out!"
+    "COURSES": "I also teach <js /> and <cs /> courses, feel free to check em out!"
   }
 }
