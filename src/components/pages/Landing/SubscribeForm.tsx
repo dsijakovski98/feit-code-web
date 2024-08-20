@@ -89,7 +89,7 @@ const SubscribeForm = ({ ...rest }: Props) => {
                   { 'sm:!border-danger-500': !!errors.email },
                 ),
                 label: '!text-white text-lg font-semibold',
-                input: 'text-base font-light font-inter placeholder:font-kanit placeholder:text-slate-300',
+                input: 'text-base font-light font-exo placeholder:font-kanit placeholder:text-slate-300',
               }}
             />
           )}

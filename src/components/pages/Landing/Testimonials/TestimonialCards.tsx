@@ -46,7 +46,7 @@ export default function TestimonialCards({ testimonials, ...rest }: Props) {
                 <div className="bg-gradient-to-br from-secondary-100 to-transparent p-5 pb-0 space-y-2 to-60% rounded-xl">
                   {slots.quote}
 
-                  <p className="font-inter text-xl font-extralight">{TEXT}</p>
+                  <p className="font-exo text-xl font-extralight">{TEXT}</p>
                 </div>
 
                 <div className="flex items-end justify-start gap-4">

@@ -1,37 +1,37 @@
 @tailwind base;
 
 @layer base {
-  /* Inter fonts */
+  /* Exo 2 fonts */
   @font-face {
-    font-family: 'Inter';
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 200;
     font-display: block;
-    src: url(/fonts/inter/200.woff2) format('woff2');
+    src: url(/fonts/exo-2/200.woff2) format('woff2');
   }
 
   @font-face {
-    font-family: 'Inter';
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 300;
     font-display: block;
-    src: url(/fonts/inter/300.woff2) format('woff2');
+    src: url(/fonts/exo-2/300.woff2) format('woff2');
   }
 
   @font-face {
-    font-family: 'Inter';
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 400;
     font-display: block;
-    src: url(/fonts/inter/400.woff2) format('woff2');
+    src: url(/fonts/exo-2/400.woff2) format('woff2');
   }
 
   @font-face {
-    font-family: 'Inter';
+    font-family: 'Exo 2';
     font-style: normal;
     font-weight: 500;
     font-display: block;
-    src: url(/fonts/inter/500.woff2) format('woff2');
+    src: url(/fonts/exo-2/500.woff2) format('woff2');
   }
 
   /* Kanit fonts */
