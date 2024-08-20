@@ -8,14 +8,14 @@ import PageLayout from '@layouts/PageLayout.astro'
 import Help from '@components/pages/About/Help'
 import HelpAccordion from '@components/pages/About/HelpAccordion'
 import HeroAbout from '@components/pages/About/HeroAbout'
-import LanguagesBanner from '@components/pages/About/Languages'
-import LanguagesTicker from '@components/pages/About/Languages/Ticker'
+import LanguagesTicker from '@components/pages/About/LanguagesTicker'
 import Steps from '@components/pages/About/Steps'
 import Team from '@components/pages/About/Team'
 import Button from '@components/ui/Button'
 
 import { HREF } from '@constants/routes'
 
+import Banner from '@components/ui/Banner'
 import ExternalLink from '@components/ui/ExternalLink.astro'
 import daniel from '@images/daniel.webp'
 
@@ -56,7 +56,12 @@ const description = t('about:META.DESCRIPTION')
       <Steps client:visible />
     </div>
 
-    <LanguagesBanner>
+    <Banner
+      container={false}
+      title={t('about:LANGUAGES.HEADING')}
+      subtitle={t('about:LANGUAGES.PARAGRAPH')}
+      className="bg-gradient-to-b from-secondary-100 to-transparent !px-0 pb-0 md:pt-12 [&_p]:px-52 lg:[&_p]:px-10"
+    >
       <LanguagesTicker client:visible className="mt-8">
         <Icon slot="C" name="programming-languages/c" />
         <Icon slot="C++" name="programming-languages/cpp" />
@@ -68,7 +73,9 @@ const description = t('about:META.DESCRIPTION')
         <Icon slot="Rust" name="programming-languages/rust" class="scale-[2] [&_path]:fill-[#655448]" />
         <Icon slot="PHP" name="programming-languages/php" class="scale-[1.3]" />
       </LanguagesTicker>
-    </LanguagesBanner>
+
+      <span class="inline-block rounded-xl bg-secondary px-4 py-[2px] md:mt-4">{t('about:LANGUAGES.MORE')}</span>
+    </Banner>
 
     <div class="meet-team container">
       <Team>
