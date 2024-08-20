@@ -1,5 +1,6 @@
+import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
-import { t } from 'i18n:astro'
+import { getLocale, t } from 'i18n:astro'
 import { Fragment, useMemo } from 'react'
 
 import { Switch } from '@nextui-org/switch'
@@ -12,6 +13,8 @@ import { useToggle } from '@hooks/useToggle'
 type Props = {}
 
 const Steps = ({}: Props) => {
+  const locale = getLocale()
+
   const { open, toggle } = useToggle(true)
 
   const userType = useMemo(() => (open ? t('about:STUDENT') : t('about:TEACHER')), [open])
@@ -30,13 +33,17 @@ const Steps = ({}: Props) => {
           paragraph={
             <Switch
               size="sm"
-              classNames={{ base: 'flex-row-reverse items-end gap-4', label: 'text-2xl' }}
+              classNames={{
+                base: 'flex-row-reverse items-end gap-0',
+                label: clsx('text-2xl', locale === 'mk' ? 'w-[220px]' : 'w-auto pr-2'),
+              }}
               isSelected={open}
               onValueChange={toggle}
             >
               {t('about:I_AM', { type: '' })}{' '}
               <AnimatePresence mode="wait">
                 <motion.span
+                  layout
                   key={userType}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
