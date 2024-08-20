@@ -1,7 +1,7 @@
 import { t } from 'i18n:astro'
 import { useMemo } from 'react'
 
-import { NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from '@nextui-org/navbar'
+import { NavbarContent, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from '@nextui-org/navbar'
 
 import LanguageSwitch from '@components/Nav/LanguageSwitch'
 import NavLink from '@components/Nav/NavLink'
