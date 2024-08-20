@@ -9,7 +9,7 @@
   }
 
   html[lang='mk'] :is(input, textarea) {
-    @apply !font-inter placeholder:!font-inter;
+    @apply !font-exo placeholder:!font-exo;
   }
 
   /* Reset NextUI dropdown */

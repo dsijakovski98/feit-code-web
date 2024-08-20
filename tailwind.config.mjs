@@ -11,7 +11,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        inter: ['"Inter"', ...defaultTheme.fontFamily.sans],
+        exo: ['"Exo 2"', ...defaultTheme.fontFamily.sans],
         kanit: ['"Kanit"', ...defaultTheme.fontFamily.serif],
       },
       backgroundImage: {

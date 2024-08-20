@@ -104,7 +104,7 @@ const ContactForm = ({ ...rest }: Props) => {
                   inputWrapper: 'rounded-xl h-[2.7lh] shadow-lg border-slate-600',
                   label: 'text-medium font-semibold sm:font-normal !text-slate-50',
                   input:
-                    'font-inter text-medium text-slate-50 placeholder:text-medium placeholder:font-kanit placeholder:text-slate-400 placeholder:font-extralight',
+                    'font-exo text-medium text-slate-50 placeholder:text-medium placeholder:font-kanit placeholder:text-slate-400 placeholder:font-extralight',
                 }}
               />
               {errors.name?.message && (
@@ -137,7 +137,7 @@ const ContactForm = ({ ...rest }: Props) => {
                   inputWrapper: 'rounded-xl h-[2.7lh] shadow-lg border-slate-600',
                   label: 'text-medium font-semibold sm:font-normal !text-slate-50',
                   input:
-                    'font-inter text-medium !text-slate-50 placeholder:text-medium placeholder:font-kanit placeholder:text-slate-400 placeholder:font-extralight',
+                    'font-exo text-medium !text-slate-50 placeholder:text-medium placeholder:font-kanit placeholder:text-slate-400 placeholder:font-extralight',
                 }}
               />
               {errors.email?.message && (
@@ -171,7 +171,7 @@ const ContactForm = ({ ...rest }: Props) => {
                   inputWrapper: 'rounded-xl border-2 shadow-lg border-slate-600',
                   label: 'text-lg font-semibold sm:font-normal !text-slate-50',
                   input:
-                    'font-inter text-medium leading-[1.3] placeholder:text-medium placeholder:font-kanit placeholder:text-slate-400 placeholder:font-extralight',
+                    'font-exo text-medium leading-[1.3] placeholder:text-medium placeholder:font-kanit placeholder:text-slate-400 placeholder:font-extralight',
                 }}
               />
               {errors.message?.message && (
