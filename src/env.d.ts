@@ -5,6 +5,7 @@
 
 interface ImportMetaEnv {
   readonly PUBLIC_EMAILJS_KEY: string
+  readonly PUBLIC_APP_BASE_URL: string
 }
 
 interface ImportMeta {

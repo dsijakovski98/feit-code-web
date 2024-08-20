@@ -7,11 +7,13 @@ export const ROUTES = {
   contact: '/contact',
 } as const
 
+const appBaseUrl = import.meta.env.PUBLIC_APP_BASE_URL
+
 export const HREF = {
   feitCode: {
-    home: 'https://app.feit-code.com',
-    signIn: 'https://app.feit-code.com/sign-in',
-    signUp: 'https://app.feit-code.com/sign-up',
+    home: appBaseUrl,
+    signIn: `${appBaseUrl}/sign-in`,
+    signUp: `${appBaseUrl}/sign-up`,
   },
 
   feit: 'https://feit.ukim.edu.mk',
