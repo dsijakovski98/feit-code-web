@@ -36,7 +36,7 @@ const testimonials = t('landing:TESTIMONIALS.LIST', { returnObjects: true }).map
 
 <PageLayout {title} {description}>
   <main class="overflow-x-hidden bg-dots bg-[top_center] bg-no-repeat py-20 sm:py-4 xs:pt-2">
-    <div class="container mb-60 space-y-80 sm:mb-48 sm:space-y-60">
+    <div class="container mb-56 space-y-56 sm:mb-48 sm:space-y-40">
       <section
         class={clsx(
           'flex flex-col items-center gap-0 pt-32 text-center',
@@ -102,7 +102,7 @@ const testimonials = t('landing:TESTIMONIALS.LIST', { returnObjects: true }).map
       </TestimonialCards>
     </Testimonials>
 
-    <Banner title={t('landing:SUBSCRIBE.HEADING')} subtitle={t('landing:SUBSCRIBE.PARAGRAPH')} className="mt-60 sm:mt-48">
+    <Banner title={t('landing:SUBSCRIBE.HEADING')} subtitle={t('landing:SUBSCRIBE.PARAGRAPH')} className="mt-40">
       <SubscribeForm client:visible>
         <Icon name="error" slot="error" />
       </SubscribeForm>
