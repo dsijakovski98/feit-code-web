@@ -16,11 +16,11 @@ const LanguagesBanner = ({ children }: PropsWithChildren) => {
         </>
       }
       subtitle={t('about:LANGUAGES.PARAGRAPH')}
-      className="bg-gradient-to-b from-secondary-100 to-transparent !px-0"
+      className="bg-gradient-to-b from-secondary-100 to-transparent !px-0 pb-0 md:pt-12"
     >
       {children}
 
-      <span className="inline-block mt-8 rounded-xl px-3 py-1 bg-secondary/40">{t('about:LANGUAGES.MORE')}</span>
+      <span className="inline-block md:mt-4 rounded-xl px-4 py-[2px] bg-secondary">{t('about:LANGUAGES.MORE')}</span>
     </Banner>
   )
 }
