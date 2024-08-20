@@ -23,11 +23,13 @@ export const HREF = {
   instagram: 'https://www.instagram.com/shijakovski',
   x: 'https://www.x.com/PlivajKlimee',
   facebook: 'https://www.facebook.com/daniel.sijakovski',
-}
 
-export const CONTACT = {
-  email: 'feit.code.ukim@gmail.com',
-  phone: '+389-70-372-921',
+  tdl: 'https://testdevlab.com',
+
+  tdlCourses: {
+    js: 'https://tdlschool.com/courses/beyond-the-basics-of-javascript-intermediate',
+    cs: 'https://tdlschool.com/courses/fundamentals-of-computer-science-data-structures-and-algorithms-junior',
+  },
 }
 
 export type NavRoute = {

@@ -17,6 +17,15 @@ export default {
       backgroundImage: {
         dots: "radial-gradient(circle, rgba(35, 80, 200, 0.3), rgba(255, 255, 255, 0)), url('/images/bg-dots.webp')",
       },
+      animation: {
+        ticker: 'tick linear infinite 60s',
+      },
+      keyframes: {
+        tick: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(calc(-100% - 80px))' },
+        },
+      },
     },
     screens: {
       '2xl': { max: '1535px' },

@@ -1,0 +1,14 @@
+---
+import { Icon } from 'astro-icon/components'
+
+type Props = {
+  href: string
+}
+
+const { href } = Astro.props
+---
+
+<a href={href} target="_blank" class="inline-flex items-center gap-0 font-[400]">
+  <slot />
+  <Icon name="external-link" class="scale-[0.75]" />
+</a>

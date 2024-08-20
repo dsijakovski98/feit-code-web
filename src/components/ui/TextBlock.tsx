@@ -1,12 +1,12 @@
-import clsx from 'clsx'
+import clsx, { type ClassValue } from 'clsx'
 import type { ReactNode } from 'react'
 
 type Props = {
-  as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
   title?: ReactNode
-  titleClass?: string
+  titleClass?: ClassValue
   paragraph?: ReactNode
-  paragraphClass?: string
+  paragraphClass?: ClassValue
 
   className?: string
   centered?: boolean
@@ -23,9 +23,9 @@ const TextBlock = ({
 }: Props) => {
   return (
     <div className={clsx('space-y-3', { 'text-center': centered }, className)}>
-      <As className={clsx('text-4xl font-medium sm:text-3xl', titleClass)}>{title}</As>
+      {title && <As className={clsx('text-4xl font-medium sm:text-3xl', titleClass)}>{title}</As>}
 
-      <p className={clsx('text-xl font-extralight sm:text-lg', paragraphClass)}>{paragraph}</p>
+      {paragraph && <p className={clsx('text-xl font-extralight sm:text-lg', paragraphClass)}>{paragraph}</p>}
     </div>
   )
 }

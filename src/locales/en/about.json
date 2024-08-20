@@ -1,0 +1,74 @@
+{
+  "META": {
+    "TITLE": "About | FEIT Code",
+    "DESCRIPTION": "Learn more about what FEIT Code represents and how it works."
+  },
+  "STUDENT": "Student",
+  "TEACHER": "Teacher",
+  "I_AM": "I'm a {{type}}",
+  "HERO": {
+    "HEADING": "What is FEIT Code anyway?",
+    "QUESTIONS": "How many times did you have to wait to find out whether you passed that coding exam? Maybe the computer you were working on glitches and you lose progress? It's all needlessly long and stressful right?",
+    "PARAGRAPH": "FEIT Code aims to fix all of those issues for you and more... It has the goal to make it easier on both Students and Teachers to take and make coding exams.",
+    "CTA": "Check it out"
+  },
+  "HELP": {
+    "HEADING": "That's nice, but how will FEIT Code <br /> <gradient>help me?</gradient>",
+    "PARAGRAPH": "Good question. It depends on whether you are a Student or a Teacher, so which one are you?",
+    "STUDENT": "As a Student, you will be able to easily take your coding exam knowing that your <b>progress will be saved</b> and you will get instant feedback on whether your <b>task is performing as expected</b>. <br /><br /> On top of that, you won't have to wait weeks (sometimes months) to find out how you did - Teachers will have large parts of the grading process automated and you will be able to see the status of your exam in real time (e.g. if it's being graded currently etc.), making results available faster than ever!",
+    "TEACHER": "As a Teacher, you will be able to create comprehensive coding tasks, with interactive descriptions and time limits, but most importantly - you will have the option to easily add <b>automation tests to run over the submitted tasks</b> in order to get a better idea of the overall behavior of each task. <br /><br /> The grading process is a fully interactive experience where you choose the level of detailed feedback to give each student - all the way to the actual line of code in question. All of these features, along with course and students management, announcements... you'll wonder why you ever used any other tool for coding exams!"
+  },
+  "STEPS": {
+    "HEADING": "Okay I'm sold. How does it work though?",
+    "LIST": {
+      "STUDENT": [
+        {
+          "TITLE": "Sign up for a course",
+          "DESCRIPTION": "Choose from a list of programming-related FEIT courses and sign up for it."
+        },
+        {
+          "TITLE": "Take the exam",
+          "DESCRIPTION": "Take exams in the FEIT Code IDE. Enjoy features just like the ones in your local IDE!"
+        },
+        {
+          "TITLE": "Get instant feedback",
+          "DESCRIPTION": "Run your code in the IDE and see how it does against the tests setup for the task."
+        },
+        {
+          "TITLE": "Submit & Track the status",
+          "DESCRIPTION": "Track the status of your submission, get notified when your task is being graded."
+        }
+      ],
+      "TEACHER": [
+        {
+          "TITLE": "Create a course",
+          "DESCRIPTION": "Create and manage any programming-related course through your Dashboard."
+        },
+        {
+          "TITLE": "Create an exam",
+          "DESCRIPTION": "Create an exam, add time limits, and other constraints. Setup automated tests to grade and assess tasks quicker than ever!"
+        },
+        {
+          "TITLE": "Monitor exams",
+          "DESCRIPTION": "Receive insights about each student's activity during the exam and make better decisions about each feedback and grade."
+        },
+        {
+          "TITLE": "Interactive feedback",
+          "DESCRIPTION": "Run automated tests and get an overview of the exam's results. Provide comprehensive feedback as needed."
+        }
+      ]
+    }
+  },
+  "LANGUAGES": {
+    "HEADING": "Supported Languages",
+    "PARAGRAPH": "We support various programming languages for your coding exams, providing great flexibility for both Students and Teachers respectfully",
+    "MORE": "more coming soon"
+  },
+  "TEAM": {
+    "HEADING": "Hello World, I'm <gradient>Daniel</gradient>",
+    "DESCRIPTION": "Creator of FEIT Code <br /> Web Developer @ <tdl /> <br /> Fan of bad puns",
+    "SUBHEADING": "I love making cool stuff on the web",
+    "PARAGRAPH": "From making games, to nice looking websites and snappy web apps, I do it all and try my best to have fun while doing it.",
+    "COURSES": "I also teach <js /> and <cs /> courses, feel free to check em out!"
+  }
+}
