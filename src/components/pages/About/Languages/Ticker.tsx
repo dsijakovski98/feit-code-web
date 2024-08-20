@@ -22,7 +22,7 @@ const LanguagesTicker = ({ className = '', ...rest }: Props) => {
             key={label}
             aria-label={label}
             aria-hidden={hidden}
-            className="[&_svg]:w-full [&_svg]:h-full w-20 h-20 md:w-12 md:h-12 hover:-translate-y-2 md:hover:translate-y-0 transition-transform duration-250"
+            className="[&_svg]:w-full [&_svg]:h-full w-20 h-20 md:w-14 md:h-14 hover:-translate-y-2 md:hover:translate-y-0 transition-transform duration-250"
           >
             <Tooltip content={label} placement="bottom" size="lg" offset={20}>
               <a href={href} target="_blank" aria-hidden={hidden}>
