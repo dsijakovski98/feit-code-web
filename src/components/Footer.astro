@@ -35,13 +35,21 @@ const year = new Date().getFullYear()
 
       <ul class="mx-auto flex w-fit items-start justify-center gap-9 lg:hidden">
         <li>
-          <a href={ROUTES.about} class="flex items-center self-stretch text-lg">
+          <a
+            data-navlink
+            href={ROUTES.about}
+            class="flex items-center self-stretch text-lg aria-current:font-bold aria-current:text-primary-600"
+          >
             <UnderlineText>{t('NAV.ABOUT')}</UnderlineText>
           </a>
         </li>
 
         <li>
-          <a href={ROUTES.contact} class="flex items-center self-stretch text-lg">
+          <a
+            data-navlink
+            href={ROUTES.contact}
+            class="flex items-center self-stretch text-lg aria-current:font-bold aria-current:text-primary-600"
+          >
             <UnderlineText>{t('NAV.CONTACT')}</UnderlineText>
           </a>
         </li>
@@ -109,4 +117,14 @@ const year = new Date().getFullYear()
 <!-- https://astro-tips.dev/recipes/dynamic-footer-date-for-static-websites -->
 <script is:inline data-astro-rerun>
   document.getElementById('footer-year').innerText = new Date().getFullYear()
+</script>
+
+<script>
+  const navLinks = document.querySelectorAll('[data-navlink]') as NodeListOf<HTMLAnchorElement>
+
+  navLinks.forEach((link) => {
+    if (window.location.href === link.href) {
+      link.setAttribute('aria-current', 'page')
+    }
+  })
 </script>

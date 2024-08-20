@@ -26,6 +26,9 @@ export default {
           '100%': { transform: 'translateX(calc(-100% - 80px))' },
         },
       },
+      aria: {
+        current: 'current=page',
+      },
     },
     screens: {
       '2xl': { max: '1535px' },
