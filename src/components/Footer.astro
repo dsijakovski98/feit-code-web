@@ -119,8 +119,8 @@ const year = new Date().getFullYear()
   document.getElementById('footer-year').innerText = new Date().getFullYear()
 </script>
 
-<script>
-  const navLinks = document.querySelectorAll('[data-navlink]') as NodeListOf<HTMLAnchorElement>
+<script is:inline data-astro-rerun>
+  const navLinks = document.querySelectorAll('[data-navlink]')
 
   navLinks.forEach((link) => {
     if (window.location.href === link.href) {
