@@ -17,14 +17,4 @@ export const SOCIALS: Array<{ icon: string; href: string; label: string }> = [
   { icon: 'facebook', href: HREF.facebook, label: 'Facebook' },
 ]
 
-export const SUPPORTED_LANGUAGES: Array<{ label: string; href: string }> = [
-  { label: 'JavaScript', href: 'https://developer.mozilla.org/docs/Web/JavaScript' },
-  { label: 'C', href: 'https://www.cprogramming.com' },
-  { label: 'Bash', href: 'https://www.gnu.org/software/bash' },
-  { label: 'TypeScript', href: 'https://www.typescriptlang.org' },
-  { label: 'C++', href: 'https://isocpp.org' },
-  { label: 'Go', href: 'https://go.dev' },
-  { label: 'Python', href: 'https://www.python.org' },
-  { label: 'Rust', href: 'https://www.rust-lang.org' },
-  { label: 'PHP', href: 'https://www.php.net' },
-] as const
+export const SUPPORTED_LANGUAGES = ['JavaScript', 'C', 'Bash', 'TypeScript', 'C++', 'Go', 'Python', 'Rust', 'PHP'] as const

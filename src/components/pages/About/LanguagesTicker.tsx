@@ -10,25 +10,21 @@ type Props = {
 }
 
 const LanguagesTicker = ({ className = '', ...rest }: Props) => {
-  const slots = rest as Slots<(typeof SUPPORTED_LANGUAGES)[number]['label']>
+  const slots = rest as Slots<(typeof SUPPORTED_LANGUAGES)[number]>
 
   const renderLanguages = (config?: { hidden?: boolean }) => {
     const hidden = !!config?.hidden
 
     return (
       <ul className="flex gap-28 md:gap-12 animate-ticker items-center group-hover:animate-pause md:group-hover:animate-play">
-        {SUPPORTED_LANGUAGES.map(({ label, href }) => (
+        {SUPPORTED_LANGUAGES.map((language) => (
           <li
-            key={label}
-            aria-label={label}
+            key={language}
+            aria-label={language}
             aria-hidden={hidden}
-            className="[&_svg]:w-full [&_svg]:h-full w-20 h-20 md:w-14 md:h-14 hover:-translate-y-2 md:hover:translate-y-0 transition-transform duration-250"
+            className="[&_svg]:w-full [&_svg]:h-full w-20 h-20 md:w-14 md:h-14"
           >
-            <Tooltip content={label} placement="bottom" size="lg" offset={20}>
-              <a href={href} target="_blank" aria-hidden={hidden}>
-                {slots[label]}
-              </a>
-            </Tooltip>
+            {slots[language]}
           </li>
         ))}
       </ul>
