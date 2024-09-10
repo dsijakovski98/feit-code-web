@@ -38,12 +38,27 @@ const ContactForm = ({ ...rest }: Props) => {
     handleSubmit,
     control,
     setError,
+    setValue,
     clearErrors,
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm({
     resolver: valibotResolver(ContactSchema),
     defaultValues: { name: '', email: '', message: '' },
   })
+
+  useEffect(() => {
+    const url = new URL(location.href)
+    const reportType = url.searchParams.get('type') === 'report-issue'
+
+    if (!reportType) return
+
+    const name = url.searchParams.get('name') ?? ''
+    const email = url.searchParams.get('email') ?? ''
+
+    setValue('name', name)
+    setValue('email', email)
+    setValue('message', 'Hey FEIT Code team!\nI need some help regarding... \n')
+  }, [])
 
   const onSubmit: SubmitHandler<InferInput<typeof ContactSchema>> = async ({ name, email, message }) => {
     clearErrors('root')
