@@ -1,8 +1,6 @@
 import { type ClassValue, clsx } from 'clsx'
 import type { Slots } from 'types/index'
 
-import { Tooltip } from '@nextui-org/tooltip'
-
 import { SUPPORTED_LANGUAGES } from '@constants/content'
 
 type Props = {
