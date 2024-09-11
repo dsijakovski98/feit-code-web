@@ -9,6 +9,7 @@ import Footer from '@components/Footer.astro'
 import Nav from '@components/Nav'
 import FeitLogo from '@components/ui/FeitLogo.astro'
 
+import PostHog from '@layouts/PostHog.astro'
 import '@styles/fonts.css'
 import '@styles/global.css'
 
@@ -109,6 +110,8 @@ const globalFont = locale === 'en' ? 'font-kanit' : 'font-exo'
 
     <I18nHead />
     <I18nClient />
+
+    {import.meta.env.PROD && <PostHog />}
   </head>
 
   <body class={globalFont}>
