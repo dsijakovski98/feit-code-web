@@ -48,16 +48,33 @@ const ContactForm = ({ ...rest }: Props) => {
 
   useEffect(() => {
     const url = new URL(location.href)
-    const reportType = url.searchParams.get('type') === 'report-issue'
+    const typeParam = url.searchParams.get('type')
+
+    if (!typeParam) return
+
+    const reportType = ['report-issue', 'exam-issue'].includes(typeParam)
 
     if (!reportType) return
 
-    const name = url.searchParams.get('name') ?? ''
-    const email = url.searchParams.get('email') ?? ''
+    const name = url.searchParams.get('name') ?? 'N/A'
+    const email = url.searchParams.get('email') ?? 'N/A'
 
     setValue('name', name)
     setValue('email', email)
-    setValue('message', 'Hey FEIT Code team!\nI need some help regarding... \n')
+
+    if (typeParam === 'report-issue') {
+      setValue('message', 'Hey FEIT Code team!\nI need some help regarding... \n')
+    }
+
+    if (typeParam == 'exam-issue') {
+      const taskId = url.searchParams.get('taskId') ?? 'N/A'
+      const examId = url.searchParams.get('examId') ?? 'N/A'
+
+      setValue(
+        'message',
+        `Hey FEIT Code team!\nI would like to report an issue regarding my latest exam...\n\nDescribe your issue here...\n\nTask <${taskId}>\nExam <${examId}>`,
+      )
+    }
   }, [])
 
   const onSubmit: SubmitHandler<InferInput<typeof ContactSchema>> = async ({ name, email, message }) => {
@@ -175,7 +192,7 @@ const ContactForm = ({ ...rest }: Props) => {
             <div className="relative">
               <Textarea
                 {...field}
-                rows={5}
+                rows={7}
                 disableAutosize
                 autoComplete="off"
                 variant="bordered"
