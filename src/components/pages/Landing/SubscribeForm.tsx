@@ -101,17 +101,25 @@ const SubscribeForm = ({ ...rest }: Props) => {
           type="submit"
           variant="solid"
           disabled={isSubmitting}
-          className="gradient-secondary px-12 sm:w-full"
+          className="gradient-secondary px-12 grid place-items-center [grid-template-areas:'stack'] *:[grid-area:stack] sm:w-full"
         >
-          {isSubmitting ? (
-            <CircularProgress
-              size="sm"
-              aria-label={t('PROGRESS_BAR')}
-              className={clsx('w-[50px]', { 'mx-[27px]': locale === 'mk' })}
-            />
-          ) : (
-            tForm.SUBSCRIBE.SUBMIT
-          )}
+          <CircularProgress
+            size="sm"
+            aria-label={t('PROGRESS_BAR')}
+            className={clsx({
+              'visible opacity-100': isSubmitting,
+              'invisible opacity-0': !isSubmitting,
+            })}
+          />
+
+          <span
+            className={clsx({
+              'invisible opacity-0': isSubmitting,
+              'visible opacity-100': !isSubmitting,
+            })}
+          >
+            {tForm.SUBSCRIBE.SUBMIT}
+          </span>
         </Button>
       </div>
 
