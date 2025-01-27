@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { getLocale, t } from 'i18n:astro'
+import { t } from 'i18n:astro'
 import { Controller, type SubmitHandler, useForm } from 'react-hook-form'
 import type { Slots } from 'types/index'
 import { type InferInput, email, nonEmpty, object, pipe, string, trim } from 'valibot'
@@ -17,12 +17,11 @@ const SubscribeEmailSchema = object({
   email: pipe(string(), trim(), nonEmpty('EMAIL.EMPTY'), email('EMAIL.INVALID')),
 })
 
-type Props = any
+type Props = { emailContent: string }
 
-const SubscribeForm = ({ ...rest }: Props) => {
+const SubscribeForm = ({ emailContent, ...rest }: Props) => {
   const tForm = t('FORM', { returnObjects: true })
-
-  const locale = getLocale()
+  const emailTitle = t('EMAILS.SUBSCRIBE_TITLE')
 
   const slots = rest as Slots<'error'>
 
@@ -45,8 +44,12 @@ const SubscribeForm = ({ ...rest }: Props) => {
     await emailjs
       .send(
         EMAILJS.SERVICE_ID,
-        EMAILJS.TEMPLATES.SUBSCRIBE[locale],
-        { to: email },
+        EMAILJS.TEMPLATES.SUBSCRIBE,
+        {
+          to: email,
+          title: emailTitle,
+          content: emailContent,
+        },
         {
           publicKey: import.meta.env.PUBLIC_EMAILJS_KEY,
           limitRate: {
@@ -135,7 +138,7 @@ const SubscribeForm = ({ ...rest }: Props) => {
       {isSubmitSuccessful && !errors.email && (
         <p
           role="alert"
-          className="absolute inset-x-2 top-full flex translate-y-4 items-center justify-center gap-1 text-center text-3xl font-light leading-[1.2] text-primary-700 sm:inset-x-8 sm:translate-y-1 sm:items-start sm:text-2xl xs:text-lg"
+          className="absolute inset-x-2 top-full flex translate-y-4 items-center justify-center gap-1 text-center text-2xl lg:text-xl text-pretty font-light leading-[1.2] text-primary-700 sm:inset-x-8 sm:translate-y-1 sm:items-start"
         >
           {t('landing:SUBSCRIBE.SUCCESS')}
         </p>

@@ -13,6 +13,9 @@
     "SUBSCRIBE": "Oops! Something went wrong, please try again.",
     "CONTACT": "Oops! Could not send message, please try again."
   },
+  "EMAILS": {
+    "SUBSCRIBE_TITLE": "Welcome to FEIT Code"
+  },
   "FORM": {
     "NAME": {
       "LABEL": "Name",

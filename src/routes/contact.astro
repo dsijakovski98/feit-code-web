@@ -16,15 +16,15 @@ const description = t('contact:META.DESCRIPTION')
 ---
 
 <PageLayout {title} {description} hideFooter>
-  <main class="bg-dots bg-[top_center] bg-no-repeat py-20 lg:py-12 sm:pb-4 sm:pt-8 xs:pt-2">
-    <div class="container flex h-full items-stretch justify-between lg:flex-col lg:items-center lg:gap-10">
+  <main class="bg-dots bg-[top_center] bg-no-repeat py-20 lg:py-12 md:pb-4 sm:pt-8">
+    <div class="container flex h-full items-stretch justify-between lg:flex-col lg:items-center lg:justify-start lg:gap-10">
       <section class="flex max-w-[440px] flex-col items-start justify-between">
         <div>
           <TextBlock
             as="h1"
             title={t('contact:REACH_OUT.TITLE')}
             paragraph={t('contact:REACH_OUT.PARAGRAPH')}
-            titleClass="text-5xl"
+            titleClass="!text-5xl md:!text-4xl"
             className="lg:!text-center"
           />
         </div>
@@ -59,11 +59,11 @@ const description = t('contact:META.DESCRIPTION')
       </section>
 
       <section
-        class="min-w-[600px] rounded-xl border border-content2 bg-gradient-to-br from-primary-50/80 to-transparent to-50% p-8 shadow-2xl lg:w-full lg:!min-w-[320px] lg:max-w-[540px] lg:p-6 sm:to-40%"
+        class="w-[560px] rounded-xl border border-content2 bg-gradient-to-br from-primary-50/80 to-transparent to-50% p-8 shadow-2xl lg:w-full lg:!min-w-[320px] lg:max-w-[540px] lg:p-4 sm:to-40%"
       >
         <ContactForm client:load>
           <Icon slot="error" name="error" class="scale-[0.8]" />
-          <Icon slot="success" name="plane" class="scale-[2]" />
+          <Icon slot="success" name="plane" class="scale-[2] md:scale-[1.5]" />
         </ContactForm>
       </section>
     </div>

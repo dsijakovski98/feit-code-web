@@ -9,7 +9,6 @@ import { Input, Textarea } from '@nextui-org/react'
 import Button from '@components/ui/Button'
 
 import { EMAILJS } from '@constants/email'
-import { CONTACT } from '@constants/index'
 import emailjs from '@emailjs/browser'
 import { valibotResolver } from '@hookform/resolvers/valibot'
 
@@ -28,6 +27,8 @@ const ContactForm = ({ ...rest }: Props) => {
 
   const [formHeight, setFormHeight] = useState(0)
   const formRef = useRef<HTMLFormElement | null>(null)
+
+  const [topic, setTopic] = useState<'Contact' | 'Review' | 'Misc Issue' | 'Exam Issue'>('Contact')
 
   useEffect(() => {
     if (!formRef.current) return
@@ -52,7 +53,7 @@ const ContactForm = ({ ...rest }: Props) => {
 
     if (!typeParam) return
 
-    const reportType = ['report-issue', 'exam-issue'].includes(typeParam)
+    const reportType = ['report-issue', 'exam-issue', 'review'].includes(typeParam)
 
     if (!reportType) return
 
@@ -62,11 +63,19 @@ const ContactForm = ({ ...rest }: Props) => {
     setValue('name', name)
     setValue('email', email)
 
+    if (typeParam === 'review') {
+      setTopic('Review')
+      setValue('name', '')
+      setValue('email', '')
+    }
+
     if (typeParam === 'report-issue') {
+      setTopic('Misc Issue')
       setValue('message', 'Hey FEIT Code team!\nI need some help regarding... \n')
     }
 
     if (typeParam == 'exam-issue') {
+      setTopic('Exam Issue')
       const taskId = url.searchParams.get('taskId') ?? 'N/A'
       const examId = url.searchParams.get('examId') ?? 'N/A'
 
@@ -84,7 +93,7 @@ const ContactForm = ({ ...rest }: Props) => {
       .send(
         EMAILJS.SERVICE_ID,
         EMAILJS.TEMPLATES.CONTACT,
-        { to: CONTACT.email, from: email, name, message },
+        { from: email, topic, name, message },
         {
           publicKey: import.meta.env.PUBLIC_EMAILJS_KEY,
           limitRate: {
@@ -104,11 +113,11 @@ const ContactForm = ({ ...rest }: Props) => {
   if (isSubmitSuccessful) {
     return (
       <div
-        className="relative h-full min-h-[500px] grid place-items-center text-center content-center"
+        className="grid h-full max-h-[550px] gap-5 place-items-center text-center content-center"
         style={{ minHeight: `${formHeight}px` }}
       >
-        <div className="absolute top-20 sm:top-10 right-10">{slots.success}</div>
-        <h2 role="alert" className="text-3xl text-balance sm:text-wrap">
+        <div>{slots.success}</div>
+        <h2 role="alert" className="text-3xl md:text-2xl text-balance text-center">
           {t('contact:REACH_OUT.SUCCESS')}
         </h2>
       </div>
@@ -131,6 +140,7 @@ const ContactForm = ({ ...rest }: Props) => {
                 autoComplete="name"
                 label={tForm.NAME.LABEL}
                 placeholder={tForm.NAME.PLACEHOLDER}
+                isDisabled={isSubmitting}
                 isInvalid={!!errors.name?.message}
                 classNames={{
                   inputWrapper: 'rounded-xl h-[2.7lh] shadow-lg border-slate-600',
@@ -164,6 +174,7 @@ const ContactForm = ({ ...rest }: Props) => {
                 autoComplete="email"
                 label={tForm.EMAIL.LABEL}
                 placeholder={tForm.EMAIL.PLACEHOLDER}
+                isDisabled={isSubmitting}
                 isInvalid={!!errors.email?.message}
                 classNames={{
                   inputWrapper: 'rounded-xl h-[2.7lh] shadow-lg border-slate-600',
@@ -198,6 +209,7 @@ const ContactForm = ({ ...rest }: Props) => {
                 variant="bordered"
                 label={tForm.MESSAGE.LABEL}
                 placeholder={tForm.MESSAGE.PLACEHOLDER}
+                isDisabled={isSubmitting}
                 isInvalid={!!errors.message?.message}
                 classNames={{
                   inputWrapper: 'rounded-xl border-2 shadow-lg border-slate-600',
@@ -228,7 +240,7 @@ const ContactForm = ({ ...rest }: Props) => {
             {slots.error} {t(`common:ERRORS.${errors.root.message}` as any)}
           </p>
         )}
-        <Button fullWidth type="submit" size="lg" className="rounded-xl bg-primary-300">
+        <Button fullWidth type="submit" isLoading={isSubmitting} size="lg" className="rounded-xl bg-primary-300">
           {tForm.CONTACT.SUBMIT}
         </Button>
       </div>

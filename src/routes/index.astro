@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components'
+import { getCollection } from 'astro:content'
 import clsx from 'clsx'
 import { getLocale, getLocalePath, t } from 'i18n:astro'
 
@@ -34,6 +35,9 @@ const featureIcons = ['collab', 'save-time', 'code', 'feedback']
 //   ...testimonial,
 //   imgSlot: TESTIMONIAL_IMAGES[idx].slot,
 // }))
+
+const subscribeEmailContents = await getCollection('emails')
+const subscribeEmail = subscribeEmailContents.find((content) => content.id.endsWith(locale))
 ---
 
 <PageLayout {title} {description}>
@@ -104,7 +108,7 @@ const featureIcons = ['collab', 'save-time', 'code', 'feedback']
           radius="full"
           color="secondary"
           variant="shadow"
-          href={ROUTES.contact}
+          href={`${ROUTES.contact}?type=review`}
           className="px-6"
         >
           {t('landing:TESTIMONIALS.REVIEW')}
@@ -123,7 +127,7 @@ const featureIcons = ['collab', 'save-time', 'code', 'feedback']
     </Testimonials>
 
     <Banner title={t('landing:SUBSCRIBE.HEADING')} subtitle={t('landing:SUBSCRIBE.PARAGRAPH')} className="mt-40">
-      <SubscribeForm client:visible>
+      <SubscribeForm client:visible emailContent={subscribeEmail?.body!}>
         <Icon name="error" slot="error" />
       </SubscribeForm>
     </Banner>
