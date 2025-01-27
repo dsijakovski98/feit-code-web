@@ -10,7 +10,7 @@ import playformCompress from '@playform/compress'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://feit-code.com',
+  site: 'https://feitcode.com',
   integrations: [
     react(),
     icon(),
