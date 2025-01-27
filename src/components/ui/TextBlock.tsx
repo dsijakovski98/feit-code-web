@@ -23,7 +23,7 @@ const TextBlock = ({
 }: Props) => {
   return (
     <div className={clsx('space-y-3', { 'text-center': centered }, className)}>
-      {title && <As className={clsx('text-4xl font-medium sm:text-3xl', titleClass)}>{title}</As>}
+      {title && <As className={clsx('text-4xl text-pretty font-medium sm:text-3xl', titleClass)}>{title}</As>}
 
       {paragraph && <p className={clsx('text-xl font-extralight sm:text-lg', paragraphClass)}>{paragraph}</p>}
     </div>

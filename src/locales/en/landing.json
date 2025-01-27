@@ -43,6 +43,8 @@
   "TESTIMONIALS": {
     "HEADING": "Testimonials & Reviews",
     "PARAGRAPH": "Check out what our <students>fellow students</students> have to say about us",
+    "EMPTY": "Still nothing... 😅 Be the first to leave a review!",
+    "REVIEW": "Submit Review",
     "LIST": [
       {
         "TEXT": "The new web app for programming exams at FEIT has made the whole process so much smoother.",

@@ -9,13 +9,15 @@ import Features from '@components/pages/Landing/Features'
 import HeroMessage from '@components/pages/Landing/HeroMessage'
 import SubscribeForm from '@components/pages/Landing/SubscribeForm'
 import Testimonials from '@components/pages/Landing/Testimonials'
-import TestimonialAvatar from '@components/pages/Landing/Testimonials/TestimonialAvatar.astro'
-import TestimonialCards from '@components/pages/Landing/Testimonials/TestimonialCards'
+
+// import TestimonialAvatar from '@components/pages/Landing/Testimonials/TestimonialAvatar.astro'
+// import TestimonialCards from '@components/pages/Landing/Testimonials/TestimonialCards'
+
 import Banner from '@components/ui/Banner'
 import Button from '@components/ui/Button'
 
 import { DEFAULT_LOCALE } from '@config/i18n'
-import { TESTIMONIAL_IMAGES } from '@constants/content'
+// import { TESTIMONIAL_IMAGES } from '@constants/content'
 import { HREF, ROUTES } from '@constants/routes'
 
 import '@styles/landing.css'
@@ -28,18 +30,18 @@ const description = t('landing:META.DESCRIPTION')
 const features = t('landing:FEATURES.LIST', { returnObjects: true })
 const featureIcons = ['collab', 'save-time', 'code', 'feedback']
 
-const testimonials = t('landing:TESTIMONIALS.LIST', { returnObjects: true }).map((testimonial, idx) => ({
-  ...testimonial,
-  imgSlot: TESTIMONIAL_IMAGES[idx].slot,
-}))
+// const testimonials = t('landing:TESTIMONIALS.LIST', { returnObjects: true }).map((testimonial, idx) => ({
+//   ...testimonial,
+//   imgSlot: TESTIMONIAL_IMAGES[idx].slot,
+// }))
 ---
 
 <PageLayout {title} {description}>
   <main class="overflow-x-hidden bg-dots bg-[top_center] bg-no-repeat py-20 sm:py-4 xs:pt-2">
-    <div class="container mb-80 space-y-80 sm:mb-52 sm:space-y-5">
+    <div class="container mb-80 space-y-80 md:space-y-44 sm:mb-52">
       <section
         class={clsx(
-          'flex flex-col items-center gap-0 pt-32 text-center',
+          'flex flex-col items-center gap-0 pt-36 text-center',
           locale === DEFAULT_LOCALE ? 'font-semibold' : 'font-bold',
         )}
       >
@@ -92,14 +94,32 @@ const testimonials = t('landing:TESTIMONIALS.LIST', { returnObjects: true }).map
     </div>
 
     <Testimonials>
-      <TestimonialCards client:load testimonials={testimonials}>
+      <div class="grid -translate-y-3 place-items-center gap-6 px-4">
+        <p class="text-pretty text-center text-xl font-light text-foreground-400 lg:text-lg">{t('landing:TESTIMONIALS.EMPTY')}</p>
+
+        <Button
+          client:visible
+          as="a"
+          size="lg"
+          radius="full"
+          color="secondary"
+          variant="shadow"
+          href={ROUTES.contact}
+          className="px-6"
+        >
+          {t('landing:TESTIMONIALS.REVIEW')}
+        </Button>
+      </div>
+
+      <!-- TODO: Bring back testimonials once content is gathered -->
+      <!-- <TestimonialCards client:load testimonials={testimonials}>
         <Icon slot="prev" name="chevron/left" />
         <Icon slot="next" name="chevron/right" />
 
         <Icon slot="quote" name="quote" class="scale-[1.1] text-slate-100 opacity-90" />
 
         <TestimonialAvatar slot={TESTIMONIAL_IMAGES[0].slot} src={TESTIMONIAL_IMAGES[0].img} alt={testimonials[0].NAME} />
-      </TestimonialCards>
+      </TestimonialCards> -->
     </Testimonials>
 
     <Banner title={t('landing:SUBSCRIBE.HEADING')} subtitle={t('landing:SUBSCRIBE.PARAGRAPH')} className="mt-40">

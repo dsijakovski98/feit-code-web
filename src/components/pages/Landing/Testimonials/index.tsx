@@ -8,19 +8,21 @@ import TextBlock from '@components/ui/TextBlock'
 const Testimonials = ({ children }: PropsWithChildren) => {
   return (
     <section className="space-y-16">
-      <TextBlock
-        as="h2"
-        centered
-        title={t('landing:TESTIMONIALS.HEADING')}
-        paragraph={
-          <Trans
-            tKey={['landing:TESTIMONIALS.PARAGRAPH']}
-            components={{
-              students: <GradientText className="font-semibold" />,
-            }}
-          />
-        }
-      />
+      <div className="container">
+        <TextBlock
+          as="h2"
+          centered
+          title={t('landing:TESTIMONIALS.HEADING')}
+          paragraph={
+            <Trans
+              tKey={['landing:TESTIMONIALS.PARAGRAPH']}
+              components={{
+                students: <GradientText className="font-semibold" />,
+              }}
+            />
+          }
+        />
+      </div>
 
       <div>{children}</div>
     </section>
