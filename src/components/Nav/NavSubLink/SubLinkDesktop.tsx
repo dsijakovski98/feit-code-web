@@ -42,7 +42,7 @@ const SubLinksNavLinkDesktop = ({ labelKey, subLinks, children }: Props) => {
             href={href}
             aria-label={tNav(key)}
             target={external ? '_blank' : '_self'}
-            description={<span className="text-xs font-light text-default-800">{tNav(descriptionKey)}</span>}
+            description={<span className="text-sm font-light text-default-800">{tNav(descriptionKey)}</span>}
             startContent={<div className="flex h-10 w-10 self-start *:h-full *:w-full">{slots[icon as keyof typeof slots]}</div>}
           >
             <div className="flex text-medium font-light [&_svg]:-translate-y-[6px] [&_svg]:scale-[0.6]">
@@ -72,7 +72,7 @@ const SubLinksNavLinkDesktop = ({ labelKey, subLinks, children }: Props) => {
                 }
                 classNames={{
                   base: 'data-[hover=true]:bg-transparent pl-0',
-                  description: 'text-default-800 text-xs font-light',
+                  description: 'text-default-800 text-sm font-light',
                 }}
               >
                 <div className="flex text-medium font-light [&_svg]:-translate-y-[6px] [&_svg]:scale-[0.6]">
