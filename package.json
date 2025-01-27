@@ -11,7 +11,7 @@
   },
   "scripts": {
     "dev": "astro dev --port 3000",
-    "start": "PORT=3000 node server.mjs",
+    "start": "PORT=4000 node dist/server/entry.mjs",
     "build": "rm -rf dist && astro check && astro build",
     "preview": "astro preview",
     "format": "prettier --write src/",
