@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .hero-faith {
-  @apply relative inline-block text-[5.5rem] text-transparent [text-shadow:_0_0_3px_rgb(200_200_200_/_50%)] sm:text-[3.8rem];
+  @apply relative text-[5.5rem] text-transparent [text-shadow:_0_0_3px_rgb(200_200_200_/_50%)] sm:text-[3.8rem];
 }
 
 .hero-faith::before {
