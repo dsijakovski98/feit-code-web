@@ -11,10 +11,13 @@ import playformCompress from '@playform/compress'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://feitcode.com',
+
   integrations: [
     react(),
     icon(),
-    playformCompress(),
+    playformCompress({
+      HTML: false,
+    }),
     sitemap(),
     tailwind({
       applyBaseStyles: false,
@@ -29,7 +32,9 @@ export default defineConfig({
       },
     }),
   ],
+
   output: 'static',
+
   adapter: node({
     mode: 'standalone',
   }),

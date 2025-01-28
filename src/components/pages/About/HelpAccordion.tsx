@@ -1,7 +1,7 @@
 import { t } from 'i18n:astro'
 import type { Slots } from 'types/index'
 
-import { Accordion, AccordionItem } from '@nextui-org/accordion'
+import { Accordion, AccordionItem } from '@heroui/accordion'
 
 import Trans from '@components/Trans'
 

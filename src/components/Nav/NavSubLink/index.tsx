@@ -1,6 +1,6 @@
 import { type PropsWithChildren } from 'react'
 
-import type { PropsOf } from '@nextui-org/react'
+import type { PropsOf } from '@heroui/react'
 
 import type NavLink from '@components/Nav/NavLink'
 import SubLinkDesktop from '@components/Nav/NavSubLink/SubLinkDesktop'

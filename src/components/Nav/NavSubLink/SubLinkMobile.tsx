@@ -1,7 +1,7 @@
 import { t } from 'i18n:astro'
 import { type PropsWithChildren } from 'react'
 
-import type { PropsOf } from '@nextui-org/react'
+import type { PropsOf } from '@heroui/react'
 
 import { useNavContext } from '@components/Nav/Context'
 import type NavSubLink from '@components/Nav/NavSubLink'

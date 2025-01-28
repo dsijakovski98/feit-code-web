@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { getLocale, t } from 'i18n:astro'
 import { Fragment, useMemo } from 'react'
 
-import { Switch } from '@nextui-org/switch'
+import { Switch } from '@heroui/switch'
 
 import StepsItems from '@components/pages/About/Steps/StepsItems'
 import TextBlock from '@components/ui/TextBlock'

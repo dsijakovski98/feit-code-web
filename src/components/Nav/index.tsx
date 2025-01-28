@@ -1,7 +1,7 @@
 import { getSwitcherData, t } from 'i18n:astro'
 import type { Slots } from 'types/index'
 
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem } from '@nextui-org/navbar'
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem } from '@heroui/navbar'
 
 import { NavContext } from '@components/Nav/Context'
 import LanguageSwitch from '@components/Nav/LanguageSwitch'

@@ -4,8 +4,8 @@ import { Controller, type SubmitHandler, useForm } from 'react-hook-form'
 import type { Slots } from 'types/index'
 import { type InferInput, email, nonEmpty, object, pipe, string, trim } from 'valibot'
 
-import { Input } from '@nextui-org/input'
-import { CircularProgress } from '@nextui-org/react'
+import { Input } from '@heroui/input'
+import { CircularProgress } from '@heroui/react'
 
 import Button from '@components/ui/Button'
 

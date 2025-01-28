@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import type { PropsWithChildren } from 'react'
 
-import type { As } from '@nextui-org/react'
+import type { As } from '@heroui/react'
 
 type Props = {
   as?: As
