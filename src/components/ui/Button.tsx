@@ -1,7 +1,7 @@
 import { type ComponentProps, type PropsWithChildren, forwardRef } from 'react'
 
-import { Button as NextUiButton } from '@nextui-org/button'
-import { extendVariants } from '@nextui-org/react'
+import { Button as NextUiButton } from '@heroui/button'
+import { extendVariants } from '@heroui/react'
 
 const Btn = extendVariants(NextUiButton, {
   defaultVariants: {

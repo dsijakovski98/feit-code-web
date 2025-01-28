@@ -4,7 +4,7 @@ import { Controller, type SubmitHandler, useForm } from 'react-hook-form'
 import type { Slots } from 'types/index'
 import { type InferInput, email, nonEmpty, object, pipe, string, trim } from 'valibot'
 
-import { Input, Textarea } from '@nextui-org/react'
+import { Input, Textarea } from '@heroui/react'
 
 import Button from '@components/ui/Button'
 
@@ -205,6 +205,7 @@ const ContactForm = ({ ...rest }: Props) => {
                 {...field}
                 rows={7}
                 disableAutosize
+                color="primary"
                 autoComplete="off"
                 variant="bordered"
                 label={tForm.MESSAGE.LABEL}
