@@ -21,27 +21,29 @@ type Props = {
   headItems?: HeadItems
 }
 
+const { pathname } = Astro.url
 const { title, description = '', hideFooter = false, headItems = {} } = Astro.props
+
+const pageUrl = 'https://feitcode.com' + pathname
+const shareImg = '/share.png'
 
 const layoutHeadItems: HeadItems = {
   title,
   meta: [
     { name: 'description', content: description },
+    { property: 'og:type', content: 'website' },
 
     { name: 'twitter:title', content: title },
     { name: 'twitter:description', content: description },
-
+    { name: 'twitter:image', content: shareImg },
+    { property: 'twitter:url', content: pageUrl },
     { name: 'twitter:card', content: 'summary' },
-    { name: 'twitter:image', content: '/share.png' },
     { property: 'twitter:domain', content: 'feitcode.com' },
-    { property: 'twitter:url', content: 'https://feitcode.com' },
 
     { property: 'og:title', content: title },
     { property: 'og:description', content: description },
-
-    { property: 'og:type', content: 'website' },
-    { property: 'og:image', content: '/share.png' },
-    { property: 'og:url', content: 'https://feitcode.com' },
+    { property: 'og:image', content: shareImg },
+    { property: 'og:url', content: pageUrl },
   ],
   link: [
     { rel: 'icon', type: 'image/ico', href: '/favicon.ico', sizes: '256x256' },
@@ -115,8 +117,6 @@ const layoutHeadItems: HeadItems = {
 
 const locale = getLocale()
 const localeData = getSwitcherData()
-
-const { pathname } = Astro.url
 
 const globalFont = locale === 'en' ? 'font-kanit' : 'font-exo'
 ---
