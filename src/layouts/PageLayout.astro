@@ -25,7 +25,24 @@ const { title, description = '', hideFooter = false, headItems = {} } = Astro.pr
 
 const layoutHeadItems: HeadItems = {
   title,
-  meta: [{ name: 'description', content: description }],
+  meta: [
+    { name: 'description', content: description },
+
+    { name: 'twitter:title', content: title },
+    { name: 'twitter:description', content: description },
+
+    { name: 'twitter:card', content: 'summary' },
+    { name: 'twitter:image', content: '/share.png' },
+    { property: 'twitter:domain', content: 'feitcode.com' },
+    { property: 'twitter:url', content: 'https://feitcode.com' },
+
+    { property: 'og:title', content: { title } },
+    { property: 'og:description', content: description },
+
+    { property: 'og:type', content: 'website' },
+    { property: 'og:image', content: '/share.png' },
+    { property: 'og:url', content: 'https://feitcode.com' },
+  ],
   link: [
     { rel: 'icon', type: 'image/ico', href: '/favicon.ico', sizes: '256x256' },
 
