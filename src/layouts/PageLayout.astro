@@ -31,7 +31,6 @@ const layoutHeadItems: HeadItems = {
   title,
   meta: [
     { name: 'description', content: description },
-    { property: 'og:type', content: 'website' },
 
     { name: 'twitter:title', content: title },
     { name: 'twitter:description', content: description },
@@ -44,11 +43,19 @@ const layoutHeadItems: HeadItems = {
     { property: 'og:description', content: description },
     { property: 'og:image', content: shareImg },
     { property: 'og:url', content: pageUrl },
+    { property: 'og:type', content: 'website' },
+
+    {
+      name: 'keywords',
+      content: 'FEIT, Code, Website, Programming, JavaScript, TypeScript, Golang, Rust, Python, C, C++, PHP, Bash',
+    },
   ],
   link: [
     { rel: 'icon', type: 'image/ico', href: '/favicon.ico', sizes: '256x256' },
 
     { rel: 'sitemap', href: '/sitemap-index.xml' },
+
+    { rel: 'canonical', href: pageUrl },
 
     // Preload resources
     { rel: 'preload', href: '/images/bg-dots.webp', as: 'image', type: 'image/svg+xml' },
