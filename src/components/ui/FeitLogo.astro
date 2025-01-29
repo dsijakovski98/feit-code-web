@@ -24,10 +24,9 @@ const { loading = null, class: className = '' } = Astro.props
 
   <div class="w-[55px]">
     <Image
-      alt=""
       src={logo}
       loading={loading}
-      role="presentation"
+      alt={t('NAV.LOGO.ALT')}
       class="h-full w-full drop-shadow-[0px_0px_2px_theme(colors.primary)] duration-300 group-hover:drop-shadow-[0px_0px_4px_theme(colors.primary)]"
     />
   </div>

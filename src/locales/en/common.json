@@ -39,7 +39,8 @@
   "NAV": {
     "LOGO": {
       "FEIT": "FEIT",
-      "CODE": "Code"
+      "CODE": "Code",
+      "ALT": "FEIT Code logo"
     },
     "LANGUAGES": {
       "LABEL": "Language select menu",
