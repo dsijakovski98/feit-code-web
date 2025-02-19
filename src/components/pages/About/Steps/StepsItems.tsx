@@ -16,7 +16,7 @@ const StepsItems = ({ steps }: Props) => {
   return (
     <ol className={clsx('grid gap-4 min-h-60 md:min-h-auto', `grid-cols-${steps.length} md:block md:space-y-4`)}>
       {steps.map(({ TITLE, DESCRIPTION }, index) => (
-        <div key={TITLE} className="space-y-8 group md:flex md:gap-4 md:space-y-0 md:!h-40 md:items-stretch">
+        <li key={TITLE} className="space-y-8 group md:flex md:gap-4 md:space-y-0 md:!h-40 md:items-stretch">
           <div className="flex items-center gap-4 md:flex-col md:items-start md:gap-4">
             <span className="bg-default flex items-center justify-center p-1 w-6 h-6 text-sm aspect-square group-hover:bg-primary transition-background duration-400 rounded-full">
               {index + 1}
@@ -58,7 +58,7 @@ const StepsItems = ({ steps }: Props) => {
             titleClass="text-[1.5rem] text-xl leading-[1.2] md:!text-[1.5rem]"
             paragraphClass="!text-slate-300 !text-lg"
           />
-        </div>
+        </li>
       ))}
     </ol>
   )
