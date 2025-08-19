@@ -70,7 +70,7 @@ const SubscribeForm = ({ emailContent, ...rest }: Props) => {
     <form onSubmit={handleSubmit(onSubmit)} className="relative flex items-center sm:w-full">
       <div
         className={clsx(
-          'relative flex w-full items-center rounded-full border-2 border-secondary-300 bg-transparent px-4 py-2 sm:flex-col sm:gap-3 sm:!border-transparent sm:px-8',
+          'relative flex w-full items-center rounded-full transition-colors has-[input:focus]:border-primary border-2 border-secondary-300  px-4 py-2 sm:flex-col sm:gap-3 sm:!border-transparent sm:px-8',
           { '!border-danger-500': !!errors.email },
         )}
       >
@@ -106,7 +106,7 @@ const SubscribeForm = ({ emailContent, ...rest }: Props) => {
           type="submit"
           variant="solid"
           disabled={isSubmitting}
-          className="gradient-secondary px-12 grid place-items-center [grid-template-areas:'stack'] *:[grid-area:stack] sm:w-full"
+          className="gradient-secondary px-12 grid place-items-center [grid-template-areas:'stack'] focus:gradient-primary transition-colors *:[grid-area:stack] sm:w-full"
         >
           <CircularProgress
             size="sm"

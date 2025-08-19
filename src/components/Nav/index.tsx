@@ -32,6 +32,9 @@ const Nav = ({ pathname, localeData, ...rest }: Props) => {
       if (!menuOpen) return
 
       menu.toggleOff()
+
+      const toggle = document.getElementById(NAV_MENU.toggle)!
+      toggle.focus()
     }
 
     window.addEventListener('keydown', handleCloseMenu)

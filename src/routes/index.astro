@@ -58,6 +58,7 @@ const subscribeEmail = subscribeEmailContents.find((content) => content.id.endsW
             href={getLocalePath(ROUTES.about)}
             variant="shadow"
             size="lg"
+            radius="full"
             color="default"
             className="grow"
           >
@@ -71,6 +72,7 @@ const subscribeEmail = subscribeEmailContents.find((content) => content.id.endsW
             target="_blank"
             variant="shadow"
             size="lg"
+            radius="full"
             color="primary"
             className="flex grow items-center gap-1"
           >
@@ -109,7 +111,7 @@ const subscribeEmail = subscribeEmailContents.find((content) => content.id.endsW
           color="secondary"
           variant="shadow"
           href={getLocalePath(`${ROUTES.contact}?type=review`)}
-          className="px-6"
+          className="px-6 focus:outline-primary"
         >
           {t('landing:TESTIMONIALS.REVIEW')}
         </Button>

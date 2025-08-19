@@ -35,7 +35,7 @@ const Steps = ({}: Props) => {
               size="sm"
               classNames={{
                 base: 'flex-row-reverse items-end gap-0',
-                label: clsx('text-2xl', locale === 'mk' ? 'w-[220px]' : 'w-auto pr-2'),
+                label: clsx('text-2xl', locale === 'mk' ? 'w-[210px]' : 'w-auto pr-4'),
                 wrapper: '!bg-primary',
               }}
               isSelected={open}

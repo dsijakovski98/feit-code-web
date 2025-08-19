@@ -12,6 +12,10 @@
     @apply !font-exo placeholder:!font-exo;
   }
 
+  html {
+    @apply !scroll-smooth;
+  }
+
   /* Reset NextUI dropdown */
   [role='menuitemradio'] svg {
     width: auto;
@@ -20,6 +24,10 @@
 
   button:disabled {
     @apply pointer-events-none border-transparent bg-slate-800;
+  }
+
+  :is(a, button):focus {
+    @apply !outline-offset-4;
   }
 
   hr {
@@ -67,7 +75,7 @@
   }
 
   .gradient-primary {
-    @apply bg-gradient-to-br from-primary-800 to-secondary-300;
+    @apply bg-gradient-to-br from-primary-500 to-primary-300;
   }
 
   .gradient-secondary {
