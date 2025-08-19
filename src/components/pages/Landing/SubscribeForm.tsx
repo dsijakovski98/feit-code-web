@@ -82,9 +82,11 @@ const SubscribeForm = ({ emailContent, ...rest }: Props) => {
             <Input
               {...field}
               radius="full"
-              label={tForm.EMAIL.LABEL}
               autoComplete="email"
+              label={tForm.EMAIL.LABEL}
               placeholder={tForm.EMAIL.PLACEHOLDER}
+              aria-invalid={!!errors.email}
+              aria-describedby="email-subscribe-status"
               className="min-w-[320px] *:!bg-transparent sm:min-w-full"
               classNames={{
                 inputWrapper: clsx(
@@ -92,7 +94,7 @@ const SubscribeForm = ({ emailContent, ...rest }: Props) => {
                   { 'sm:!border-danger-500': !!errors.email },
                 ),
                 label: '!text-white text-lg font-semibold',
-                input: 'text-base font-light font-exo placeholder:font-kanit placeholder:text-slate-300',
+                input: 'text-base font-light font-exo placeholder:font-kanit placeholder:text-slate-300/60',
               }}
             />
           )}
@@ -126,23 +128,19 @@ const SubscribeForm = ({ emailContent, ...rest }: Props) => {
         </Button>
       </div>
 
-      {errors.email && (
-        <p
-          role="alert"
-          className="absolute inset-x-2 top-full flex translate-y-2 items-center gap-1 leading-[1.2] text-danger-500 sm:inset-x-8 sm:translate-y-0 sm:items-start sm:text-sm"
-        >
-          {slots.error} {t(`common:ERRORS.${errors.email.message}` as any)}
-        </p>
-      )}
+      <div id="email-subscribe-status">
+        {errors.email && (
+          <p className="absolute inset-x-2 top-full flex translate-y-2 items-center gap-1 leading-[1.2] text-danger-500 sm:inset-x-8 sm:translate-y-0 sm:items-start sm:text-sm">
+            {slots.error} {t(`common:ERRORS.${errors.email.message}` as any)}
+          </p>
+        )}
 
-      {isSubmitSuccessful && !errors.email && (
-        <p
-          role="alert"
-          className="absolute inset-x-2 top-full flex translate-y-4 items-center justify-center gap-1 text-center text-2xl lg:text-xl text-pretty font-light leading-[1.2] text-primary-700 sm:inset-x-8 sm:translate-y-1 sm:items-start"
-        >
-          {t('landing:SUBSCRIBE.SUCCESS')}
-        </p>
-      )}
+        {isSubmitSuccessful && !errors.email && (
+          <p className="absolute inset-x-2 top-full flex translate-y-4 items-center justify-center gap-1 text-center text-2xl lg:text-xl text-pretty font-light leading-[1.2] text-primary-700 sm:inset-x-8 sm:translate-y-1 sm:items-start">
+            {t('landing:SUBSCRIBE.SUCCESS')}
+          </p>
+        )}
+      </div>
     </form>
   )
 }
