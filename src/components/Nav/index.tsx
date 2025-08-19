@@ -1,7 +1,8 @@
 import { getSwitcherData, t } from 'i18n:astro'
+import type { KeyboardEvent } from 'react'
 import type { Slots } from 'types/index'
 
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem } from '@heroui/navbar'
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle } from '@heroui/navbar'
 
 import { NavContext } from '@components/Nav/Context'
 import LanguageSwitch from '@components/Nav/LanguageSwitch'
@@ -9,6 +10,7 @@ import NavLink from '@components/Nav/NavLink'
 import NavMenu from '@components/Nav/NavMenu'
 import Button from '@components/ui/Button'
 
+import { NAV_MENU } from '@constants/index'
 import { HREF, NAV_ROUTES } from '@constants/routes'
 import { useToggle } from '@hooks/useToggle'
 
@@ -22,6 +24,27 @@ const Nav = ({ pathname, localeData, ...rest }: Props) => {
 
   const menu = useToggle()
 
+  const handleMenuOpenChange = (isOpen: boolean) => {
+    const mainContent = document.querySelector('main')!
+    const footer = document.querySelector('footer')!
+
+    if (isOpen) {
+      mainContent.setAttribute('inert', '')
+      footer.setAttribute('inert', '')
+    } else {
+      mainContent.removeAttribute('inert')
+      footer.removeAttribute('inert')
+    }
+
+    menu.set(isOpen)
+  }
+
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      menu.toggleOff()
+    }
+  }
+
   return (
     <NavContext.Provider value={{ slots, localeData }}>
       <Navbar
@@ -33,8 +56,10 @@ const Nav = ({ pathname, localeData, ...rest }: Props) => {
           item: ['font-light data-[active=true]:text-primary-600 data-[active=true]:font-bold'],
         }}
         className="top-0 bg-dots bg-bottom py-1 shadow-lg"
+        id="navbar"
         isMenuOpen={menu.open}
-        onMenuOpenChange={menu.set}
+        onKeyDown={handleKeyDown}
+        onMenuOpenChange={handleMenuOpenChange}
       >
         <NavbarBrand className="md:flex-initial">{slots.logo}</NavbarBrand>
 
@@ -80,6 +105,10 @@ const Nav = ({ pathname, localeData, ...rest }: Props) => {
               {t('NAV.SIGN_UP')}
             </Button>
           </NavbarItem>
+        </NavbarContent>
+
+        <NavbarContent as="div" justify="end" className="hidden md:flex">
+          <NavbarMenuToggle id={NAV_MENU.toggle} />
         </NavbarContent>
 
         <NavMenu menu={menu} />

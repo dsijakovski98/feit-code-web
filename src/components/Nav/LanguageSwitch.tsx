@@ -1,4 +1,4 @@
-import { type Locale, getLocale } from 'i18n:astro'
+import { type Locale, getLocale, t } from 'i18n:astro'
 
 import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@heroui/dropdown'
 
@@ -18,6 +18,7 @@ const LanguageSwitch = () => {
           radius="full"
           color="default"
           variant="bordered"
+          aria-label={t('common:NAV.LANGUAGES.LABEL')}
           endContent={<div className="h-4 w-4">{slots[currentLocale]}</div>}
           className="min-w-fit capitalize sm:p-4"
         >

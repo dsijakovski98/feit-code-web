@@ -1,14 +1,16 @@
 import { t } from 'i18n:astro'
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 
-import { NavbarContent, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from '@heroui/navbar'
+import { NavbarItem, NavbarMenu, NavbarMenuItem } from '@heroui/navbar'
 
 import LanguageSwitch from '@components/Nav/LanguageSwitch'
 import NavLink from '@components/Nav/NavLink'
 import Button from '@components/ui/Button'
 
+import { NAV_MENU } from '@constants/index'
 import { HREF, NAV_ROUTES } from '@constants/routes'
 import type { UseToggle } from '@hooks/useToggle'
+import { getAllFocusableElements } from '@utils/index'
 
 type Props = {
   menu: UseToggle
@@ -17,15 +19,56 @@ type Props = {
 const NavMenu = ({ menu }: Props) => {
   const menuTitle = useMemo(() => `${t('NAV.LOGO.FEIT')} ${t('NAV.LOGO.CODE')}`, [t])
 
-  return (
-    <NavbarContent as="div" justify="end" className="hidden md:flex">
-      <NavbarMenuToggle />
+  useEffect(() => {
+    const handleFocusTrap = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab') return
 
-      <NavbarMenu title={menuTitle} className="!max-h-[calc(100dvh-64px)] !items-start py-8 pl-10">
-        <div className="mb-10 flex w-full -translate-x-2 items-center justify-between">
+      const menuOpen = document.getElementById('navbar')?.getAttribute('data-menu-open') === 'true'
+      if (!menuOpen) return
+
+      const logo = document.getElementById(NAV_MENU.logo)!
+      const toggle = document.getElementById(NAV_MENU.toggle)!
+      const navMenu = document.getElementById(NAV_MENU.menu)!
+      const navMenuElements = getAllFocusableElements(navMenu)
+
+      const firstElement = logo
+      const lastElement = navMenuElements.at(-1)!
+
+      if (e.shiftKey) {
+        // Going backwards
+        if (document.activeElement === firstElement) {
+          lastElement.focus()
+          e.preventDefault()
+        }
+
+        if (document.activeElement === navMenuElements[0]) {
+          toggle.focus()
+          e.preventDefault()
+        }
+      } else {
+        // Going forwards
+        if (document.activeElement === lastElement) {
+          firstElement.focus()
+          e.preventDefault()
+        }
+      }
+    }
+
+    window.addEventListener('keydown', handleFocusTrap, { capture: true })
+
+    return () => {
+      window.removeEventListener('keydown', handleFocusTrap, { capture: true })
+    }
+  }, [])
+
+  return (
+    <>
+      <NavbarMenu title={menuTitle} id={NAV_MENU.menu} className="!max-h-[calc(100dvh-64px)] !items-start py-8 pl-10">
+        <NavbarItem key="header" className="mb-10 flex w-full -translate-x-2 items-center justify-between">
           <h2 className="text-4xl font-extralight">{menuTitle}</h2>
+
           <LanguageSwitch />
-        </div>
+        </NavbarItem>
 
         {NAV_ROUTES.map(({ key, href, subLinks }) => (
           <NavbarMenuItem key={key as string} onClick={() => !subLinks && menu.set(false)} className="text-2xl font-normal">
@@ -35,7 +78,7 @@ const NavMenu = ({ menu }: Props) => {
           </NavbarMenuItem>
         ))}
 
-        <div className="mt-auto w-full space-y-4">
+        <NavbarItem key="menu-sign-in" className="mt-auto w-full mb-4">
           <Button
             as="a"
             fullWidth
@@ -48,7 +91,9 @@ const NavMenu = ({ menu }: Props) => {
           >
             {t('NAV.LOG_IN')}
           </Button>
+        </NavbarItem>
 
+        <NavbarItem key="menu-sign-up" className="w-full">
           <Button
             as="a"
             fullWidth
@@ -61,9 +106,9 @@ const NavMenu = ({ menu }: Props) => {
           >
             {t('NAV.SIGN_UP')}
           </Button>
-        </div>
+        </NavbarItem>
       </NavbarMenu>
-    </NavbarContent>
+    </>
   )
 }
 

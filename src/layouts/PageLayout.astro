@@ -11,6 +11,7 @@ import Footer from '@components/Footer.astro'
 import Nav from '@components/Nav'
 import FeitLogo from '@components/ui/FeitLogo.astro'
 
+import { NAV_MENU } from '@constants/index'
 import '@styles/fonts.css'
 import '@styles/global.css'
 
@@ -142,7 +143,7 @@ const globalFont = locale === 'en' ? 'font-kanit' : 'font-exo'
   <body class={globalFont}>
     <div class="grid min-h-[100dvh] grid-rows-[auto_1fr_auto]">
       <Nav client:load {pathname} {localeData}>
-        <FeitLogo slot="logo" loading="eager" />
+        <FeitLogo slot="logo" loading="eager" id={NAV_MENU.logo} />
 
         <Icon slot="external" name="external-link" />
         <Icon slot="chevron" name="chevron/down" />
