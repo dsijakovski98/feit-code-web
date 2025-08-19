@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components'
-import { t } from 'i18n:astro'
+import { getLocalePath, t } from 'i18n:astro'
 
 import FooterSocialsTitle from '@components/misc/FooterSocialsTitle'
 import FeitLogo from '@components/ui/FeitLogo.astro'
@@ -37,7 +37,7 @@ const year = new Date().getFullYear()
         <li>
           <a
             data-navlink
-            href={ROUTES.about}
+            href={getLocalePath(ROUTES.about)}
             class="flex items-center self-stretch text-lg aria-current:font-bold aria-current:text-primary-600"
           >
             <UnderlineText>{t('NAV.ABOUT')}</UnderlineText>
@@ -47,7 +47,7 @@ const year = new Date().getFullYear()
         <li>
           <a
             data-navlink
-            href={ROUTES.contact}
+            href={getLocalePath(ROUTES.contact)}
             class="flex items-center self-stretch text-lg aria-current:font-bold aria-current:text-primary-600"
           >
             <UnderlineText>{t('NAV.CONTACT')}</UnderlineText>
