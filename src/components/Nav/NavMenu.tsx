@@ -64,12 +64,6 @@ const NavMenu = ({ menu }: Props) => {
   return (
     <>
       <NavbarMenu title={menuTitle} id={NAV_MENU.menu} className="!max-h-[calc(100dvh-64px)] !items-start py-8 pl-10">
-        <NavbarItem key="header" className="mb-10 flex w-full -translate-x-2 items-center justify-between">
-          <h2 className="text-4xl font-extralight">{menuTitle}</h2>
-
-          <LanguageSwitch />
-        </NavbarItem>
-
         {NAV_ROUTES.map(({ key, href, subLinks }) => (
           <NavbarMenuItem key={key as string} onClick={() => !subLinks && menu.set(false)} className="text-2xl font-normal">
             <NavLink href={href} labelKey={key} subLinks={subLinks} variant="mobile">
@@ -77,6 +71,10 @@ const NavMenu = ({ menu }: Props) => {
             </NavLink>
           </NavbarMenuItem>
         ))}
+
+        <NavbarItem key="header" className="absolute right-5">
+          <LanguageSwitch />
+        </NavbarItem>
 
         <NavbarItem key="menu-sign-in" className="mt-auto w-full mb-4">
           <Button

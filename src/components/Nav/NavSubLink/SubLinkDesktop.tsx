@@ -15,15 +15,14 @@ const SubLinksNavLinkDesktop = ({ labelKey, subLinks, children }: Props) => {
 
   const tNav = (key: unknown) => t(`NAV.${key}` as any)
 
-  const TriggerButton = (
-    <button className="flex items-center self-stretch">
-      {children} {slots.chevron}
-    </button>
-  )
-
   return (
     <Dropdown triggerType="listbox" className="group sm:hidden">
-      <DropdownTrigger>{TriggerButton}</DropdownTrigger>
+      <DropdownTrigger>
+        <button className="flex items-center self-stretch">
+          <UnderlineText as="span">{children}</UnderlineText>
+          {slots.chevron}
+        </button>
+      </DropdownTrigger>
       <DropdownMenu>
         {subLinks!.map(({ href, key, icon, descriptionKey, external }) => (
           <DropdownItem
@@ -36,7 +35,7 @@ const SubLinksNavLinkDesktop = ({ labelKey, subLinks, children }: Props) => {
             startContent={<div className="flex h-10 w-10 self-start *:h-full *:w-full">{slots[icon as keyof typeof slots]}</div>}
           >
             <div className="flex text-medium font-light [&_svg]:-translate-y-[6px] [&_svg]:scale-[0.6]">
-              <UnderlineText>{tNav(key)}</UnderlineText>
+              {tNav(key)}
               {external && slots.external}
             </div>
           </DropdownItem>

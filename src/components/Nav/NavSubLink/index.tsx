@@ -9,11 +9,15 @@ import SubLinkMobile from '@components/Nav/NavSubLink/SubLinkMobile'
 type Props = Pick<PropsOf<typeof NavLink>, 'labelKey' | 'variant' | 'subLinks'> & PropsWithChildren
 
 const NavSubLink = ({ variant = 'desktop', labelKey, subLinks, children }: Props) => {
-  return variant === 'desktop' ? (
-    <SubLinkDesktop labelKey={labelKey} subLinks={subLinks}>
-      {children}
-    </SubLinkDesktop>
-  ) : (
+  if (variant === 'desktop') {
+    return (
+      <SubLinkDesktop labelKey={labelKey} subLinks={subLinks}>
+        {children}
+      </SubLinkDesktop>
+    )
+  }
+
+  return (
     <SubLinkMobile labelKey={labelKey} subLinks={subLinks}>
       {children}
     </SubLinkMobile>

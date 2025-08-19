@@ -1,5 +1,5 @@
 import { getSwitcherData, t } from 'i18n:astro'
-import type { KeyboardEvent } from 'react'
+import { useEffect } from 'react'
 import type { Slots } from 'types/index'
 
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle } from '@heroui/navbar'
@@ -24,6 +24,23 @@ const Nav = ({ pathname, localeData, ...rest }: Props) => {
 
   const menu = useToggle()
 
+  useEffect(() => {
+    const handleCloseMenu = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return
+
+      const menuOpen = document.getElementById('navbar')?.getAttribute('data-menu-open') === 'true'
+      if (!menuOpen) return
+
+      menu.toggleOff()
+    }
+
+    window.addEventListener('keydown', handleCloseMenu)
+
+    return () => {
+      window.removeEventListener('keydown', handleCloseMenu)
+    }
+  }, [])
+
   const handleMenuOpenChange = (isOpen: boolean) => {
     const mainContent = document.querySelector('main')!
     const footer = document.querySelector('footer')!
@@ -38,13 +55,6 @@ const Nav = ({ pathname, localeData, ...rest }: Props) => {
 
     menu.set(isOpen)
   }
-
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      menu.toggleOff()
-    }
-  }
-
   return (
     <NavContext.Provider value={{ slots, localeData }}>
       <Navbar
@@ -58,7 +68,6 @@ const Nav = ({ pathname, localeData, ...rest }: Props) => {
         className="top-0 bg-dots bg-bottom py-1 shadow-lg"
         id="navbar"
         isMenuOpen={menu.open}
-        onKeyDown={handleKeyDown}
         onMenuOpenChange={handleMenuOpenChange}
       >
         <NavbarBrand className="md:flex-initial">{slots.logo}</NavbarBrand>
