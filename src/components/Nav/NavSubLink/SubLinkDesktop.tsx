@@ -1,11 +1,8 @@
 import { t } from 'i18n:astro'
-import { type PropsWithChildren, useEffect, useState } from 'react'
-import { isMobile } from 'react-device-detect'
+import { type PropsWithChildren } from 'react'
 
 import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@heroui/dropdown'
-import { Listbox, ListboxItem, ListboxSection } from '@heroui/listbox'
 import type { PropsOf } from '@heroui/react'
-import { Tooltip } from '@heroui/tooltip'
 
 import { useNavContext } from '@components/Nav/Context'
 import type NavSubLink from '@components/Nav/NavSubLink'
@@ -14,26 +11,18 @@ import UnderlineText from '@components/ui/UnderlineText'
 type Props = Pick<PropsOf<typeof NavSubLink>, 'labelKey' | 'subLinks'> & PropsWithChildren
 
 const SubLinksNavLinkDesktop = ({ labelKey, subLinks, children }: Props) => {
-  const [mobileDevice, setMobileDevice] = useState<boolean>(false)
-
   const { slots } = useNavContext<'external' | 'chevron'>()
 
   const tNav = (key: unknown) => t(`NAV.${key}` as any)
 
-  // Need to reassign the value on mount: https://github.com/duskload/react-device-detect/issues/196
-  useEffect(() => {
-    setMobileDevice(isMobile)
-  }, [])
-
-  const TriggerButton = (
-    <button className="flex items-center self-stretch">
-      {children} {slots.chevron}
-    </button>
-  )
-
-  return mobileDevice ? (
+  return (
     <Dropdown triggerType="listbox" className="group sm:hidden">
-      <DropdownTrigger>{TriggerButton}</DropdownTrigger>
+      <DropdownTrigger>
+        <button className="flex items-center self-stretch">
+          <UnderlineText as="span">{children}</UnderlineText>
+          {slots.chevron}
+        </button>
+      </DropdownTrigger>
       <DropdownMenu>
         {subLinks!.map(({ href, key, icon, descriptionKey, external }) => (
           <DropdownItem
@@ -46,48 +35,13 @@ const SubLinksNavLinkDesktop = ({ labelKey, subLinks, children }: Props) => {
             startContent={<div className="flex h-10 w-10 self-start *:h-full *:w-full">{slots[icon as keyof typeof slots]}</div>}
           >
             <div className="flex text-medium font-light [&_svg]:-translate-y-[6px] [&_svg]:scale-[0.6]">
-              <UnderlineText>{tNav(key)}</UnderlineText>
+              {tNav(key)}
               {external && slots.external}
             </div>
           </DropdownItem>
         ))}
       </DropdownMenu>
     </Dropdown>
-  ) : (
-    <Tooltip
-      offset={-4}
-      content={
-        <Listbox aria-label={tNav(labelKey)}>
-          <ListboxSection className="space-y-2 pt-1">
-            {subLinks!.map(({ href, key, icon, descriptionKey, external }) => (
-              <ListboxItem
-                key={key as string}
-                as="a"
-                href={href}
-                aria-label={tNav(key)}
-                description={tNav(descriptionKey)}
-                target={external ? '_blank' : '_self'}
-                startContent={
-                  <div className="flex h-10 w-10 self-start *:h-full *:w-full">{slots[icon as keyof typeof slots]}</div>
-                }
-                classNames={{
-                  base: 'data-[hover=true]:bg-transparent pl-0',
-                  description: 'text-default-800 text-sm font-light',
-                }}
-              >
-                <div className="flex text-medium font-light [&_svg]:-translate-y-[6px] [&_svg]:scale-[0.6]">
-                  <UnderlineText>{tNav(key)}</UnderlineText>
-                  {external && slots.external}
-                </div>
-              </ListboxItem>
-            ))}
-          </ListboxSection>
-        </Listbox>
-      }
-      closeDelay={0}
-    >
-      {TriggerButton}
-    </Tooltip>
   )
 }
 

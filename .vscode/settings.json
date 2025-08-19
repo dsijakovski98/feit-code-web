@@ -1,5 +1,16 @@
 {
-  "cSpell.words": ["astrolicious", "composables", "extralight", "feit", "feitcode", "iknow", "Kursevi", "licious", "playform"],
+  "cSpell.words": [
+    "astrolicious",
+    "composables",
+    "extralight",
+    "feit",
+    "feitcode",
+    "heroui",
+    "iknow",
+    "Kursevi",
+    "licious",
+    "playform"
+  ],
   "biome.enabled": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "prettier.documentSelectors": ["**/*.astro"],
