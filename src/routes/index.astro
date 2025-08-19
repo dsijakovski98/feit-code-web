@@ -108,7 +108,7 @@ const subscribeEmail = subscribeEmailContents.find((content) => content.id.endsW
           radius="full"
           color="secondary"
           variant="shadow"
-          href={`${ROUTES.contact}?type=review`}
+          href={getLocalePath(`${ROUTES.contact}?type=review`)}
           className="px-6"
         >
           {t('landing:TESTIMONIALS.REVIEW')}
