@@ -8,9 +8,9 @@ import { useNavContext } from '@components/Nav/Context'
 import type NavSubLink from '@components/Nav/NavSubLink'
 import UnderlineText from '@components/ui/UnderlineText'
 
-type Props = Pick<PropsOf<typeof NavSubLink>, 'labelKey' | 'subLinks'> & PropsWithChildren
+type Props = Pick<PropsOf<typeof NavSubLink>, 'subLinks'> & PropsWithChildren
 
-const SubLinksNavLinkDesktop = ({ labelKey, subLinks, children }: Props) => {
+const SubLinksNavLinkDesktop = ({ subLinks, children }: Props) => {
   const { slots } = useNavContext<'external' | 'chevron'>()
 
   const tNav = (key: unknown) => t(`NAV.${key}` as any)

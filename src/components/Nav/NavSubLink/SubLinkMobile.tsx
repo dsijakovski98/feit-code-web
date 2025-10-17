@@ -7,7 +7,7 @@ import { useNavContext } from '@components/Nav/Context'
 import type NavSubLink from '@components/Nav/NavSubLink'
 import UnderlineText from '@components/ui/UnderlineText'
 
-type Props = Pick<PropsOf<typeof NavSubLink>, 'labelKey' | 'subLinks'> & PropsWithChildren
+type Props = Pick<PropsOf<typeof NavSubLink>, 'subLinks'> & PropsWithChildren
 
 const SubLinkMobile = ({ subLinks, children }: Props) => {
   const { slots } = useNavContext<'external'>()

@@ -66,7 +66,7 @@ const NavMenu = ({ menu }: Props) => {
       <NavbarMenu title={menuTitle} id={NAV_MENU.menu} className="!max-h-[calc(100dvh-64px)] !items-start py-8 pl-10">
         {NAV_ROUTES.map(({ key, href, subLinks }) => (
           <NavbarMenuItem key={key as string} onClick={() => !subLinks && menu.set(false)} className="text-2xl font-normal">
-            <NavLink href={href} labelKey={key} subLinks={subLinks} variant="mobile">
+            <NavLink href={href} subLinks={subLinks} variant="mobile">
               {t(`NAV.${key}` as any)}
             </NavLink>
           </NavbarMenuItem>

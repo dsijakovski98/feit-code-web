@@ -9,16 +9,15 @@ import type { NavRoute } from '@constants/routes'
 
 type Props = {
   href: string
-  labelKey: NavRoute['key']
   subLinks?: NavRoute['subLinks']
   variant?: 'mobile' | 'desktop'
   className?: string
 } & PropsWithChildren
 
-const NavLink = ({ href, labelKey, subLinks, variant, className = '', children }: Props) => {
+const NavLink = ({ href, subLinks, variant, className = '', children }: Props) => {
   if (subLinks) {
     return (
-      <NavSubLink labelKey={labelKey} variant={variant} subLinks={subLinks}>
+      <NavSubLink variant={variant} subLinks={subLinks}>
         {children}
       </NavSubLink>
     )

@@ -1,6 +1,5 @@
 import { getSwitcherData, t } from 'i18n:astro'
 import { useEffect } from 'react'
-import type { Slots } from 'types/index'
 
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle } from '@heroui/navbar'
 
@@ -13,6 +12,8 @@ import Button from '@components/ui/Button'
 import { NAV_MENU } from '@constants/index'
 import { HREF, NAV_ROUTES } from '@constants/routes'
 import { useToggle } from '@hooks/useToggle'
+
+import type { Slots } from 'types/index'
 
 type Props = {
   pathname: string
@@ -78,7 +79,7 @@ const Nav = ({ pathname, localeData, ...rest }: Props) => {
         <NavbarContent className="flex-1 gap-8 md:gap-4 md:hidden" justify="center">
           {NAV_ROUTES.map(({ key, href, subLinks }) => (
             <NavbarItem key={key as string} isActive={href === pathname} className="flex items-center self-stretch">
-              <NavLink href={href} subLinks={subLinks} labelKey={key}>
+              <NavLink href={href} subLinks={subLinks}>
                 {t(`NAV.${key}` as any)}
               </NavLink>
             </NavbarItem>
