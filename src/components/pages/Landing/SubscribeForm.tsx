@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { t } from 'i18n:astro'
+import { useRef } from 'react'
 import { Controller, type SubmitHandler, useForm } from 'react-hook-form'
-import type { Slots } from 'types/index'
 import { type InferInput, email, nonEmpty, object, pipe, string, trim } from 'valibot'
 
 import { Input } from '@heroui/input'
@@ -12,6 +12,8 @@ import Button from '@components/ui/Button'
 import { EMAILJS } from '@constants/email'
 import emailjs from '@emailjs/browser'
 import { valibotResolver } from '@hookform/resolvers/valibot'
+
+import type { Slots } from 'types/index'
 
 const SubscribeEmailSchema = object({
   email: pipe(string(), trim(), nonEmpty('EMAIL.EMPTY'), email('EMAIL.INVALID')),
@@ -24,6 +26,8 @@ const SubscribeForm = ({ emailContent, ...rest }: Props) => {
   const emailTitle = t('EMAILS.SUBSCRIBE_TITLE')
 
   const slots = rest as Slots<'error'>
+
+  const honeyRef = useRef<HTMLInputElement | null>(null)
 
   const {
     handleSubmit,
@@ -40,6 +44,11 @@ const SubscribeForm = ({ emailContent, ...rest }: Props) => {
 
   const onSubmit: SubmitHandler<InferInput<typeof SubscribeEmailSchema>> = async ({ email }) => {
     clearErrors('email')
+
+    if (honeyRef.current?.value) {
+      setError('email', { message: 'GOTCHA' })
+      return
+    }
 
     await emailjs
       .send(
@@ -100,6 +109,8 @@ const SubscribeForm = ({ emailContent, ...rest }: Props) => {
           )}
         />
 
+        <input ref={honeyRef} type="text" autoComplete="email" className="sr-only" />
+
         <Button
           size="lg"
           radius="full"
@@ -128,7 +139,7 @@ const SubscribeForm = ({ emailContent, ...rest }: Props) => {
         </Button>
       </div>
 
-      <div id="email-subscribe-status">
+      <div id="email-subscribe-status" role="alert" aria-live="polite">
         {errors.email && (
           <p className="absolute inset-x-2 top-full flex translate-y-2 items-center gap-1 leading-[1.2] text-danger-500 sm:inset-x-8 sm:translate-y-0 sm:items-start sm:text-sm">
             {slots.error} {t(`common:ERRORS.${errors.email.message}` as any)}
