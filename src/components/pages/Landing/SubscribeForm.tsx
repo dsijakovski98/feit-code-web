@@ -115,7 +115,7 @@ const SubscribeForm = ({ emailContent, ...rest }: Props) => {
           )}
         />
 
-        <input ref={honeyRef} type="text" autoComplete="email" className="sr-only" />
+        <input ref={honeyRef} type="text" autoComplete="off" className="sr-only" />
 
         <Button
           size="lg"

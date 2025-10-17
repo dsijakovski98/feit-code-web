@@ -253,7 +253,7 @@ const ContactForm = ({ ...rest }: Props) => {
           )}
         />
 
-        <input ref={honeyRef} type="text" autoComplete="email" className="sr-only" />
+        <input ref={honeyRef} type="text" autoComplete="off" className="sr-only" />
       </div>
 
       <div className="w-full space-y-2" role="alert" aria-live="polite">
