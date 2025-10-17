@@ -31,10 +31,11 @@ const SubscribeForm = ({ emailContent, ...rest }: Props) => {
 
   const {
     handleSubmit,
+    reset,
     control,
     setError,
     clearErrors,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors, isSubmitting, isSubmitSuccessful, isDirty },
   } = useForm({
     resolver: valibotResolver(SubscribeEmailSchema),
     defaultValues: {
@@ -62,7 +63,7 @@ const SubscribeForm = ({ emailContent, ...rest }: Props) => {
         },
       )
       .then(
-        () => {}, // Can use as success scenario handling if needed
+        () => reset(), // Can use as success scenario handling if needed
         (error) => {
           console.log({ error })
           setError('email', { message: 'SUBSCRIBE' })
@@ -152,7 +153,7 @@ const SubscribeForm = ({ emailContent, ...rest }: Props) => {
           </p>
         )}
 
-        {isSubmitSuccessful && !errors.email && (
+        {isSubmitSuccessful && !isDirty && !errors.email && (
           <p className="absolute inset-x-2 top-full flex translate-y-4 items-center justify-center gap-1 text-center text-2xl lg:text-xl text-pretty font-light leading-[1.2] text-primary-700 sm:inset-x-8 sm:translate-y-1 sm:items-start">
             {t('landing:SUBSCRIBE.SUCCESS')}
           </p>
