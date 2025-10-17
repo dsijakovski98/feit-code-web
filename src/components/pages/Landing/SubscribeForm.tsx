@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import { t } from 'i18n:astro'
-import { useRef } from 'react'
+import { type FormEvent, useRef } from 'react'
 import { Controller, type SubmitHandler, useForm } from 'react-hook-form'
 import { type InferInput, email, nonEmpty, object, pipe, string, trim } from 'valibot'
 
@@ -45,11 +45,6 @@ const SubscribeForm = ({ emailContent, ...rest }: Props) => {
   const onSubmit: SubmitHandler<InferInput<typeof SubscribeEmailSchema>> = async ({ email }) => {
     clearErrors('email')
 
-    if (honeyRef.current?.value) {
-      setError('email', { message: 'GOTCHA' })
-      return
-    }
-
     await emailjs
       .send(
         EMAILJS.SERVICE_ID,
@@ -75,8 +70,19 @@ const SubscribeForm = ({ emailContent, ...rest }: Props) => {
       )
   }
 
+  const handleFormSubmit = (e: FormEvent) => {
+    e.preventDefault()
+
+    if (honeyRef.current?.value) {
+      setError('email', { message: 'GOTCHA' })
+      return
+    }
+
+    handleSubmit(onSubmit)(e)
+  }
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="relative flex items-center sm:w-full">
+    <form onSubmit={handleFormSubmit} className="relative flex items-center sm:w-full">
       <div
         className={clsx(
           'relative flex w-full items-center rounded-full transition-colors has-[input:focus]:border-primary border-2 border-secondary-300  px-4 py-2 sm:flex-col sm:gap-3 sm:!border-transparent sm:px-8',

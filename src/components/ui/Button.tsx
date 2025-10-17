@@ -20,7 +20,6 @@ type Props = ComponentProps<typeof Btn> & PropsWithChildren
 
 const Button = forwardRef<any, Props>(({ children, ...rest }, ref) => (
   <Btn {...rest} ref={ref}>
-    <span className="sr-only">{children}</span>
     {children}
   </Btn>
 ))

@@ -1,5 +1,5 @@
 import { t } from 'i18n:astro'
-import { useEffect, useRef, useState } from 'react'
+import { type FormEvent, useEffect, useRef, useState } from 'react'
 import { Controller, type SubmitHandler, useForm } from 'react-hook-form'
 import { type InferInput, email, nonEmpty, object, pipe, string, trim } from 'valibot'
 
@@ -92,13 +92,6 @@ const ContactForm = ({ ...rest }: Props) => {
   const onSubmit: SubmitHandler<InferInput<typeof ContactSchema>> = async ({ name, email, message }) => {
     clearErrors('root')
 
-    console.log({ val: honeyRef.current?.value })
-
-    if (honeyRef.current?.value) {
-      setError('root', { message: 'GOTCHA' })
-      return
-    }
-
     await emailjs
       .send(
         EMAILJS.SERVICE_ID,
@@ -120,6 +113,17 @@ const ContactForm = ({ ...rest }: Props) => {
       )
   }
 
+  const handleFormSubmit = (e: FormEvent) => {
+    e.preventDefault()
+
+    if (honeyRef.current?.value) {
+      setError('root', { message: 'GOTCHA' })
+      return
+    }
+
+    handleSubmit(onSubmit)(e)
+  }
+
   if (isSubmitSuccessful) {
     return (
       <div
@@ -135,7 +139,7 @@ const ContactForm = ({ ...rest }: Props) => {
   }
 
   return (
-    <form ref={formRef} onSubmit={handleSubmit(onSubmit)} className="h-full flex flex-col justify-between gap-14">
+    <form ref={formRef} onSubmit={handleFormSubmit} className="h-full flex flex-col justify-between gap-14">
       <div className="flex flex-col gap-12 flex-1 sm:mb-2">
         <Controller
           name="name"
