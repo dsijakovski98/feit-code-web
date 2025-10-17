@@ -11,7 +11,8 @@
       "EMPTY": "Please enter a message!"
     },
     "SUBSCRIBE": "Oops! Something went wrong, please try again.",
-    "CONTACT": "Oops! Could not send message, please try again."
+    "CONTACT": "Oops! Could not send message, please try again.",
+    "GOTCHA": "Nice try Mr. Robot 🤖"
   },
   "EMAILS": {
     "SUBSCRIBE_TITLE": "Welcome to FEIT Code"

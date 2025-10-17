@@ -1,7 +1,6 @@
 import { t } from 'i18n:astro'
 import { useEffect, useRef, useState } from 'react'
 import { Controller, type SubmitHandler, useForm } from 'react-hook-form'
-import type { Slots } from 'types/index'
 import { type InferInput, email, nonEmpty, object, pipe, string, trim } from 'valibot'
 
 import { Input, Textarea } from '@heroui/react'
@@ -11,6 +10,8 @@ import Button from '@components/ui/Button'
 import { EMAILJS } from '@constants/email'
 import emailjs from '@emailjs/browser'
 import { valibotResolver } from '@hookform/resolvers/valibot'
+
+import type { Slots } from 'types/index'
 
 const ContactSchema = object({
   name: pipe(string(), trim(), nonEmpty('NAME.EMPTY')),
@@ -24,6 +25,8 @@ const ContactForm = ({ ...rest }: Props) => {
   const tForm = t('FORM', { returnObjects: true })
 
   const slots = rest as Slots<'error' | 'success'>
+
+  const honeyRef = useRef<HTMLInputElement | null>(null)
 
   const [formHeight, setFormHeight] = useState(0)
   const formRef = useRef<HTMLFormElement | null>(null)
@@ -88,6 +91,13 @@ const ContactForm = ({ ...rest }: Props) => {
 
   const onSubmit: SubmitHandler<InferInput<typeof ContactSchema>> = async ({ name, email, message }) => {
     clearErrors('root')
+
+    console.log({ val: honeyRef.current?.value })
+
+    if (honeyRef.current?.value) {
+      setError('root', { message: 'GOTCHA' })
+      return
+    }
 
     await emailjs
       .send(
@@ -238,6 +248,8 @@ const ContactForm = ({ ...rest }: Props) => {
             </div>
           )}
         />
+
+        <input ref={honeyRef} type="text" autoComplete="email" className="sr-only" />
       </div>
 
       <div className="w-full space-y-2" role="alert" aria-live="polite">

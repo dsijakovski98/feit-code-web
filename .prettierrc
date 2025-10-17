@@ -12,7 +12,7 @@
     "prettier-plugin-astro-organize-imports",
     "@trivago/prettier-plugin-sort-imports"
   ],
-  "importOrder": ["<THIRD_PARTY_MODULES>", "^@heroui", "^@components/(.*)$", "^@(?!styles)", "^@styles", "^[./]"],
+  "importOrder": ["<THIRD_PARTY_MODULES>", "^@heroui", "^@components/(.*)$", "^@(?!styles)", "^@styles", "^types", "^[./]"],
   "overrides": [
     {
       "files": "*.astro",
