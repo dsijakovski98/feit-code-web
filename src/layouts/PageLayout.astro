@@ -25,7 +25,7 @@ type Props = {
 const { pathname } = Astro.url
 const { title, description = '', hideFooter = false, headItems = {} } = Astro.props
 
-const pageUrl = 'https://feitcode.com' + pathname
+const pageUrl = 'https://feitcode.dev' + pathname
 const shareImg = '/share.png'
 
 const layoutHeadItems: HeadItems = {
@@ -38,7 +38,7 @@ const layoutHeadItems: HeadItems = {
     { name: 'twitter:image', content: shareImg },
     { property: 'twitter:url', content: pageUrl },
     { name: 'twitter:card', content: 'summary' },
-    { property: 'twitter:domain', content: 'feitcode.com' },
+    { property: 'twitter:domain', content: 'feitcode.dev' },
 
     { property: 'og:title', content: title },
     { property: 'og:description', content: description },
